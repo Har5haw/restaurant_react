@@ -9,17 +9,22 @@ const useStyles = makeStyles((theme) => (
             height: "100vh",
             backgroundColor: "white",
             width: "25vw",
-            overflowY: "auto"
+            overflow: "hidden"
         },
         input: {
             width: "100%",
             display: "flex",
             justifyContent: "center",
-            alignItems: "center",
-            padding: "10px 0px"
+            alignItems: "center"
         },
         inputField: {
-            width: "20vw"
+            width: "20vw",
+            margin: "20px 0px",
+            height: "50px"
+        },
+        list: {
+            height: "calc(100vh - 90px)",
+            overflowY: "auto"
         }
     })
 );
@@ -52,10 +57,10 @@ const TablesList = (props) => {
             <Box className={style.input}>
                 <SearchBar placeholder="Search by Table Name" onKeyUp={handleKeyUp} className={style.inputField} />
             </Box>
-            <Box>
+            <Box className={style.list}>
                 {
                     tables.map((element, index) => (
-                        <Table key={index} tableName={element.tableName} totalItems={element.totalItems}></Table>
+                        <Table key={"table-" + index} {...element}></Table>
                     ))
                 }
             </Box>

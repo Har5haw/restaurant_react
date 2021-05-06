@@ -1,57 +1,58 @@
 import React from 'react';
 import PrimaryCard from '../../atoms/PrimaryCard/index';
-import TableName from '../../atoms/TableAtoms/TableName/index';
+import ItemName from '../../atoms/ItemAtoms/ItemName/index';
 import { makeStyles } from '@material-ui/core/styles';
 import { Box } from '@material-ui/core';
-import { Person } from '@material-ui/icons'
 
 const styles = makeStyles(() => (
     {
         root: {
             backgroundColor: "white",
             display: "flex",
-            flexDirection: "row",
+            flexDirection: "column",
             borderRadius: "10px",
             color: "black",
             width: "20vw",
-            height: "8vw",
+            height: "20vw",
             margin: "50px auto"
         },
         iconContainer: {
-            backgroundColor: "blue",
-            width: "30%",
-            height: "100%",
+            backgroundColor: "white",
+            width: "100%",
+            height: "15vw",
             display: "flex",
             justifyContent: "center",
             alignItems: "center"
         },
         icon: {
             color: "white",
-            height: "50%",
-            width: "50%"
+            height: "100%",
+            width: "100%",
+            objectFit: "cover"
+
         },
         container: {
-            width: "70%",
-            height: "100%"
+            width: "100%",
+            height: "5vw"
         }
     }
 )
 );
 
-const Table = (props) => {
+const Item = (props) => {
 
     const style = styles();
 
     return (
         <PrimaryCard className={style.root}>
             <Box className={style.iconContainer}>
-                <Person className={style.icon} />
+                <img src={props.image} className={style.icon} alt="No" draggable={false} />
             </Box>
             <Box className={style.container}>
-                <TableName tableName={props.tableName} totalItems={props.totalItems} />
+                <ItemName {...props} />
             </Box>
         </PrimaryCard>
     );
 }
 
-export default Table;
+export default Item;

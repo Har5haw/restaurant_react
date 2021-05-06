@@ -24,21 +24,21 @@ const styles = makeStyles(() => (
 )
 );
 
-const TableName = (props) => {
+const ItemName = (props) => {
 
     const style = styles();
     return (
         <Box className={style.root}>
             <Box className={style.contentContainer}>
-                <Box style={{ marginLeft: "20px" }}><strong>Table Name: </strong></Box>
-                <Box style={{ marginLeft: "20px" }}><strong>Total Items: </strong></Box>
+                <Box style={{ marginLeft: "20px" }}><strong>Item Name: </strong></Box>
+                <Box style={{ marginLeft: "20px" }}><strong>Item Price: </strong></Box>
             </Box>
             <Box className={style.contentContainer}>
-                <Box style={{ marginLeft: "10px" }}>{props.tableName} </Box>
-                <Box style={{ marginLeft: "10px" }}>{props.totalItems} </Box>
+                <Box style={{ marginLeft: "10px" }}>{props.itemName} </Box>
+                <Box style={{ marginLeft: "10px" }}>{props.itemPrice} </Box>
             </Box>
         </Box>
     );
 }
 
-export default TableName;
+export default ItemName;
