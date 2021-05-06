@@ -43,12 +43,12 @@ const Table = (props) => {
     const style = styles();
 
     return (
-        <PrimaryCard className={style.root}>
+        <PrimaryCard className={style.root} {...props}>
             <Box className={style.iconContainer}>
                 <Person className={style.icon} />
             </Box>
             <Box className={style.container}>
-                <TableName tableName={props.tableName} totalItems={props.totalItems} />
+                <TableName {...props} />
             </Box>
         </PrimaryCard>
     );

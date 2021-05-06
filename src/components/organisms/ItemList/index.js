@@ -54,6 +54,12 @@ const ItemsList = (props) => {
         }
     }
 
+    const drag = (event, data) => {
+        event.dataTransfer.setData("id", event.target.id);
+        event.dataTransfer.setData("itemData", JSON.stringify(data));
+    }
+
+
     return (
         <Box className={style.root}>
             <Box className={style.input}>
@@ -61,8 +67,8 @@ const ItemsList = (props) => {
             </Box>
             <Box className={style.grid}>
                 {
-                    items.map((element, index) => (
-                        <Item key={"item-" + index} {...element}></Item>
+                    items.map((element) => (
+                        <Item id={"item-" + element.id} key={"item-" + element.id} {...element} draggable={true} onDragStart={(event) => drag(event, element)}></Item>
                     ))
                 }
             </Box>

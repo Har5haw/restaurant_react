@@ -1,9 +1,9 @@
 import { Box, makeStyles } from '@material-ui/core';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Table from '../../molecules/Table';
 import SearchBar from '../../atoms/SeachBar/index'
 
-const useStyles = makeStyles((theme) => (
+const useStyles = makeStyles(() => (
     {
         root: {
             height: "100vh",
@@ -30,7 +30,7 @@ const useStyles = makeStyles((theme) => (
 );
 const TablesList = (props) => {
 
-    let [tables, setTables] = useState([...props.list]);
+    const [tables, setTables] = useState([...props.list]);
 
     const style = useStyles();
     var timer;
@@ -45,22 +45,53 @@ const TablesList = (props) => {
 
     const doneTypingTables = () => {
         if (search_table_text.length > 0) {
-            let searchResult = props.list.filter((table) => table.tableName.toLowerCase().includes(search_table_text))
+            let searchResult = tables.filter((table) => table.tableName.toLowerCase().includes(search_table_text))
             setTables(searchResult);
         } else {
             setTables([...props.list]);
         }
     }
 
+    const allowDrop = (event) => {
+        event.preventDefault();
+    }
+
+    const addItem = (index, item) => {
+        let copy = [...tables];
+        copy[index].totalItems += 1;
+        copy[index].items.push({ id: item.id, servings: 1 });
+        copy[index].totalPrice = copy[index].totalPrice + item.itemPrice;
+        setTables(copy);
+    }
+
+    useEffect(() => {
+        console.log("render")
+    });
+
+    const drop = (event, index) => {
+        event.preventDefault();
+        addItem(index, JSON.parse(event.dataTransfer.getData("itemData")));
+    }
+
     return (
         <Box className={style.root}>
             <Box className={style.input}>
-                <SearchBar placeholder="Search by Table Name" onKeyUp={handleKeyUp} className={style.inputField} />
+                <SearchBar
+                    placeholder="Search by Table Name"
+                    onKeyUp={handleKeyUp}
+                    className={style.inputField}
+                />
             </Box>
             <Box className={style.list}>
                 {
                     tables.map((element, index) => (
-                        <Table key={"table-" + index} {...element}></Table>
+                        <Table
+                            id={"table-" + index}
+                            key={"table-" + index}
+                            onDragOver={allowDrop}
+                            onDrop={(event) => drop(event, index)}
+                            {...element}
+                        />
                     ))
                 }
             </Box>

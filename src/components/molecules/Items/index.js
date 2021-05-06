@@ -12,8 +12,8 @@ const styles = makeStyles(() => (
             flexDirection: "column",
             borderRadius: "10px",
             color: "black",
-            width: "20vw",
-            height: "20vw",
+            width: "18vw",
+            height: "18vw",
             margin: "50px auto"
         },
         iconContainer: {
@@ -44,7 +44,7 @@ const Item = (props) => {
     const style = styles();
 
     return (
-        <PrimaryCard className={style.root}>
+        <PrimaryCard className={style.root} {...props}>
             <Box className={style.iconContainer}>
                 <img src={props.image} className={style.icon} alt="No" draggable={false} />
             </Box>

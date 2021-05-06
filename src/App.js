@@ -7,66 +7,87 @@ function App() {
   const tableListData = [
     {
       tableName: "Harsha",
-      totalItems: 20
+      totalItems: 0,
+      totalPrice: 0,
+      items: []
     },
     {
       tableName: "Vardhan",
-      totalItems: 20
+      totalItems: 0,
+      totalPrice: 0,
+      items: []
     },
     {
       tableName: "Shaw",
-      totalItems: 20
+      totalItems: 0,
+      totalPrice: 0,
+      items: []
     },
     {
       tableName: "NObody",
-      totalItems: 20
+      totalItems: 0,
+      totalPrice: 0,
+      items: []
     },
     {
       tableName: "Jack Sparrow",
-      totalItems: 20
+      totalItems: 0,
+      totalPrice: 0,
+      items: []
     },
     {
       tableName: "Cat",
-      totalItems: 20
+      totalItems: 0,
+      totalPrice: 0,
+      items: []
     },
     {
       tableName: "Dog",
-      totalItems: 20
+      totalItems: 0,
+      totalPrice: 0,
+      items: []
     }
   ];
 
   const itemListData = [
     {
+      id: 1,
       image: "https://www.quickanddirtytips.com/sites/default/files/images/14471/dosa-compressor.jpg",
       itemName: "Dosa",
       itemPrice: 20
     },
     {
+      id: 2,
       image: "https://www.quickanddirtytips.com/sites/default/files/images/14471/dosa-compressor.jpg",
       itemName: "Vardhan",
       itemPrice: 20
     },
     {
+      id: 3,
       image: "https://www.quickanddirtytips.com/sites/default/files/images/14471/dosa-compressor.jpg",
       itemName: "Shaw",
       itemPrice: 20
     },
     {
+      id: 4,
       image: "https://www.quickanddirtytips.com/sites/default/files/images/14471/dosa-compressor.jpg",
       itemName: "NObody",
       itemPrice: 20
     },
     {
+      id: 5,
       image: "https://www.quickanddirtytips.com/sites/default/files/images/14471/dosa-compressor.jpg",
       itemName: "Jack Sparrow",
       itemPrice: 20
     },
     {
+      id: 6,
       image: "https://www.quickanddirtytips.com/sites/default/files/images/14471/dosa-compressor.jpg",
       itemName: "Cat",
       itemPrice: 20
     },
     {
+      id: 7,
       image: "https://www.quickanddirtytips.com/sites/default/files/images/14471/dosa-compressor.jpg",
       itemName: "Dog",
       itemPrice: 20
@@ -75,7 +96,7 @@ function App() {
   return (
     <div className="App">
       {/* <ThemeProvider theme={baseTheme}> */}
-        <Home tableList={tableListData} itemList={itemListData} />
+      <Home tableList={tableListData} itemList={itemListData} />
       {/* </ThemeProvider> */}
     </div>
   );

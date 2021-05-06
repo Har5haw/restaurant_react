@@ -32,10 +32,12 @@ const TableName = (props) => {
             <Box className={style.contentContainer}>
                 <Box style={{ marginLeft: "20px" }}><strong>Table Name: </strong></Box>
                 <Box style={{ marginLeft: "20px" }}><strong>Total Items: </strong></Box>
+                <Box style={{ marginLeft: "20px" }}><strong>Total Price: </strong></Box>
             </Box>
             <Box className={style.contentContainer}>
                 <Box style={{ marginLeft: "10px" }}>{props.tableName} </Box>
                 <Box style={{ marginLeft: "10px" }}>{props.totalItems} </Box>
+                <Box style={{ marginLeft: "10px" }}>{props.totalPrice} </Box>
             </Box>
         </Box>
     );
