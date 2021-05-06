@@ -3,7 +3,7 @@ import { Box } from '@material-ui/core';
 
 const TableItems = (props) => {
     return (
-        <Box>Total items: {props.totalItems} </Box>
+        <Box>{props.totalItems} </Box>
     );
 };
 

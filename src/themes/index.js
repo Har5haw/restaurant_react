@@ -1,6 +1,6 @@
 import { createMuiTheme, responsiveFontSizes } from "@material-ui/core/styles";
 
-import { grey, cyan, orange, blue, white } from "@material-ui/core/colors";
+import { grey, cyan, orange, blue } from "@material-ui/core/colors";
 
 const defaultTheme = createMuiTheme();
 
@@ -32,9 +32,6 @@ const baseTheme = createMuiTheme({
             main: grey[400],
             light: "#f5f5f5",
             dark: "#373737",
-        },
-        icon: {
-            main: white[100]
         }
     },
     typography: {

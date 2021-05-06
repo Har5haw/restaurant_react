@@ -1,7 +1,6 @@
 import React from 'react';
 import PrimaryCard from '../../atoms/PrimaryCard/index';
 import TableName from '../../atoms/TableAtoms/TableName/index';
-import TableItems from '../../atoms/TableAtoms/TableItems/index';
 import { makeStyles } from '@material-ui/core/styles';
 import { Box } from '@material-ui/core';
 import { Person } from '@material-ui/icons'
@@ -26,18 +25,14 @@ const styles = makeStyles(() => (
             justifyContent: "center",
             alignItems: "center"
         },
-        contentContainer: {
-            width: "70%",
-            height: "100%",
-            display: "flex",
-            justifyContent: "center",
-            flexDirection: "column",
-            alignItems: "center"
-        },
         icon: {
             color: "white",
             height: "50%",
             width: "50%"
+        },
+        container: {
+            width: "70%",
+            height: "100%"
         }
     }
 )
@@ -52,9 +47,8 @@ const Table = (props) => {
             <Box className={style.iconContainer}>
                 <Person className={style.icon} />
             </Box>
-            <Box className={style.contentContainer}>
-                <TableName tableName={props.tableName} />
-                <TableItems totalItems={props.totalItems} />
+            <Box className={style.container}>
+                <TableName tableName={props.tableName} totalItems={props.totalItems} />
             </Box>
         </PrimaryCard>
     );

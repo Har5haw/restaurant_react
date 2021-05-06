@@ -12,5 +12,6 @@ const Template = (args) => <ThemeProvider theme={baseTheme}> <TableName {...args
 
 export const tableName = Template.bind({});
 tableName.args = {
-    tableName: "Harsha"
+    tableName: "Harsha",
+    totalItems: 20
 }
