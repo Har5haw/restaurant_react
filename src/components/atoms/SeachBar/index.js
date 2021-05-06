@@ -1,10 +1,10 @@
 import React from 'react';
 import { OutlinedInput } from '@material-ui/core';
 
-const SeachBar = (props) => {
+const SearchBar = (props) => {
     return (
-        <OutlinedInput placeholder={props.placeholder} {...props} />
+        <OutlinedInput {...props} />
     )
 }
 
-export default SeachBar;
+export default SearchBar;

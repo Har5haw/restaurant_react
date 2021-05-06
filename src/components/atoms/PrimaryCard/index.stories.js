@@ -8,9 +8,11 @@ export default {
     component: PrimaryCard
 }
 
-const Template = (args) => (<ThemeProvider theme={baseTheme}>
-    <PrimaryCard {...args} />
-</ThemeProvider>);
+const Template = (args) => (
+    <ThemeProvider theme={baseTheme}>
+        <PrimaryCard {...args} />
+    </ThemeProvider>
+);
 
 export const primaryCard = Template.bind({});
 primaryCard.args = {

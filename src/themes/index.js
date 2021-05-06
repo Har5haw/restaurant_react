@@ -1,17 +1,10 @@
 import { createMuiTheme, responsiveFontSizes } from "@material-ui/core/styles";
 
-import { grey, cyan, orange, blue } from "@material-ui/core/colors";
+import { grey, cyan, orange, blue, white } from "@material-ui/core/colors";
 
 const defaultTheme = createMuiTheme();
 
 const baseTheme = createMuiTheme({
-    overrides: {
-        MuiCard: {
-            root: {
-                padding: '50px',
-            }
-        },
-    },
     container: {
         primary: {
             borderRadius: defaultTheme.spacing(1),
@@ -40,6 +33,9 @@ const baseTheme = createMuiTheme({
             light: "#f5f5f5",
             dark: "#373737",
         },
+        icon: {
+            main: white[100]
+        }
     },
     typography: {
         fontSize: 12,

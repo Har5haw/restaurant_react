@@ -1,6 +1,6 @@
 import React from 'react';
 import TableName from './index';
-import baseTheme from '../../../themes/index';
+import baseTheme from '../../../../themes/index';
 import { ThemeProvider } from '@material-ui/core/styles'
 
 export default {
