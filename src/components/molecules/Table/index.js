@@ -11,11 +11,12 @@ const styles = makeStyles(() => (
             backgroundColor: "white",
             display: "flex",
             flexDirection: "row",
-            borderRadius: "10px",
+            borderRadius: "20px",
             color: "black",
-            width: "20vw",
+            width: "25vw",
             height: "8vw",
-            margin: "50px auto"
+            margin: "50px auto",
+            cursor: "pointer"
         },
         iconContainer: {
             backgroundColor: "blue",

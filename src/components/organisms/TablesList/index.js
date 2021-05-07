@@ -1,14 +1,15 @@
-import { Box, makeStyles } from '@material-ui/core';
-import React, { useEffect, useState } from 'react';
-import Table from '../../molecules/Table';
-import SearchBar from '../../atoms/SeachBar/index'
+import { Box, Button, Dialog, DialogActions, DialogContent, DialogTitle, makeStyles, Table, TableBody, TableCell, TableContainer, OutlinedInput, TableHead, TableRow } from '@material-ui/core';
+import React, { useState } from 'react';
+import TableComp from '../../molecules/Table';
+import SearchBar from '../../atoms/SeachBar/index';
+import { Delete } from '@material-ui/icons';
 
 const useStyles = makeStyles(() => (
     {
         root: {
             height: "100vh",
             backgroundColor: "white",
-            width: "25vw",
+            width: "30vw",
             overflow: "hidden"
         },
         input: {
@@ -18,7 +19,7 @@ const useStyles = makeStyles(() => (
             alignItems: "center"
         },
         inputField: {
-            width: "20vw",
+            width: "25vw",
             margin: "20px 0px",
             height: "50px"
         },
@@ -31,6 +32,8 @@ const useStyles = makeStyles(() => (
 const TablesList = (props) => {
 
     const [tables, setTables] = useState([...props.list]);
+    const [open, setOpen] = useState(false);
+    const [dialogData, setDialogData] = useState({ items: [] });
 
     const style = useStyles();
     var timer;
@@ -41,6 +44,15 @@ const TablesList = (props) => {
         search_table_text = val;
         clearTimeout(timer);
         timer = setTimeout(doneTypingTables, 400);
+    }
+
+    const click = (index) => {
+        setDialogData({ ...tables[index] });
+        setOpen(true);
+    }
+
+    const close = () => {
+        setOpen(false);
     }
 
     const doneTypingTables = () => {
@@ -59,14 +71,10 @@ const TablesList = (props) => {
     const addItem = (index, item) => {
         let copy = [...tables];
         copy[index].totalItems += 1;
-        copy[index].items.push({ id: item.id, servings: 1 });
+        copy[index].items.push({ ...item, servings: 1 });
         copy[index].totalPrice = copy[index].totalPrice + item.itemPrice;
         setTables(copy);
     }
-
-    useEffect(() => {
-        console.log("render")
-    });
 
     const drop = (event, index) => {
         event.preventDefault();
@@ -82,15 +90,54 @@ const TablesList = (props) => {
                     className={style.inputField}
                 />
             </Box>
+            <Dialog open={open} onClose={close} >
+                <DialogTitle onClose={close}>
+                    Table Name: {dialogData.tableName}
+                </DialogTitle>
+                <DialogContent dividers>
+                    <TableContainer >
+                        <Table >
+                            <TableHead>
+                                <TableRow>
+                                    <TableCell>S.No</TableCell>
+                                    <TableCell align="left">Item Name</TableCell>
+                                    <TableCell align="left">Item Price</TableCell>
+                                    <TableCell align="left">Servings</TableCell>
+                                    <TableCell align="left">Delete</TableCell>
+                                </TableRow>
+                            </TableHead>
+                            <TableBody>
+                                {dialogData.items.map((row, index) => (
+                                    <TableRow key={"table-item-" + index}>
+                                        <TableCell component="th" scope="row">
+                                            {index + 1}
+                                        </TableCell>
+                                        <TableCell align="left">{row.itemName}</TableCell>
+                                        <TableCell align="left">{row.itemPrice}</TableCell>
+                                        <TableCell align="left"><OutlinedInput value={row.servings} type="number" /></TableCell>
+                                        <TableCell align="left"><Delete /></TableCell>
+                                    </TableRow>
+                                ))}
+                            </TableBody>
+                        </Table>
+                    </TableContainer>
+                </DialogContent>
+                <DialogActions>
+                    <Button onClick={close} color="primary">
+                        close
+                    </Button>
+                </DialogActions>
+            </Dialog>
             <Box className={style.list}>
                 {
                     tables.map((element, index) => (
-                        <Table
+                        <TableComp
                             id={"table-" + index}
                             key={"table-" + index}
                             onDragOver={allowDrop}
                             onDrop={(event) => drop(event, index)}
                             {...element}
+                            onClick={() => click(index)}
                         />
                     ))
                 }

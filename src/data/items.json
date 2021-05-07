@@ -1,0 +1,62 @@
+[
+    {
+        "id": 1,
+        "image": "https://www.quickanddirtytips.com/sites/default/files/images/14471/dosa-compressor.jpg",
+        "itemName": "Dosa",
+        "itemPrice": 20
+    },
+    {
+        "id": 2,
+        "image": "https://du7ybees82p4m.cloudfront.net/56a288e117d3f8.50310584.jpg",
+        "itemName": "Gulab Jamun",
+        "itemPrice": 20
+    },
+    {
+        "id": 3,
+        "image": "https://c.ndtvimg.com/2019-06/s71ihu9_biryani_625x300_05_June_19.jpg",
+        "itemName": "Biryani",
+        "itemPrice": 120
+    },
+    {
+        "id": 4,
+        "image": "https://vaya.in/recipes/wp-content/uploads/2018/03/Samosa.jpg",
+        "itemName": "Samosa",
+        "itemPrice": 50
+    },
+    {
+        "id": 5,
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTyl8V34Jgt65rF89zcgO3nvqfcVX-onLJwXQ&usqp=CAU",
+        "itemName": "Masala Chai",
+        "itemPrice": 30
+    },
+    {
+        "id": 6,
+        "image": "https://static.toiimg.com/thumb/msid-9455067,width-800,height-600,resizemode-75/9455067.jpg",
+        "itemName": "Noodles",
+        "itemPrice": 120
+    },
+    {
+        "id": 7,
+        "image": "http://www.ndtv.com/cooks/images/Zaffrani%20Kaju%20Katli.jpg",
+        "itemName": "Kaju Katli",
+        "itemPrice": 80
+    },
+    {
+        "id": 8,
+        "image": "https://static.toiimg.com/thumb/53542481.cms?imgsize=532300&width=800&height=800",
+        "itemName": "Chicken Curry",
+        "itemPrice": 100
+    },
+    {
+        "id": 9,
+        "image": "https://farm9.staticflickr.com/8669/16110675524_38a8346df1_o.jpg",
+        "itemName": "Stuffed Bajji",
+        "itemPrice": 70
+    },
+    {
+        "id": 10,
+        "image": "https://1.bp.blogspot.com/-JGYgPx5va34/XfasA_3Hj-I/AAAAAAAAPVU/yJRaf9W9gp8FZ4_7SZQkbIg8txpjd1-qwCNcBGAsYHQ/s1600/Chicken_Kabab.JPG",
+        "itemName": "Kabab",
+        "itemPrice": 100
+    }
+]

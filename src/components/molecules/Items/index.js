@@ -10,7 +10,7 @@ const styles = makeStyles(() => (
             backgroundColor: "white",
             display: "flex",
             flexDirection: "column",
-            borderRadius: "10px",
+            borderRadius: "20px",
             color: "black",
             width: "18vw",
             height: "18vw",
@@ -26,7 +26,7 @@ const styles = makeStyles(() => (
         },
         icon: {
             color: "white",
-            height: "100%",
+            height: "calc(13vw + 10px)",
             width: "100%",
             objectFit: "cover"
 

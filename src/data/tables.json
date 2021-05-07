@@ -1,0 +1,44 @@
+[
+    {
+        "tableName": "Harsha",
+        "totalItems": 0,
+        "totalPrice": 0,
+        "items": []
+    },
+    {
+        "tableName": "Vardhan",
+        "totalItems": 0,
+        "totalPrice": 0,
+        "items": []
+    },
+    {
+        "tableName": "Shaw",
+        "totalItems": 0,
+        "totalPrice": 0,
+        "items": []
+    },
+    {
+        "tableName": "NObody",
+        "totalItems": 0,
+        "totalPrice": 0,
+        "items": []
+    },
+    {
+        "tableName": "Jack Sparrow",
+        "totalItems": 0,
+        "totalPrice": 0,
+        "items": []
+    },
+    {
+        "tableName": "Cat",
+        "totalItems": 0,
+        "totalPrice": 0,
+        "items": []
+    },
+    {
+        "tableName": "Dog",
+        "totalItems": 0,
+        "totalPrice": 0,
+        "items": []
+    }
+]
