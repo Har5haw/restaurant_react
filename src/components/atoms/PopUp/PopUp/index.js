@@ -12,10 +12,11 @@ const PopUp = (props) => {
                     props.children
                 }
             </DialogContent>
+            <DialogContent dividers>
+                Total Price: {props.totalPrice}
+            </DialogContent>
             <DialogActions>
-                <Button onClick={props.close} color="primary">
-                    Close
-                    </Button>
+                <Button onClick={props.close} color="primary"> Close </Button>
             </DialogActions>
         </Dialog>
     );

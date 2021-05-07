@@ -110,7 +110,14 @@ const TablesList = (props) => {
                     className={style.inputField}
                 />
             </Box>
-            <PopUpMolecule open={open} close={close} items={dialogData.items} tableName={dialogData.tableName} onServingsChange={onServingsChange} />
+            <PopUpMolecule
+                open={open}
+                close={close}
+                items={dialogData.items}
+                tableName={dialogData.tableName}
+                totalPrice={dialogData.totalPrice}
+                onServingsChange={onServingsChange}
+            />
             <Box className={style.list}>
                 {
                     tables.map((element, index) => (
@@ -119,8 +126,8 @@ const TablesList = (props) => {
                             key={"table-" + index}
                             onDragOver={allowDrop}
                             onDrop={(event) => drop(event, index)}
-                            {...element}
                             onClick={() => click(index)}
+                            {...element}
                         />
                     ))
                 }
