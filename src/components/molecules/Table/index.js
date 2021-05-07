@@ -3,7 +3,6 @@ import PrimaryCard from '../../atoms/PrimaryCard/index';
 import TableName from '../../atoms/TableAtoms/TableName/index';
 import { makeStyles } from '@material-ui/core/styles';
 import { Box } from '@material-ui/core';
-import { Person } from '@material-ui/icons'
 
 const styles = makeStyles(() => (
     {
@@ -20,7 +19,7 @@ const styles = makeStyles(() => (
         },
         iconContainer: {
             backgroundColor: "blue",
-            width: "30%",
+            width: "35%",
             height: "100%",
             display: "flex",
             justifyContent: "center",
@@ -28,11 +27,12 @@ const styles = makeStyles(() => (
         },
         icon: {
             color: "white",
-            height: "50%",
-            width: "50%"
+            height: "100%",
+            width: "100%",
+            objectFit: "cover"
         },
         container: {
-            width: "70%",
+            width: "65%",
             height: "100%"
         }
     }
@@ -46,13 +46,13 @@ const Table = (props) => {
     return (
         <PrimaryCard className={style.root} {...props}>
             <Box className={style.iconContainer}>
-                <Person className={style.icon} />
+                <img src="https://img.freepik.com/free-vector/top-view-lamb-beef-steak_1308-15475.jpg?size=626&ext=jpg" alt="No" className={style.icon}/>
             </Box>
             <Box className={style.container}>
                 <TableName {...props} />
-            </Box>
+</Box>
         </PrimaryCard>
     );
-}
+};
 
 export default Table;

@@ -11,6 +11,6 @@ const PrimaryCard = (props) => {
         >
         </Card>
     );
-}
+};
 
 export default PrimaryCard;

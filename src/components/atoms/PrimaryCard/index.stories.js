@@ -6,7 +6,7 @@ import baseTheme from '../../../themes/index';
 export default {
     title: "Atoms : primary card",
     component: PrimaryCard
-}
+};
 
 const Template = (args) => (
     <ThemeProvider theme={baseTheme}>

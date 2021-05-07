@@ -1,12 +1,12 @@
 import React from 'react';
 import TableList from './index';
 import baseTheme from '../../../themes/index';
-import { ThemeProvider } from '@material-ui/core/styles'
+import { ThemeProvider } from '@material-ui/core/styles';
 
 export default {
     title: "Organisms : Table List",
     component: TableList
-}
+};
 
 const Template = (args) => <ThemeProvider theme={baseTheme}> <TableList {...args} /></ThemeProvider>;
 
@@ -45,4 +45,4 @@ const tableListData = [
 
 tableList.args = {
     list: tableListData
-}
+};

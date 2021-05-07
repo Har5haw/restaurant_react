@@ -31,46 +31,45 @@ const useStyles = makeStyles(() => (
 );
 const TablesList = (props) => {
 
-    const [tables, setTables] = useState([...props.list]);
+    const data = [...props.list];
+    const [tables, setTables] = useState(data);
     const [open, setOpen] = useState(false);
     const [dialogData, setDialogData] = useState({ items: [] });
 
     const style = useStyles();
-    var timer;
+    let timer;
     let search_table_text = "";
 
     const handleKeyUp = (event) => {
-        let val = event.target.value;
-        search_table_text = val;
+        search_table_text =  event.target.value;;
         clearTimeout(timer);
         timer = setTimeout(doneTypingTables, 400);
-    }
+    };
 
     const click = (index) => {
         setDialogData({ ...tables[index], tableIndex: index });
         setOpen(true);
-    }
+    };
 
     const close = () => {
         setOpen(false);
-    }
+    };
 
     const doneTypingTables = () => {
         if (search_table_text.length > 0) {
-            let searchResult = tables.filter((table) => table.tableName.toLowerCase().includes(search_table_text))
-            setTables(searchResult);
+            setTables(tables.filter((table) => table.tableName.toLowerCase().includes(search_table_text)));
         } else {
             setTables([...props.list]);
         }
-    }
+    };
 
     const allowDrop = (event) => {
         event.preventDefault();
-    }
+    };
 
     const addItem = (index, item) => {
-        let copy = [...tables];
-        let [existItem] = copy[index].items.filter((ele) => ele.id === item.id);
+        const copy = [...tables];
+        const [existItem] = copy[index].items.filter((ele) => ele.id === item.id);
         if (existItem) {
             existItem.servings++;
             copy[index].totalPrice = copy[index].totalPrice + item.itemPrice;
@@ -81,25 +80,34 @@ const TablesList = (props) => {
         copy[index].items.push({ ...item, servings: 1 });
         copy[index].totalPrice = copy[index].totalPrice + item.itemPrice;
         setTables(copy);
-    }
+    };
 
     const drop = (event, index) => {
         event.preventDefault();
         addItem(index, JSON.parse(event.dataTransfer.getData("itemData")));
-    }
+    };
 
     const onServingsChange = (event, itemIndex) => {
-        let servings = event.target.value;
-        let copy = [...tables];
-        let table = copy[dialogData.tableIndex];
+        const servings = event.target.value;
+        const copy = [...tables];
+        const table = copy[dialogData.tableIndex];
 
         if (servings > 0) {
             table.totalPrice += (servings - table.items[itemIndex].servings) * table.items[itemIndex].itemPrice;
             table.items[itemIndex].servings = servings;
             setTables(copy);
+            setDialogData({ ...copy[dialogData.tableIndex], tableIndex: dialogData.tableIndex });
             return;
         }
-    }
+    };
+
+    const onDelete = (event, itemIndex) => {
+        const copy = [...tables];
+        const table = copy[dialogData.tableIndex];
+        table.items.splice(itemIndex, 1);
+        // table.totalPrice -= 
+
+    };
 
     return (
         <Box className={style.root}>
@@ -117,6 +125,7 @@ const TablesList = (props) => {
                 tableName={dialogData.tableName}
                 totalPrice={dialogData.totalPrice}
                 onServingsChange={onServingsChange}
+                onDelete={onDelete}
             />
             <Box className={style.list}>
                 {
@@ -133,7 +142,7 @@ const TablesList = (props) => {
                 }
             </Box>
         </Box>
-    )
-}
+    );
+};
 
 export default TablesList;

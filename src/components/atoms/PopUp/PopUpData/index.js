@@ -24,7 +24,7 @@ const PopupData = (props) => {
                             <TableCell align="left">{row.itemName}</TableCell>
                             <TableCell align="left">{row.itemPrice}</TableCell>
                             <TableCell align="left"><OutlinedInput onChange={(event) => props.onServingsChange(event, index)} defaultValue={row.servings} type="number" /></TableCell>
-                            <TableCell align="left"><Delete /></TableCell>
+                            <TableCell align="left"><Delete style={{ cursor: "pointer" }} onClick={(event) => props.onDelete(event, index)} /></TableCell>
                         </TableRow>
                     ))}
                 </TableBody>

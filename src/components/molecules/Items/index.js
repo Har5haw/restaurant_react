@@ -53,6 +53,6 @@ const Item = (props) => {
             </Box>
         </PrimaryCard>
     );
-}
+};
 
 export default Item;
