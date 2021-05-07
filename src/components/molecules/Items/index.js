@@ -50,7 +50,7 @@ const Item = (props) => {
             </Box>
             <Box className={style.container}>
                 <ItemName {...props} />
-            </Box>
+</Box>
         </PrimaryCard>
     );
 };

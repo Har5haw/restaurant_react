@@ -86,7 +86,6 @@ const itemListData = [
 
 const Template = (args) => (
     <ThemeProvider theme={baseTheme}>
-        {" "}
         <Home {...args} />{" "}
     </ThemeProvider>
 );

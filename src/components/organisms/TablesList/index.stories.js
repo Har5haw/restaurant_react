@@ -10,7 +10,6 @@ export default {
 
 const Template = (args) => (
     <ThemeProvider theme={baseTheme}>
-        {" "}
         <TableList {...args} />
     </ThemeProvider>
 );
