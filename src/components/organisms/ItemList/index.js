@@ -5,7 +5,7 @@ import SearchBar from "../../atoms/SeachBar/index";
 
 const useStyles = makeStyles((theme) => ({
     root: {
-        height: "100vh",
+        height: "93vh",
         backgroundColor: "white",
         width: "70vw",
         overflowY: "hidden",
@@ -15,21 +15,23 @@ const useStyles = makeStyles((theme) => ({
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
+        background: "rgb(51, 63, 62)",
     },
     inputField: {
         width: "100%",
         margin: "20px 5vw",
         height: "50px",
+        background: "white",
     },
     grid: {
         display: "grid",
         gridTemplateColumns: "auto auto auto",
         overflowY: "auto",
-        height: "calc(100vh - 90px)",
+        height: "calc(93vh - 90px)",
     },
 }));
 const ItemsList = (props) => {
-    //let [items, setItems] = useState([...props.list]);
+    const [items, setItems] = useState([...props.list]);
     const style = useStyles();
     let timer;
     let search_item_text = "";
@@ -43,8 +45,14 @@ const ItemsList = (props) => {
     const doneTypingItems = () => {
         if (search_item_text.length > 0) {
             setItems(
-                props.list.filter((item) =>
-                    item.itemName.toLowerCase().includes(search_item_text)
+                props.list.filter(
+                    (item) =>
+                        item.itemName
+                            .toLowerCase()
+                            .includes(search_item_text.toLowerCase()) ||
+                        item.course
+                            .toLowerCase()
+                            .includes(search_item_text.toLowerCase())
                 )
             );
         } else {
@@ -67,11 +75,10 @@ const ItemsList = (props) => {
                 />
             </Box>
             <Box className={style.grid}>
-                {props.list.map((element) => (
+                {items.map((element) => (
                     <Item
-                        id={"item-" + element.id}
                         key={"item-" + element.id}
-                        {...element}
+                        data={element}
                         draggable={true}
                         onDragStart={(event) => drag(event, element)}
                     ></Item>

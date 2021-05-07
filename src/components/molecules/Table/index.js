@@ -49,7 +49,7 @@ const Table = (props) => {
                 />
             </Box>
             <Box className={style.container}>
-                <TableName {...props} />
+                <TableName {...props.data} />
             </Box>
         </PrimaryCard>
     );

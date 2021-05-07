@@ -6,7 +6,7 @@ import PopUpMolecule from "../../molecules/PopUp";
 
 const useStyles = makeStyles(() => ({
     root: {
-        height: "100vh",
+        height: "93vh",
         backgroundColor: "white",
         width: "30vw",
         overflow: "hidden",
@@ -16,17 +16,20 @@ const useStyles = makeStyles(() => ({
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
+        background: "rgb(51, 63, 62)",
     },
     inputField: {
         width: "25vw",
         margin: "20px 0px",
         height: "50px",
+        background: "white",
     },
     list: {
-        height: "calc(100vh - 90px)",
+        height: "calc(93vh - 90px)",
         overflowY: "auto",
     },
 }));
+
 const TablesList = (props) => {
     const data = [...props.list];
     const [tables, setTables] = useState(data);
@@ -124,7 +127,6 @@ const TablesList = (props) => {
         if (table.items.length === 0) {
             setOpen(false);
         }
-        // table.totalPrice -=
     };
 
     return (
@@ -153,7 +155,7 @@ const TablesList = (props) => {
                         onDragOver={allowDrop}
                         onDrop={(event) => drop(event, index)}
                         onClick={() => click(index)}
-                        {...element}
+                        data={element}
                     />
                 ))}
             </Box>

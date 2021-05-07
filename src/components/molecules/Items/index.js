@@ -11,9 +11,12 @@ const styles = makeStyles(() => ({
         flexDirection: "column",
         borderRadius: "20px",
         color: "black",
-        width: "18vw",
-        height: "18vw",
-        margin: "50px auto",
+        width: "19vw",
+        height: "calc(16vw + 50px)",
+        marginLeft: "auto",
+        marginRight: "auto",
+        marginTop: "50px",
+        marginBottom: "0px",
     },
     iconContainer: {
         backgroundColor: "white",
@@ -25,13 +28,13 @@ const styles = makeStyles(() => ({
     },
     icon: {
         color: "white",
-        height: "calc(13vw + 10px)",
+        height: "calc(11vw + 60px)",
         width: "100%",
         objectFit: "cover",
     },
     container: {
         width: "100%",
-        height: "5vw",
+        height: "calc(5vw + 10px)",
     },
 }));
 
@@ -42,15 +45,15 @@ const Item = (props) => {
         <PrimaryCard className={style.root} {...props}>
             <Box className={style.iconContainer}>
                 <img
-                    src={props.image}
+                    src={props.data.image}
                     className={style.icon}
                     alt="No"
                     draggable={false}
                 />
             </Box>
             <Box className={style.container}>
-                <ItemName {...props} />
-</Box>
+                <ItemName {...props.data} />
+            </Box>
         </PrimaryCard>
     );
 };

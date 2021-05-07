@@ -26,16 +26,16 @@ const ItemName = (props) => {
     return (
         <Box className={style.root}>
             <Box className={style.contentContainer}>
-                <Box style={{ marginLeft: "20px" }}>
-                    <strong>Item Name: </strong>
+                <Box style={{ marginLeft: "30px" }}>
+                    <strong> Name: </strong>
                 </Box>
-                <Box style={{ marginLeft: "20px" }}>
-                    <strong>Item Price: </strong>
+                <Box style={{ marginLeft: "30px" }}>
+                    <strong> Price: </strong>
                 </Box>
             </Box>
             <Box className={style.contentContainer}>
                 <Box style={{ marginLeft: "10px" }}>{props.itemName} </Box>
-                <Box style={{ marginLeft: "10px" }}>{props.itemPrice} </Box>
+                <Box style={{ marginLeft: "10px" }}>{props.itemPrice} /- </Box>
             </Box>
         </Box>
     );
