@@ -1,15 +1,19 @@
-import React from 'react';
-import PrimaryButton from './index';
+import React from "react";
+import PrimaryButton from "./index";
 import { ThemeProvider } from "@material-ui/core/styles";
-import baseTheme from '../../../themes/index';
+import baseTheme from "../../../themes/index";
 
 export default {
     title: "Atoms : primary button",
     component: PrimaryButton,
     argTypes: { onClick: { action: "clicked" } },
-}
+};
 
-const Template = (args) => <ThemeProvider theme={baseTheme}><PrimaryButton {...args} /></ThemeProvider>;
+const Template = (args) => (
+    <ThemeProvider theme={baseTheme}>
+        <PrimaryButton {...args} />
+    </ThemeProvider>
+);
 
 export const primaryButton = Template.bind({});
 primaryButton.args = {

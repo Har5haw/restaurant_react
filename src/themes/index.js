@@ -32,11 +32,11 @@ const baseTheme = createMuiTheme({
             main: grey[400],
             light: "#f5f5f5",
             dark: "#373737",
-        }
+        },
     },
     typography: {
         fontSize: 12,
-    }
+    },
 });
 
 const responsiveFontTheme = responsiveFontSizes(baseTheme);

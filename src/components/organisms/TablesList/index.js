@@ -1,36 +1,33 @@
-import { Box, makeStyles } from '@material-ui/core';
-import React, { useState } from 'react';
-import TableComp from '../../molecules/Table';
-import SearchBar from '../../atoms/SeachBar/index';
-import PopUpMolecule from '../../molecules/PopUp';
+import { Box, makeStyles } from "@material-ui/core";
+import React, { useState } from "react";
+import TableComp from "../../molecules/Table";
+import SearchBar from "../../atoms/SeachBar/index";
+import PopUpMolecule from "../../molecules/PopUp";
 
-const useStyles = makeStyles(() => (
-    {
-        root: {
-            height: "100vh",
-            backgroundColor: "white",
-            width: "30vw",
-            overflow: "hidden"
-        },
-        input: {
-            width: "100%",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center"
-        },
-        inputField: {
-            width: "25vw",
-            margin: "20px 0px",
-            height: "50px"
-        },
-        list: {
-            height: "calc(100vh - 90px)",
-            overflowY: "auto"
-        }
-    })
-);
+const useStyles = makeStyles(() => ({
+    root: {
+        height: "100vh",
+        backgroundColor: "white",
+        width: "30vw",
+        overflow: "hidden",
+    },
+    input: {
+        width: "100%",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+    },
+    inputField: {
+        width: "25vw",
+        margin: "20px 0px",
+        height: "50px",
+    },
+    list: {
+        height: "calc(100vh - 90px)",
+        overflowY: "auto",
+    },
+}));
 const TablesList = (props) => {
-
     const data = [...props.list];
     const [tables, setTables] = useState(data);
     const [open, setOpen] = useState(false);
@@ -41,7 +38,7 @@ const TablesList = (props) => {
     let search_table_text = "";
 
     const handleKeyUp = (event) => {
-        search_table_text =  event.target.value;;
+        search_table_text = event.target.value;
         clearTimeout(timer);
         timer = setTimeout(doneTypingTables, 400);
     };
@@ -57,7 +54,11 @@ const TablesList = (props) => {
 
     const doneTypingTables = () => {
         if (search_table_text.length > 0) {
-            setTables(tables.filter((table) => table.tableName.toLowerCase().includes(search_table_text)));
+            setTables(
+                tables.filter((table) =>
+                    table.tableName.toLowerCase().includes(search_table_text)
+                )
+            );
         } else {
             setTables([...props.list]);
         }
@@ -69,7 +70,9 @@ const TablesList = (props) => {
 
     const addItem = (index, item) => {
         const copy = [...tables];
-        const [existItem] = copy[index].items.filter((ele) => ele.id === item.id);
+        const [existItem] = copy[index].items.filter(
+            (ele) => ele.id === item.id
+        );
         if (existItem) {
             existItem.servings++;
             copy[index].totalPrice = copy[index].totalPrice + item.itemPrice;
@@ -93,10 +96,15 @@ const TablesList = (props) => {
         const table = copy[dialogData.tableIndex];
 
         if (servings > 0) {
-            table.totalPrice += (servings - table.items[itemIndex].servings) * table.items[itemIndex].itemPrice;
+            table.totalPrice +=
+                (servings - table.items[itemIndex].servings) *
+                table.items[itemIndex].itemPrice;
             table.items[itemIndex].servings = servings;
             setTables(copy);
-            setDialogData({ ...copy[dialogData.tableIndex], tableIndex: dialogData.tableIndex });
+            setDialogData({
+                ...copy[dialogData.tableIndex],
+                tableIndex: dialogData.tableIndex,
+            });
             return;
         }
     };
@@ -105,8 +113,7 @@ const TablesList = (props) => {
         const copy = [...tables];
         const table = copy[dialogData.tableIndex];
         table.items.splice(itemIndex, 1);
-        // table.totalPrice -= 
-
+        // table.totalPrice -=
     };
 
     return (
@@ -128,18 +135,16 @@ const TablesList = (props) => {
                 onDelete={onDelete}
             />
             <Box className={style.list}>
-                {
-                    tables.map((element, index) => (
-                        <TableComp
-                            id={"table-" + index}
-                            key={"table-" + index}
-                            onDragOver={allowDrop}
-                            onDrop={(event) => drop(event, index)}
-                            onClick={() => click(index)}
-                            {...element}
-                        />
-                    ))
-                }
+                {tables.map((element, index) => (
+                    <TableComp
+                        id={"table-" + index}
+                        key={"table-" + index}
+                        onDragOver={allowDrop}
+                        onDrop={(event) => drop(event, index)}
+                        onClick={() => click(index)}
+                        {...element}
+                    />
+                ))}
             </Box>
         </Box>
     );

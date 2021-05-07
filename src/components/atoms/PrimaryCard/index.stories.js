@@ -1,11 +1,11 @@
-import React from 'react';
-import PrimaryCard from './index';
+import React from "react";
+import PrimaryCard from "./index";
 import { ThemeProvider } from "@material-ui/core/styles";
-import baseTheme from '../../../themes/index';
+import baseTheme from "../../../themes/index";
 
 export default {
     title: "Atoms : primary card",
-    component: PrimaryCard
+    component: PrimaryCard,
 };
 
 const Template = (args) => (
@@ -17,5 +17,5 @@ const Template = (args) => (
 export const primaryCard = Template.bind({});
 primaryCard.args = {
     title: "Primary",
-    children: <div>Hi</div>
+    children: <div>Hi</div>,
 };

@@ -1,17 +1,21 @@
-import React from 'react';
-import TableName from './index';
-import baseTheme from '../../../../themes/index';
-import { ThemeProvider } from '@material-ui/core/styles'
+import React from "react";
+import TableName from "./index";
+import baseTheme from "../../../../themes/index";
+import { ThemeProvider } from "@material-ui/core/styles";
 
 export default {
     title: "Atoms : Table name",
-    component: TableName
-}
+    component: TableName,
+};
 
-const Template = (args) => <ThemeProvider theme={baseTheme}> <TableName {...args} /></ThemeProvider>;
+const Template = (args) => (
+    <ThemeProvider theme={baseTheme}>
+        <TableName {...args} />
+    </ThemeProvider>
+);
 
 export const tableName = Template.bind({});
 tableName.args = {
     tableName: "Harsha",
-    totalItems: 20
-}
+    totalItems: 20,
+};
