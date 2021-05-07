@@ -1,8 +1,8 @@
-import { Box, Button, Dialog, DialogActions, DialogContent, DialogTitle, makeStyles, Table, TableBody, TableCell, TableContainer, OutlinedInput, TableHead, TableRow } from '@material-ui/core';
+import { Box, makeStyles } from '@material-ui/core';
 import React, { useState } from 'react';
 import TableComp from '../../molecules/Table';
 import SearchBar from '../../atoms/SeachBar/index';
-import { Delete } from '@material-ui/icons';
+import PopUpMolecule from '../../molecules/PopUp';
 
 const useStyles = makeStyles(() => (
     {
@@ -47,7 +47,7 @@ const TablesList = (props) => {
     }
 
     const click = (index) => {
-        setDialogData({ ...tables[index] });
+        setDialogData({ ...tables[index], tableIndex: index });
         setOpen(true);
     }
 
@@ -70,6 +70,13 @@ const TablesList = (props) => {
 
     const addItem = (index, item) => {
         let copy = [...tables];
+        let [existItem] = copy[index].items.filter((ele) => ele.id === item.id);
+        if (existItem) {
+            existItem.servings++;
+            copy[index].totalPrice = copy[index].totalPrice + item.itemPrice;
+            setTables(copy);
+            return;
+        }
         copy[index].totalItems += 1;
         copy[index].items.push({ ...item, servings: 1 });
         copy[index].totalPrice = copy[index].totalPrice + item.itemPrice;
@@ -81,6 +88,19 @@ const TablesList = (props) => {
         addItem(index, JSON.parse(event.dataTransfer.getData("itemData")));
     }
 
+    const onServingsChange = (event, itemIndex) => {
+        let servings = event.target.value;
+        let copy = [...tables];
+        let table = copy[dialogData.tableIndex];
+
+        if (servings > 0) {
+            table.totalPrice += (servings - table.items[itemIndex].servings) * table.items[itemIndex].itemPrice;
+            table.items[itemIndex].servings = servings;
+            setTables(copy);
+            return;
+        }
+    }
+
     return (
         <Box className={style.root}>
             <Box className={style.input}>
@@ -90,44 +110,7 @@ const TablesList = (props) => {
                     className={style.inputField}
                 />
             </Box>
-            <Dialog open={open} onClose={close} >
-                <DialogTitle onClose={close}>
-                    Table Name: {dialogData.tableName}
-                </DialogTitle>
-                <DialogContent dividers>
-                    <TableContainer >
-                        <Table >
-                            <TableHead>
-                                <TableRow>
-                                    <TableCell>S.No</TableCell>
-                                    <TableCell align="left">Item Name</TableCell>
-                                    <TableCell align="left">Item Price</TableCell>
-                                    <TableCell align="left">Servings</TableCell>
-                                    <TableCell align="left">Delete</TableCell>
-                                </TableRow>
-                            </TableHead>
-                            <TableBody>
-                                {dialogData.items.map((row, index) => (
-                                    <TableRow key={"table-item-" + index}>
-                                        <TableCell component="th" scope="row">
-                                            {index + 1}
-                                        </TableCell>
-                                        <TableCell align="left">{row.itemName}</TableCell>
-                                        <TableCell align="left">{row.itemPrice}</TableCell>
-                                        <TableCell align="left"><OutlinedInput value={row.servings} type="number" /></TableCell>
-                                        <TableCell align="left"><Delete /></TableCell>
-                                    </TableRow>
-                                ))}
-                            </TableBody>
-                        </Table>
-                    </TableContainer>
-                </DialogContent>
-                <DialogActions>
-                    <Button onClick={close} color="primary">
-                        close
-                    </Button>
-                </DialogActions>
-            </Dialog>
+            <PopUpMolecule open={open} close={close} items={dialogData.items} tableName={dialogData.tableName} onServingsChange={onServingsChange} />
             <Box className={style.list}>
                 {
                     tables.map((element, index) => (
