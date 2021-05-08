@@ -61,7 +61,6 @@ const ItemsList = (props) => {
     };
 
     const drag = (event, data) => {
-        event.dataTransfer.setData("id", event.target.id);
         event.dataTransfer.setData("itemData", JSON.stringify(data));
     };
 

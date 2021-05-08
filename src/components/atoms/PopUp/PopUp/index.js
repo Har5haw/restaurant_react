@@ -9,7 +9,7 @@ import {
 
 const PopUp = (props) => {
     return (
-        <Dialog open={props.open} onClose={props.close} fullWidth={true}>
+        <Dialog open={props.open} onClose={props.close} maxWidth={"xl"}>
             <DialogTitle>Table Name: {props.tableName}</DialogTitle>
             <DialogContent dividers>{props.children}</DialogContent>
             <DialogContent>Total Price: {props.totalPrice}</DialogContent>

@@ -7,7 +7,6 @@ import {
     OutlinedInput,
     TableHead,
     TableRow,
-    Box,
 } from "@material-ui/core";
 import { Delete } from "@material-ui/icons";
 
