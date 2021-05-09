@@ -4,12 +4,12 @@ import TableComp from "../../molecules/Table";
 import SearchBar from "../../atoms/SeachBar/index";
 import PopUpMolecule from "../../molecules/PopUp";
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
     root: {
         height: "93vh",
-        backgroundColor: "white",
         width: "100%",
         overflow: "hidden",
+        backgroundColor: theme.palette.type === "dark" ? "grey" : "lightblue",
     },
     input: {
         width: "100%",
@@ -21,11 +21,12 @@ const useStyles = makeStyles(() => ({
     inputField: {
         width: "25vw",
         margin: "20px 0px",
-        height: "50px",
-        background: "white",
+        marginTop: "0px",
+        height: "40px",
+        background: theme.palette.type === "dark" ? "transparent" : "white",
     },
     list: {
-        height: "calc(93vh - 90px)",
+        height: "calc(90vh - 60px)",
         overflowY: "auto",
     },
 }));
@@ -98,7 +99,7 @@ const TablesList = (props) => {
         const copy = [...tables];
         const table = copy[dialogData.tableIndex];
 
-        if (servings > 0) {
+        if (servings > 0 && servings <= 1000) {
             table.totalPrice +=
                 (servings - table.items[itemIndex].servings) *
                 table.items[itemIndex].itemPrice;
@@ -109,6 +110,9 @@ const TablesList = (props) => {
                 tableIndex: dialogData.tableIndex,
             });
             return;
+        } else if (servings === "0") {
+            console.log("delete");
+            onDelete(null, itemIndex);
         }
     };
 

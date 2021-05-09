@@ -5,17 +5,22 @@ import {
     DialogActions,
     DialogContent,
     DialogTitle,
+    Typography,
 } from "@material-ui/core";
 
 const PopUp = (props) => {
     return (
         <Dialog open={props.open} onClose={props.close} maxWidth={"xl"}>
-            <DialogTitle>Table Name: {props.tableName}</DialogTitle>
+            <DialogTitle>
+                <Typography> Table Name: {props.tableName}</Typography>
+            </DialogTitle>
             <DialogContent dividers>{props.children}</DialogContent>
-            <DialogContent>Total Price: {props.totalPrice}</DialogContent>
+            <DialogContent>
+                <Typography>Total Amount: {props.totalPrice}</Typography>
+            </DialogContent>
             <DialogActions>
                 <Button onClick={props.close} color="primary">
-                    Close
+                    <Typography>Close</Typography>
                 </Button>
             </DialogActions>
         </Dialog>

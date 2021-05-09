@@ -1,7 +1,7 @@
 import React from "react";
 import SearchBar from "./index";
 import { ThemeProvider } from "@material-ui/core/styles";
-//import baseTheme from "../../../themes/index";
+import baseTheme from "../../../themes/index";
 
 export default {
     title: "Atoms : search bar",
@@ -9,7 +9,7 @@ export default {
 };
 
 const Template = (args) => (
-    <ThemeProvider>
+    <ThemeProvider theme={baseTheme}>
         <SearchBar {...args} />
     </ThemeProvider>
 );

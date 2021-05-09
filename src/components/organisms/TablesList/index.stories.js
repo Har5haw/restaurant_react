@@ -1,6 +1,6 @@
 import React from "react";
 import TableList from "./index";
-//import baseTheme from "../../../themes/index";
+import baseTheme from "../../../themes/index";
 import { ThemeProvider } from "@material-ui/core/styles";
 
 export default {
@@ -9,7 +9,7 @@ export default {
 };
 
 const Template = (args) => (
-    <ThemeProvider>
+    <ThemeProvider theme={baseTheme}>
         <TableList {...args} />
     </ThemeProvider>
 );

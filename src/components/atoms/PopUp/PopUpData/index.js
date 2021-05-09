@@ -7,34 +7,62 @@ import {
     OutlinedInput,
     TableHead,
     TableRow,
+    Box,
+    Typography,
 } from "@material-ui/core";
 import { Delete } from "@material-ui/icons";
 
 const PopupData = (props) => {
-    return (
+    return props.items.length > 0 ? (
         <TableContainer>
             <Table>
                 <TableHead>
                     <TableRow>
-                        <TableCell>S.No</TableCell>
-                        <TableCell>Name</TableCell>
-                        <TableCell>Price</TableCell>
-                        <TableCell>Servings</TableCell>
-                        <TableCell>Delete</TableCell>
+                        <TableCell>
+                            <Typography>
+                                <strong>S.No</strong>
+                            </Typography>
+                        </TableCell>
+                        <TableCell>
+                            <Typography>
+                                <strong>Name</strong>
+                            </Typography>
+                        </TableCell>
+                        <TableCell>
+                            <Typography>
+                                <strong>Price</strong>
+                            </Typography>
+                        </TableCell>
+                        <TableCell>
+                            <Typography>
+                                <strong>Servings</strong>
+                            </Typography>
+                        </TableCell>
+                        <TableCell>
+                            <Typography>
+                                <strong>Delete</strong>
+                            </Typography>
+                        </TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
                     {props.items.map((row, index) => (
                         <TableRow key={"table-item-" + index}>
-                            <TableCell>{index + 1}</TableCell>
-                            <TableCell>{row.itemName}</TableCell>
-                            <TableCell>{row.itemPrice}</TableCell>
+                            <TableCell>
+                                <Typography>{index + 1}</Typography>
+                            </TableCell>
+                            <TableCell>
+                                <Typography> {row.itemName}</Typography>
+                            </TableCell>
+                            <TableCell>
+                                <Typography>{row.itemPrice}</Typography>
+                            </TableCell>
                             <TableCell>
                                 <OutlinedInput
                                     onChange={(event) =>
                                         props.onServingsChange(event, index)
                                     }
-                                    defaultValue={row.servings}
+                                    value={row.servings}
                                     type="number"
                                 />
                             </TableCell>
@@ -51,6 +79,14 @@ const PopupData = (props) => {
                 </TableBody>
             </Table>
         </TableContainer>
+    ) : (
+        <Box>
+            <Typography>No Items added to this table</Typography>
+            <Typography>
+                Drag a item from item list and drop on the table inorder to add
+                items to that table
+            </Typography>
+        </Box>
     );
 };
 

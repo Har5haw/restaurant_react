@@ -5,20 +5,17 @@ import { Box, Card } from "@material-ui/core";
 
 const styles = makeStyles(() => ({
     root: {
-        backgroundColor: "white",
         display: "flex",
         flexDirection: "column",
         borderRadius: "20px",
-        color: "black",
         width: "19vw",
-        height: "calc(16vw + 50px)",
+        height: "calc(16vw + 3vw)",
         marginLeft: "auto",
         marginRight: "auto",
-        marginTop: "50px",
+        marginTop: "3vw",
         marginBottom: "0px",
     },
     iconContainer: {
-        backgroundColor: "white",
         width: "100%",
         height: "15vw",
         display: "flex",
@@ -26,14 +23,13 @@ const styles = makeStyles(() => ({
         alignItems: "center",
     },
     icon: {
-        color: "white",
-        height: "calc(11vw + 60px)",
+        height: "calc(14vw + 10px)",
         width: "100%",
         objectFit: "cover",
     },
     container: {
         width: "100%",
-        height: "calc(5vw + 10px)",
+        height: "calc(5vw)",
     },
 }));
 

@@ -6,9 +6,9 @@ import SearchBar from "../../atoms/SeachBar/index";
 const useStyles = makeStyles((theme) => ({
     root: {
         height: "93vh",
-        backgroundColor: "white",
         width: "100%",
         overflowY: "hidden",
+        backgroundColor: theme.palette.type === "dark" ? "grey" : "pink",
     },
     input: {
         width: "100%",
@@ -20,14 +20,15 @@ const useStyles = makeStyles((theme) => ({
     inputField: {
         width: "100%",
         margin: "20px 5vw",
-        height: "50px",
-        background: "white",
+        marginTop: "0px",
+        height: "40px",
+        background: theme.palette.type === "dark" ? "transparent" : "white",
     },
     grid: {
         display: "grid",
         gridTemplateColumns: "auto auto auto",
         overflowY: "auto",
-        height: "calc(93vh - 90px)",
+        height: "calc(90vh - 60px)",
     },
 }));
 const ItemsList = (props) => {

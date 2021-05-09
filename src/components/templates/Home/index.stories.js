@@ -19,7 +19,6 @@ export const home = Template.bind({});
 const style = {
     height: "100%",
     width: "100%",
-    background: "black",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",

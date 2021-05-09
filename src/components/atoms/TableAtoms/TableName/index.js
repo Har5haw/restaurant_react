@@ -1,16 +1,14 @@
 import React from "react";
-import { Box } from "@material-ui/core";
+import { Box, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
 const styles = makeStyles(() => ({
     root: {
-        backgroundColor: "white",
         display: "flex",
         flexDirection: "row",
         width: "100%",
         height: "100%",
         alignItems: "start",
-        fontFamily: "'Hanalei Fill', cursive",
     },
     contentContainer: {
         height: "100%",
@@ -26,20 +24,26 @@ const TableName = (props) => {
     return (
         <Box className={style.root}>
             <Box className={style.contentContainer}>
-                <Box style={{ margin: "5px 20px" }}>
-                    <strong>Table Name: </strong>
-                </Box>
-                <Box style={{ margin: "5px 20px" }}>
-                    <strong>Total Items: </strong>
-                </Box>
-                <Box style={{ margin: "5px 20px" }}>
-                    <strong>Total Price: </strong>
-                </Box>
+                <Typography style={{ margin: "0 0 0 2.5vw" }}>
+                    <strong> Name: </strong>
+                </Typography>
+                <Typography style={{ margin: "0 0 0 2.5vw" }}>
+                    <strong> Items: </strong>
+                </Typography>
+                <Typography style={{ margin: "0 0 0 2.5vw" }}>
+                    <strong> Price: </strong>
+                </Typography>
             </Box>
             <Box className={style.contentContainer}>
-                <Box style={{ margin: "5px" }}>{props.tableName} </Box>
-                <Box style={{ margin: "5px" }}>{props.totalItems} </Box>
-                <Box style={{ margin: "5px" }}>{props.totalPrice} /-</Box>
+                <Typography style={{ margin: "0 0 0 1vw" }}>
+                    {props.tableName}
+                </Typography>
+                <Typography style={{ margin: "0 0 0 1vw" }}>
+                    {props.totalItems}
+                </Typography>
+                <Typography style={{ margin: "0 0 0 1vw" }}>
+                    {props.totalPrice} /-
+                </Typography>
             </Box>
         </Box>
     );

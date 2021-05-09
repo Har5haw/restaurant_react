@@ -1,7 +1,7 @@
 import { ThemeProvider } from "@material-ui/styles";
 import React from "react";
 import PopupData from ".";
-//import baseTheme from "../../../../themes/index";
+import baseTheme from "../../../../themes/index";
 
 export default {
     title: "Atoms : Popup",
@@ -9,7 +9,7 @@ export default {
 };
 
 const Template = (args) => (
-    <ThemeProvider>
+    <ThemeProvider theme={baseTheme}>
         <PopupData {...args} />
     </ThemeProvider>
 );

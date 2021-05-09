@@ -16,9 +16,10 @@ const baseTheme = createMuiTheme({
         },
     },
     palette: {
-        type: "dark",
+        type: "light",
         primary: {
             main: blue[500],
+            dark: "#4bacb8",
         },
         secondary: {
             main: orange[500],
@@ -35,7 +36,8 @@ const baseTheme = createMuiTheme({
         },
     },
     typography: {
-        fontSize: 12,
+        fontFamily: "Itim",
+        htmlFontSize: "14",
     },
 });
 

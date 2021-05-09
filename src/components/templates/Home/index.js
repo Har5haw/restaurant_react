@@ -1,6 +1,4 @@
 import React from "react";
-import TableList from "../../organisms/TablesList/index";
-import ItemList from "../../organisms/ItemList/index";
 import { Box, makeStyles } from "@material-ui/core";
 
 const styles = makeStyles(() => ({
@@ -8,9 +6,10 @@ const styles = makeStyles(() => ({
         display: "flex",
         flexDirection: "column",
         height: "100vh",
+        overflow: "hidden",
     },
     nav: {
-        height: "7vh",
+        height: "10vh",
     },
     title: {
         width: "30vw",
@@ -18,7 +17,7 @@ const styles = makeStyles(() => ({
     },
     body: {
         display: "flex",
-        height: "93vh",
+        height: "90vh",
     },
     tableList: {
         width: "30vw",
