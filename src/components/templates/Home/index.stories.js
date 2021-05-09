@@ -5,7 +5,7 @@ import baseTheme from "../../../themes/index";
 import { Box } from "@material-ui/core";
 
 export default {
-    title: "Template: Home Template",
+    title: "Templates : Home Template",
     component: Home,
 };
 
@@ -16,17 +16,21 @@ const Template = (args) => (
 );
 
 export const home = Template.bind({});
+const style = {
+    height: "100%",
+    width: "100%",
+    background: "black",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    color: "white",
+};
 home.args = {
     navigationBarComponent: (
         <Box
             style={{
-                height: "100%",
-                width: "100%",
+                ...style,
                 background: "black",
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                color: "white",
             }}
         >
             Navigation bar
@@ -35,13 +39,8 @@ home.args = {
     tableListComponent: (
         <Box
             style={{
-                height: "100%",
-                width: "100%",
+                ...style,
                 background: "grey",
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                color: "white",
             }}
         >
             Table List
@@ -50,13 +49,8 @@ home.args = {
     itemListComponent: (
         <Box
             style={{
-                height: "100%",
-                width: "100%",
+                ...style,
                 background: "green",
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                color: "white",
             }}
         >
             Item List

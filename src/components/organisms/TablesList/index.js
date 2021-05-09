@@ -139,13 +139,17 @@ const TablesList = (props) => {
                 />
             </Box>
             <PopUpMolecule
-                open={open}
-                close={close}
-                items={dialogData.items}
-                tableName={dialogData.tableName}
-                totalPrice={dialogData.totalPrice}
-                onServingsChange={onServingsChange}
-                onDelete={onDelete}
+                popup={{
+                    open: open,
+                    close: close,
+                    tableName: dialogData.tableName,
+                    totalPrice: dialogData.totalPrice,
+                }}
+                popupData={{
+                    items: dialogData.items,
+                    onServingsChange: onServingsChange,
+                    onDelete: onDelete,
+                }}
             />
             <Box className={style.list}>
                 {tables.map((element, index) => (

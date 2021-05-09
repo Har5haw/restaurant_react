@@ -4,17 +4,8 @@ import PopupData from "../../atoms/PopUp/PopUpData";
 
 const PopUpMolecule = (props) => {
     return (
-        <PopUp
-            open={props.open}
-            close={props.close}
-            tableName={props.tableName}
-            totalPrice={props.totalPrice}
-        >
-            <PopupData
-                items={props.items}
-                onServingsChange={props.onServingsChange}
-                onDelete={props.onDelete}
-            ></PopupData>
+        <PopUp {...props.popup}>
+            <PopupData {...props.popupData} />
         </PopUp>
     );
 };

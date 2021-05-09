@@ -1,7 +1,7 @@
 import { ThemeProvider } from "@material-ui/styles";
 import React from "react";
 import HomePage from ".";
-import baseTheme from "../../../themes/index";
+//import baseTheme from "../../../themes/index";
 
 export default {
     title: "Pages: Home Page",
@@ -9,7 +9,7 @@ export default {
 };
 
 const Template = (args) => (
-    <ThemeProvider theme={baseTheme}>
+    <ThemeProvider>
         <HomePage {...args} />
     </ThemeProvider>
 );
