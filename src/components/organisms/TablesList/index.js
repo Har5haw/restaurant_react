@@ -8,7 +8,7 @@ const useStyles = makeStyles(() => ({
     root: {
         height: "93vh",
         backgroundColor: "white",
-        width: "30vw",
+        width: "100%",
         overflow: "hidden",
     },
     input: {

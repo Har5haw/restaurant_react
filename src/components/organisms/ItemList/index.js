@@ -7,7 +7,7 @@ const useStyles = makeStyles((theme) => ({
     root: {
         height: "93vh",
         backgroundColor: "white",
-        width: "70vw",
+        width: "100%",
         overflowY: "hidden",
     },
     input: {

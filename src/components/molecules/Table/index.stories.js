@@ -16,6 +16,9 @@ const Template = (args) => (
 
 export const table = Template.bind({});
 table.args = {
-    tableName: "Harsha",
-    totalItems: 20,
+    data: {
+        tableName: "Harsha",
+        totalItems: 20,
+        totalPrice: 30,
+    },
 };

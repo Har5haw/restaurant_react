@@ -16,8 +16,10 @@ const Template = (args) => (
 
 export const item = Template.bind({});
 item.args = {
-    image:
-        "https://www.quickanddirtytips.com/sites/default/files/images/14471/dosa-compressor.jpg",
-    itemName: "Dosa",
-    itemPrice: 20.0,
+    data: {
+        image:
+            "https://www.quickanddirtytips.com/sites/default/files/images/14471/dosa-compressor.jpg",
+        itemName: "Dosa",
+        itemPrice: 20.0,
+    },
 };

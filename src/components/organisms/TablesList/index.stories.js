@@ -16,37 +16,6 @@ const Template = (args) => (
 
 export const tableList = Template.bind({});
 
-const tableListData = [
-    {
-        tableName: "Harsha",
-        totalItems: 20,
-    },
-    {
-        tableName: "Vardhan",
-        totalItems: 20,
-    },
-    {
-        tableName: "Shaw",
-        totalItems: 20,
-    },
-    {
-        tableName: "NObody",
-        totalItems: 20,
-    },
-    {
-        tableName: "Jack Sparrow",
-        totalItems: 20,
-    },
-    {
-        tableName: "Cat",
-        totalItems: 20,
-    },
-    {
-        tableName: "Dog",
-        totalItems: 20,
-    },
-];
-
 tableList.args = {
-    list: tableListData,
+    list: require("../../../data/tables.json"),
 };

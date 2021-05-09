@@ -11,28 +11,33 @@ const styles = makeStyles(() => ({
     },
     nav: {
         height: "7vh",
-        width: "100%",
-        background: "rgb(51, 63, 62)",
-        color: "white",
-        fontSize: "46px",
-        display: "flex",
-        alignItems: "center",
-        fontWeight: "bolder",
     },
-    title: { width: "30vw", textAlign: "center" },
-    body: { display: "flex", height: "93vh" },
+    title: {
+        width: "30vw",
+        textAlign: "center",
+    },
+    body: {
+        display: "flex",
+        height: "93vh",
+    },
+    tableList: {
+        width: "30vw",
+    },
+    itemList: {
+        width: "70vw",
+    },
 }));
 
 const HomeTemplate = (props) => {
     const style = styles();
     return (
         <Box className={style.root}>
-            <Box className={style.nav}>
-                <Box className={style.title}>ZeMoSo Restaurant</Box>
-            </Box>
+            <Box className={style.nav}>{props.navigationBarComponent}</Box>
             <Box className={style.body}>
-                <TableList list={props.tableList} />
-                <ItemList list={props.itemList} />
+                <Box className={style.tableList}>
+                    {props.tableListComponent}
+                </Box>
+                <Box className={style.itemList}>{props.itemListComponent}</Box>
             </Box>
         </Box>
     );

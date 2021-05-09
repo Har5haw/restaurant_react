@@ -10,7 +10,6 @@ const styles = makeStyles(() => ({
         width: "100%",
         height: "100%",
         alignItems: "start",
-        fontFamily: "'Hanalei Fill', cursive",
     },
     contentContainer: {
         height: "100%",

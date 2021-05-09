@@ -1,8 +1,7 @@
 import React from "react";
-import PrimaryCard from "../../atoms/PrimaryCard/index";
 import ItemName from "../../atoms/ItemAtoms/ItemName/index";
 import { makeStyles } from "@material-ui/core/styles";
-import { Box } from "@material-ui/core";
+import { Box, Card } from "@material-ui/core";
 
 const styles = makeStyles(() => ({
     root: {
@@ -42,7 +41,7 @@ const Item = (props) => {
     const style = styles();
 
     return (
-        <PrimaryCard className={style.root} {...props}>
+        <Card raised={true} className={style.root} {...props}>
             <Box className={style.iconContainer}>
                 <img
                     src={props.data.image}
@@ -54,7 +53,7 @@ const Item = (props) => {
             <Box className={style.container}>
                 <ItemName {...props.data} />
             </Box>
-        </PrimaryCard>
+        </Card>
     );
 };
 
