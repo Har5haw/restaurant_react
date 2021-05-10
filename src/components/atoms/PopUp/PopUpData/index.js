@@ -69,9 +69,7 @@ const PopupData = (props) => {
                             <TableCell align="left">
                                 <Delete
                                     style={{ cursor: "pointer" }}
-                                    onClick={(event) =>
-                                        props.onDelete(event, index)
-                                    }
+                                    onClick={() => props.onDelete(index)}
                                 />
                             </TableCell>
                         </TableRow>

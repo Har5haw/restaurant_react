@@ -3,6 +3,16 @@ import React, { useState } from "react";
 import TableComp from "../../molecules/Table";
 import SearchBar from "../../atoms/SeachBar/index";
 import PopUpMolecule from "../../molecules/PopUp";
+import {
+    addItemToTable,
+    changeServings,
+    deleteItem,
+} from "../../../features/tableList/tableListSlice";
+import { useDispatch, useSelector } from "react-redux";
+import {
+    changeData,
+    closePopup,
+} from "../../../features/popupData/popupDataSlice";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -32,12 +42,14 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const TablesList = (props) => {
-    const data = [...props.list];
-    const [tables, setTables] = useState(data);
-    const [open, setOpen] = useState(false);
-    const [dialogData, setDialogData] = useState({ items: [] });
+    const tableData = useSelector((state) => state.tableList);
+
+    const popupData = useSelector((state) => state.popupData);
+
+    const dispatch = useDispatch();
 
     const style = useStyles();
+
     let timer;
     let search_table_text = "";
 
@@ -48,12 +60,12 @@ const TablesList = (props) => {
     };
 
     const click = (index) => {
-        setDialogData({ ...tables[index], tableIndex: index });
-        setOpen(true);
-    };
-
-    const close = () => {
-        setOpen(false);
+        dispatch(
+            changeData({
+                tableData: { ...tableData[index] },
+                tableIndex: index,
+            })
+        );
     };
 
     const doneTypingTables = () => {
@@ -72,65 +84,33 @@ const TablesList = (props) => {
         event.preventDefault();
     };
 
-    const addItem = (index, item) => {
-        const copy = [...tables];
-        const [existItem] = copy[index].items.filter(
-            (ele) => ele.id === item.id
-        );
-        if (existItem) {
-            existItem.servings++;
-            copy[index].totalPrice = copy[index].totalPrice + item.itemPrice;
-            setTables(copy);
-            return;
-        }
-        copy[index].totalItems += 1;
-        copy[index].items.push({ ...item, servings: 1 });
-        copy[index].totalPrice = copy[index].totalPrice + item.itemPrice;
-        setTables(copy);
-    };
-
     const drop = (event, index) => {
         event.preventDefault();
-        addItem(index, JSON.parse(event.dataTransfer.getData("itemData")));
+        dispatch(
+            addItemToTable({
+                index: index,
+                itemData: JSON.parse(event.dataTransfer.getData("itemData")),
+            })
+        );
     };
 
     const onServingsChange = (event, itemIndex) => {
-        const servings = event.target.value;
-        const copy = [...tables];
-        const table = copy[dialogData.tableIndex];
-
-        if (servings > 0 && servings <= 1000) {
-            table.totalPrice +=
-                (servings - table.items[itemIndex].servings) *
-                table.items[itemIndex].itemPrice;
-            table.items[itemIndex].servings = servings;
-            setTables(copy);
-            setDialogData({
-                ...copy[dialogData.tableIndex],
-                tableIndex: dialogData.tableIndex,
-            });
-            return;
-        } else if (servings === "0") {
-            console.log("delete");
-            onDelete(null, itemIndex);
-        }
+        dispatch(
+            changeServings({
+                servings: event.target.value,
+                itemIndex: itemIndex,
+                tableIndex: popupData.tableIndex,
+            })
+        );
     };
 
-    const onDelete = (event, itemIndex) => {
-        const copy = [...tables];
-        const table = copy[dialogData.tableIndex];
-        table.totalItems -= 1;
-        table.totalPrice -=
-            table.items[itemIndex].itemPrice * table.items[itemIndex].servings;
-        table.items.splice(itemIndex, 1);
-        setTables(copy);
-        setDialogData({
-            ...copy[dialogData.tableIndex],
-            tableIndex: dialogData.tableIndex,
-        });
-        if (table.items.length === 0) {
-            setOpen(false);
-        }
+    const onDelete = (itemIndex) => {
+        dispatch(
+            deleteItem({
+                itemIndex: itemIndex,
+                tableIndex: popupData.tableIndex,
+            })
+        );
     };
 
     return (
@@ -144,21 +124,22 @@ const TablesList = (props) => {
             </Box>
             <PopUpMolecule
                 popup={{
-                    open: open,
-                    close: close,
-                    tableName: dialogData.tableName,
-                    totalPrice: dialogData.totalPrice,
+                    open: popupData.isOpen,
+                    close: () => {
+                        dispatch(closePopup());
+                    },
+                    tableName: tableData[popupData.tableIndex].tableName,
+                    totalPrice: tableData[popupData.tableIndex].totalPrice,
                 }}
                 popupData={{
-                    items: dialogData.items,
+                    items: tableData[popupData.tableIndex].items,
                     onServingsChange: onServingsChange,
                     onDelete: onDelete,
                 }}
             />
             <Box className={style.list}>
-                {tables.map((element, index) => (
+                {tableData.map((element, index) => (
                     <TableComp
-                        id={"table-" + index}
                         key={"table-" + index}
                         onDragOver={allowDrop}
                         onDrop={(event) => drop(event, index)}
