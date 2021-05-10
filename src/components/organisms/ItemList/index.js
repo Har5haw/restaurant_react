@@ -32,35 +32,22 @@ const useStyles = makeStyles((theme) => ({
         height: "calc(90vh - 60px)",
     },
 }));
-const ItemsList = (props) => {
-    const [items, setItems] = useState([...props.list]);
+const ItemsList = () => {
     const itemsData = useSelector((state) => state.itemsList);
+
+    const [searchBarText, setSearchBarText] = useState("");
+
     const style = useStyles();
+
     let timer;
-    let search_item_text = "";
 
     const handleKeyUp = (event) => {
-        search_item_text = event.target.value;
         clearTimeout(timer);
-        timer = setTimeout(doneTypingItems, 400);
+        timer = setTimeout(doneTypingItems.bind(null, event.target.value), 400);
     };
 
-    const doneTypingItems = () => {
-        if (search_item_text.length > 0) {
-            setItems(
-                props.list.filter(
-                    (item) =>
-                        item.itemName
-                            .toLowerCase()
-                            .includes(search_item_text.toLowerCase()) ||
-                        item.course
-                            .toLowerCase()
-                            .includes(search_item_text.toLowerCase())
-                )
-            );
-        } else {
-            setItems([...props.list]);
-        }
+    const doneTypingItems = (searchText) => {
+        setSearchBarText(searchText);
     };
 
     const drag = (event, data) => {
@@ -77,7 +64,17 @@ const ItemsList = (props) => {
                 />
             </Box>
             <Box className={style.grid}>
-                {itemsData.map((element) => (
+                {(
+                    itemsData.filter(
+                        (item) =>
+                            item.itemName
+                                .toLowerCase()
+                                .includes(searchBarText.toLowerCase()) ||
+                            item.course
+                                .toLowerCase()
+                                .includes(searchBarText.toLowerCase())
+                    ) || itemsData
+                ).map((element) => (
                     <Item
                         key={"item-" + element.id}
                         data={element}

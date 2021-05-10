@@ -1,41 +1,48 @@
 [
     {
+        "id": 0,
         "tableName": "Reyna",
         "totalItems": 0,
         "totalPrice": 0,
         "items": []
     },
     {
+        "id": 1,
         "tableName": "Eminem",
         "totalItems": 0,
         "totalPrice": 0,
         "items": []
     },
     {
+        "id": 2,
         "tableName": "Shaw",
         "totalItems": 0,
         "totalPrice": 0,
         "items": []
     },
     {
+        "id": 3,
         "tableName": "John Wick",
         "totalItems": 0,
         "totalPrice": 0,
         "items": []
     },
     {
+        "id": 4,
         "tableName": "Jack Sparrow",
         "totalItems": 0,
         "totalPrice": 0,
         "items": []
     },
     {
+        "id": 5,
         "tableName": "Cypher",
         "totalItems": 0,
         "totalPrice": 0,
         "items": []
     },
     {
+        "id": 6,
         "tableName": "Phoenix",
         "totalItems": 0,
         "totalPrice": 0,

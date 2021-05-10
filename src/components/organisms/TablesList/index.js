@@ -41,8 +41,10 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const TablesList = (props) => {
+const TablesList = () => {
     const tableData = useSelector((state) => state.tableList);
+
+    const [searchBarText, setSearchBarText] = useState("");
 
     const popupData = useSelector((state) => state.popupData);
 
@@ -51,12 +53,17 @@ const TablesList = (props) => {
     const style = useStyles();
 
     let timer;
-    let search_table_text = "";
 
     const handleKeyUp = (event) => {
-        search_table_text = event.target.value;
         clearTimeout(timer);
-        timer = setTimeout(doneTypingTables, 400);
+        timer = setTimeout(
+            doneTypingTableSearchBar.bind(null, event.target.value),
+            400
+        );
+    };
+
+    const doneTypingTableSearchBar = (searchText) => {
+        setSearchBarText(searchText);
     };
 
     const click = (index) => {
@@ -66,18 +73,6 @@ const TablesList = (props) => {
                 tableIndex: index,
             })
         );
-    };
-
-    const doneTypingTables = () => {
-        if (search_table_text.length > 0) {
-            setTables(
-                tables.filter((table) =>
-                    table.tableName.toLowerCase().includes(search_table_text)
-                )
-            );
-        } else {
-            setTables([...props.list]);
-        }
     };
 
     const allowDrop = (event) => {
@@ -138,12 +133,18 @@ const TablesList = (props) => {
                 }}
             />
             <Box className={style.list}>
-                {tableData.map((element, index) => (
+                {(
+                    tableData.filter((table) =>
+                        table.tableName
+                            .toLowerCase()
+                            .includes(searchBarText.toLowerCase())
+                    ) || tableData
+                ).map((element) => (
                     <TableComp
-                        key={"table-" + index}
+                        key={"table-" + element.id}
                         onDragOver={allowDrop}
-                        onDrop={(event) => drop(event, index)}
-                        onClick={() => click(index)}
+                        onDrop={(event) => drop(event, element.id)}
+                        onClick={() => click(element.id)}
                         data={element}
                     />
                 ))}
