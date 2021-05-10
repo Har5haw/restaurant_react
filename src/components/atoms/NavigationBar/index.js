@@ -18,7 +18,7 @@ const useStyle = makeStyles(() => ({
     },
 }));
 
-const NavigationBar = (props) => {
+const NavigationBar = () => {
     const style = useStyle();
     return (
         <Box className={style.nav}>

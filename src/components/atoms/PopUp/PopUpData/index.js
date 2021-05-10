@@ -11,6 +11,7 @@ import {
     Typography,
 } from "@material-ui/core";
 import { Delete } from "@material-ui/icons";
+import PropTypes from "prop-types";
 
 const PopupData = (props) => {
     return props.items.length > 0 ? (
@@ -86,6 +87,14 @@ const PopupData = (props) => {
             </Typography>
         </Box>
     );
+};
+
+PopupData.propsType = {
+    items: PropTypes.array.isRequired,
+};
+
+PopupData.defaultProps = {
+    items: [],
 };
 
 export default PopupData;

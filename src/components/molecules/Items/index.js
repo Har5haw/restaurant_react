@@ -32,6 +32,7 @@ const styles = makeStyles(() => ({
         height: "calc(5vw)",
     },
 }));
+import PropTypes from "prop-types";
 
 const Item = (props) => {
     const style = styles();
@@ -51,6 +52,12 @@ const Item = (props) => {
             </Box>
         </Card>
     );
+};
+
+Item.propsType = {
+    data: PropTypes.shape({
+        image: PropTypes.string.isRequired,
+    }).isRequired,
 };
 
 export default Item;

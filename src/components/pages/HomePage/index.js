@@ -8,8 +8,8 @@ const HomePage = (props) => {
     return (
         <HomeTemplate
             navigationBarComponent={<NavigationBar />}
-            tableListComponent={<TablesList list={props.tableList} />}
-            itemListComponent={<ItemsList list={props.itemList} />}
+            tableListComponent={<TablesList />}
+            itemListComponent={<ItemsList />}
         />
     );
 };

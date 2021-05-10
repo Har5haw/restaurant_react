@@ -1,5 +1,6 @@
 import React from "react";
 import { Box, makeStyles } from "@material-ui/core";
+import PropTypes from "prop-types";
 
 const styles = makeStyles(() => ({
     root: {
@@ -40,6 +41,12 @@ const HomeTemplate = (props) => {
             </Box>
         </Box>
     );
+};
+
+HomeTemplate.propsType = {
+    navigationBarComponent: PropTypes.element.isRequired,
+    itemListComponent: PropTypes.element.isRequired,
+    tableListComponent: PropTypes.element.isRequired,
 };
 
 export default HomeTemplate;

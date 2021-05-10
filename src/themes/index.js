@@ -37,7 +37,7 @@ const baseTheme = createMuiTheme({
     },
     typography: {
         fontFamily: "Itim",
-        htmlFontSize: "14",
+        htmlFontSize: 14,
     },
 });
 

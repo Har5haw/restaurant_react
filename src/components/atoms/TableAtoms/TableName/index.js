@@ -18,6 +18,7 @@ const styles = makeStyles(() => ({
         alignItems: "start",
     },
 }));
+import PropTypes from "prop-types";
 
 const TableName = (props) => {
     const style = styles();
@@ -47,6 +48,12 @@ const TableName = (props) => {
             </Box>
         </Box>
     );
+};
+
+TableName.propsType = {
+    tableName: PropTypes.string.isRequired,
+    totalItems: PropTypes.number.isRequired,
+    totalPrice: PropTypes.number.isRequired,
 };
 
 export default TableName;

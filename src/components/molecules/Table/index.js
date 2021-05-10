@@ -2,6 +2,7 @@ import React from "react";
 import TableName from "../../atoms/TableAtoms/TableName/index";
 import { makeStyles } from "@material-ui/core/styles";
 import { Box, Card } from "@material-ui/core";
+import PropTypes from "prop-types";
 
 const styles = makeStyles(() => ({
     root: {
@@ -48,6 +49,10 @@ const Table = (props) => {
             </Box>
         </Card>
     );
+};
+
+Table.propsType = {
+    data: PropTypes.object.isRequired,
 };
 
 export default Table;

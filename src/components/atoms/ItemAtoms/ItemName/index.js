@@ -1,8 +1,9 @@
 import React from "react";
 import { Box, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
+import PropTypes from "prop-types";
 
-const styles = makeStyles(() => ({
+const useStyles = makeStyles(() => ({
     root: {
         display: "flex",
         flexDirection: "row",
@@ -20,7 +21,7 @@ const styles = makeStyles(() => ({
 }));
 
 const ItemName = (props) => {
-    const style = styles();
+    const style = useStyles();
     return (
         <Box className={style.root}>
             <Box className={style.contentContainer}>
@@ -41,6 +42,11 @@ const ItemName = (props) => {
             </Box>
         </Box>
     );
+};
+
+ItemName.propsType = {
+    itemName: PropTypes.string.isRequired,
+    itemPrice: PropTypes.string.isRequired,
 };
 
 export default ItemName;

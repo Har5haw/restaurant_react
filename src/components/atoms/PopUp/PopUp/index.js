@@ -7,6 +7,7 @@ import {
     DialogTitle,
     Typography,
 } from "@material-ui/core";
+import PropTypes from "prop-types";
 
 const PopUp = (props) => {
     return (
@@ -25,6 +26,13 @@ const PopUp = (props) => {
             </DialogActions>
         </Dialog>
     );
+};
+
+PopUp.propsType = {
+    open: PropTypes.bool.isRequired,
+    close: PropTypes.func.isRequired,
+    tableName: PropTypes.string.isRequired,
+    totalPrice: PropTypes.string.isRequired,
 };
 
 export default PopUp;
