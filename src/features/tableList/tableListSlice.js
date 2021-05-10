@@ -35,8 +35,11 @@ export const tableListSlice = createSlice({
                 table.items[itemIndex].servings = servings;
                 return;
             } else if (servings === "0") {
-                //console.log("delete");
-                //onDelete(null, itemIndex);
+                table.totalItems -= 1;
+                table.totalPrice -=
+                    table.items[itemIndex].itemPrice *
+                    table.items[itemIndex].servings;
+                table.items.splice(itemIndex, 1);
             }
         },
         deleteItem: (state, action) => {

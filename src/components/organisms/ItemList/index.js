@@ -2,6 +2,7 @@ import { Box, makeStyles } from "@material-ui/core";
 import React, { useState } from "react";
 import Item from "../../molecules/Items/index";
 import SearchBar from "../../atoms/SeachBar/index";
+import { useSelector } from "react-redux";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -33,6 +34,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 const ItemsList = (props) => {
     const [items, setItems] = useState([...props.list]);
+    const itemsData = useSelector((state) => state.itemsList);
     const style = useStyles();
     let timer;
     let search_item_text = "";
@@ -75,7 +77,7 @@ const ItemsList = (props) => {
                 />
             </Box>
             <Box className={style.grid}>
-                {items.map((element) => (
+                {itemsData.map((element) => (
                     <Item
                         key={"item-" + element.id}
                         data={element}
