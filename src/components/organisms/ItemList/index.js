@@ -51,7 +51,7 @@ const ItemsList = () => {
     };
 
     const drag = (event, data) => {
-        event.dataTransfer.setData("itemData", JSON.stringify(data));
+        event.dataTransfer.setData("itemId", data.id);
     };
 
     return (
@@ -63,7 +63,7 @@ const ItemsList = () => {
                     className={style.inputField}
                 />
             </Box>
-            <Box className={style.grid}>
+            <Box className={style.grid} aria-label="grid">
                 {(
                     itemsData.filter(
                         (item) =>

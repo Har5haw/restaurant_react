@@ -11,19 +11,4 @@ test("renders learn react link", () => {
     );
     const navigationBarElement = screen.queryByText("ZeMoSo Restaurant");
     expect(navigationBarElement).toBeInTheDocument();
-
-    fireEvent.click(screen.queryByText("Shaw"));
-
-    expect(
-        screen.queryByText(
-            "Drag a item from item list and drop on the table inorder to add items to that table"
-        )
-    ).toBeInTheDocument();
-
-    fireEvent.click(screen.queryByText("Close"));
-
-    const mockFun = { setData: jest.fn() };
-
-    fireEvent.dragStart(screen.queryByText("Dosa"), { dataTransfer: mockFun });
-    expect(mockFun.setData).toBeCalled();
 });

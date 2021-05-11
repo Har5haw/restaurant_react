@@ -48,6 +48,8 @@ const TablesList = () => {
 
     const popupData = useSelector((state) => state.popupData);
 
+    const itemsData = useSelector((state) => state.itemsList);
+
     const dispatch = useDispatch();
 
     const style = useStyles();
@@ -84,7 +86,11 @@ const TablesList = () => {
         dispatch(
             addItemToTable({
                 index: index,
-                itemData: JSON.parse(event.dataTransfer.getData("itemData")),
+                itemData: itemsData.filter(
+                    (ele) =>
+                        ele.id ===
+                        parseInt(event.dataTransfer.getData("itemId"))
+                )[0],
             })
         );
     };
