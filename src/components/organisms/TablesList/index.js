@@ -7,12 +7,9 @@ import {
     addItemToTable,
     changeServings,
     deleteItem,
-} from "../../../features/tableList/tableListSlice";
+} from "../../../features/tableList/index";
 import { useDispatch, useSelector } from "react-redux";
-import {
-    changeData,
-    closePopup,
-} from "../../../features/popupData/popupDataSlice";
+import { changeData, closePopup } from "../../../features/popupData/index";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -71,7 +68,6 @@ const TablesList = () => {
     const click = (index) => {
         dispatch(
             changeData({
-                tableData: { ...tableData[index] },
                 tableIndex: index,
             })
         );

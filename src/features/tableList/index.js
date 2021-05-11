@@ -34,7 +34,7 @@ export const tableListSlice = createSlice({
                     table.items[itemIndex].itemPrice;
                 table.items[itemIndex].servings = servings;
                 return;
-            } else if (servings === "0") {
+            } else if (parseInt(servings) === 0) {
                 table.totalItems -= 1;
                 table.totalPrice -=
                     table.items[itemIndex].itemPrice *
