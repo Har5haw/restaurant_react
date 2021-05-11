@@ -10,6 +10,7 @@ describe("Table", () => {
                 <TablesList />
             </Provider>
         );
+
         expect(wrapper).toBeDefined;
 
         fireEvent.click(wrapper.queryByText("Shaw"));
@@ -52,6 +53,26 @@ describe("Table", () => {
         ).not.toBeInTheDocument();
         expect(wrapper.queryByText("Dosa")).toBeInTheDocument();
         expect(wrapper.queryByText("Total Amount: 20")).toBeInTheDocument();
+        expect(wrapper.queryByText("Table Name: Shaw")).toBeInTheDocument();
+
+        fireEvent.click(wrapper.queryByText("Close"));
+    });
+    it("Change servings", () => {
+        const wrapper = render(
+            <Provider store={store}>
+                <TablesList />
+            </Provider>
+        );
+
+        expect(wrapper).toBeDefined;
+
+        fireEvent.click(wrapper.queryByText("Shaw"));
+
+        fireEvent.change(screen.queryByTestId("serving-input-0"), {
+            target: { value: 2 },
+        });
+        expect(wrapper.queryByText("Dosa")).toBeInTheDocument();
+        expect(wrapper.queryByText("Total Amount: 40")).toBeInTheDocument();
         expect(wrapper.queryByText("Table Name: Shaw")).toBeInTheDocument();
     });
     it("Search bar testing", async () => {

@@ -65,7 +65,9 @@ const PopupData = (props) => {
                                     }
                                     value={row.servings}
                                     type="number"
-                                    aria-label={"servings-input-" + index}
+                                    inputProps={{
+                                        "data-testid": "serving-input-" + index,
+                                    }}
                                 />
                             </TableCell>
                             <TableCell align="left">
