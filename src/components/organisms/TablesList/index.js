@@ -115,8 +115,9 @@ const TablesList = () => {
             <Box className={style.input}>
                 <SearchBar
                     placeholder="Search by Table Name"
-                    onKeyUp={handleKeyUp}
+                    onChange={handleKeyUp}
                     className={style.inputField}
+                    inputProps={{ "data-testid": "search-tables" }}
                 />
             </Box>
             <PopUpMolecule

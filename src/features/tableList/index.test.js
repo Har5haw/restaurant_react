@@ -116,7 +116,7 @@ describe("Table List Slice", () => {
         });
     });
 
-    it("Change Servings less than 1", () => {
+    it("Change Servings is 0", () => {
         expect(
             TableListSlice(
                 testData,
@@ -132,6 +132,32 @@ describe("Table List Slice", () => {
             totalItems: 0,
             totalPrice: 0,
             items: [],
+        });
+    });
+
+    it("Change Servings negative", () => {
+        expect(
+            TableListSlice(
+                testData,
+                changeServings({
+                    servings: -2,
+                    itemIndex: 0,
+                    tableIndex: 0,
+                })
+            )
+        ).toContainEqual({
+            id: 0,
+            tableName: "Reyna",
+            totalItems: 1,
+            totalPrice: 20,
+            items: [
+                {
+                    id: 0,
+                    itemName: "Dosa",
+                    itemPrice: 20,
+                    servings: 1,
+                },
+            ],
         });
     });
 

@@ -1,4 +1,4 @@
-import { fireEvent, render } from "@testing-library/react";
+import { act, fireEvent, render, screen } from "@testing-library/react";
 import { Provider } from "react-redux";
 import { store } from "../../../app/store";
 import TablesList from ".";
@@ -53,5 +53,41 @@ describe("Table", () => {
         expect(wrapper.queryByText("Dosa")).toBeInTheDocument();
         expect(wrapper.queryByText("Total Amount: 20")).toBeInTheDocument();
         expect(wrapper.queryByText("Table Name: Shaw")).toBeInTheDocument();
+    });
+    it("Search bar testing", async () => {
+        const wrapper = render(
+            <Provider store={store}>
+                <TablesList />
+            </Provider>
+        );
+        expect(wrapper).toBeDefined;
+        const searchBar = wrapper.getByTestId("search-tables");
+        fireEvent.change(searchBar, { target: { value: "Shaw" } });
+
+        const comparingAllTableNames = (ele) => {
+            if (ele.tableName === "Shaw") {
+                expect(screen.queryByText(ele.tableName)).toBeInTheDocument();
+            } else {
+                expect(
+                    screen.queryByText(ele.tableName)
+                ).not.toBeInTheDocument();
+            }
+        };
+
+        const executeAfterTheSearchBarCoolDown = () => {
+            require("../../../data/tables.json").forEach(
+                comparingAllTableNames
+            );
+        };
+
+        const promiseForCoolDown = () =>
+            new Promise((resolve) => {
+                setTimeout(() => {
+                    executeAfterTheSearchBarCoolDown();
+                    resolve();
+                }, 500);
+            });
+
+        await act(() => promiseForCoolDown());
     });
 });

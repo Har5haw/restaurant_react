@@ -2,7 +2,7 @@ import { fireEvent, render } from "@testing-library/react";
 import PopUp from ".";
 
 describe("Popup ", () => {
-    it("render popup when true", () => {
+    it("render popup when open true", () => {
         const wrapper = render(
             <PopUp open={true} tableName={"Shaw"} totalPrice={20} />
         );
@@ -11,7 +11,7 @@ describe("Popup ", () => {
         expect(wrapper.queryByText("Table Name: Shaw")).toBeInTheDocument();
         expect(wrapper.queryByText("Total Amount: 20")).toBeInTheDocument();
     });
-    it("render popup when false", () => {
+    it("render popup when open false", () => {
         const wrapper = render(<PopUp open={false} tableName={"Shaw"} />);
         expect(wrapper).toBeDefined;
 

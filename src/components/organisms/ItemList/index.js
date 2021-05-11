@@ -59,8 +59,9 @@ const ItemsList = () => {
             <Box className={style.input}>
                 <SearchBar
                     placeholder="Search by Item Name, by Course"
-                    onKeyUp={handleKeyUp}
+                    onChange={handleKeyUp}
                     className={style.inputField}
+                    inputProps={{ "data-testid": "search-items" }}
                 />
             </Box>
             <Box className={style.grid} aria-label="grid">

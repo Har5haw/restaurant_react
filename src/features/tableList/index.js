@@ -35,11 +35,10 @@ export const tableListSlice = createSlice({
                 table.items[itemIndex].servings = servings;
                 return;
             } else if (parseInt(servings) === 0) {
-                table.totalItems -= 1;
-                table.totalPrice -=
-                    table.items[itemIndex].itemPrice *
-                    table.items[itemIndex].servings;
-                table.items.splice(itemIndex, 1);
+                tableListSlice.reducer(
+                    state,
+                    deleteItem({ itemIndex: itemIndex, tableIndex: tableIndex })
+                );
             }
         },
         deleteItem: (state, action) => {
