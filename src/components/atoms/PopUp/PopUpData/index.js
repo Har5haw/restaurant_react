@@ -71,6 +71,7 @@ const PopupData = (props) => {
                                 <Delete
                                     style={{ cursor: "pointer" }}
                                     onClick={() => props.onDelete(index)}
+                                    aria-label={"delete-button-" + index}
                                 />
                             </TableCell>
                         </TableRow>
@@ -91,6 +92,8 @@ const PopupData = (props) => {
 
 PopupData.propsType = {
     items: PropTypes.array.isRequired,
+    onServingsChange: PropTypes.func.isRequired,
+    onDelete: PropTypes.func.isRequired,
 };
 
 PopupData.defaultProps = {
