@@ -3,11 +3,31 @@ import NavigationBar from "../../atoms/NavigationBar";
 import ItemsList from "../../organisms/ItemList";
 import TablesList from "../../organisms/TablesList";
 import HomeTemplate from "../../templates/Home";
+import { useAuth0 } from "@auth0/auth0-react";
 
 const HomePage = (props) => {
+    const {
+        loginWithRedirect,
+        user,
+        isAuthenticated,
+        isLoading,
+        logout,
+    } = useAuth0();
     return (
         <HomeTemplate
-            navigationBarComponent={<NavigationBar />}
+            navigationBarComponent={
+                <NavigationBar
+                    login={loginWithRedirect}
+                    user={user}
+                    isAuthenticated={isAuthenticated}
+                    isLoading={isLoading}
+                    logout={() =>
+                        logout({
+                            returnTo: window.location.origin,
+                        })
+                    }
+                />
+            }
             tableListComponent={<TablesList />}
             itemListComponent={<ItemsList />}
         />
