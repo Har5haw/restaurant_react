@@ -34,7 +34,11 @@ popup.args = {
                 servings: 1,
             },
         ],
-        onServingsChange: () => {},
-        onDelete: () => {},
+        onServingsChange: () => {
+            console.log("servings change");
+        },
+        onDelete: () => {
+            console.log("delete");
+        },
     },
 };

@@ -1,5 +1,8 @@
-import TableListSlice from "./index";
-import { addItemToTable, changeServings, deleteItem } from "./index";
+import TableListSlice, {
+    addItemToTable,
+    changeServings,
+    deleteItem,
+} from "./index";
 
 const testData = [
     {
