@@ -6,6 +6,17 @@ export const tableListSlice = createSlice({
     name: "tableListSlice",
     initialState: initialState,
     reducers: {
+        editCustomerName: (state, action) => {
+            state[action.payload.tableId].tableName =
+                action.payload.customerName;
+        },
+        clearTable: (state, action) => {
+            const tableId = action.payload;
+            state[tableId].tableName = "";
+            state[tableId].items = [];
+            state[tableId].totalItems = 0;
+            state[tableId].totalPrice = 0;
+        },
         addItemToTable: (state, action) => {
             const index = action.payload.index;
             const item = action.payload.itemData;
@@ -58,6 +69,8 @@ export const {
     addItemToTable,
     changeServings,
     deleteItem,
+    editCustomerName,
+    clearTable,
 } = tableListSlice.actions;
 
 export default tableListSlice.reducer;

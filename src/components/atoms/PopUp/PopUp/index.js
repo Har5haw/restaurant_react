@@ -14,7 +14,7 @@ const PopUp = (props) => {
         <Dialog open={props.open} onClose={props.close} maxWidth={"xl"}>
             <DialogTitle>
                 <Typography variant="h2">
-                    Table Name: {props.tableName}
+                    Table Number: {props.tableName + 1}
                 </Typography>
             </DialogTitle>
             <DialogContent dividers>{props.children}</DialogContent>
@@ -25,6 +25,9 @@ const PopUp = (props) => {
                 </Typography>
             </DialogContent>
             <DialogActions>
+                <Button onClick={props.closeServings} color="primary">
+                    <Typography>Close Servings</Typography>
+                </Button>
                 <Button onClick={props.close} color="primary">
                     <Typography>Close</Typography>
                 </Button>

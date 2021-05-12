@@ -1,12 +1,15 @@
 import React from "react";
+import PropTypes from "prop-types";
+import ProfileTemplate from "../../templates/ProfileTemplate";
 import NavigationBar from "../../atoms/NavigationBar";
-import ItemsList from "../../organisms/ItemList";
-import TablesList from "../../organisms/TablesList";
-import HomeTemplate from "../../templates/HomeTemplate";
+import { Box } from "@material-ui/core";
 import { useAuth0 } from "@auth0/auth0-react";
 import { useSelector } from "react-redux";
+import TablesList from "../../organisms/TablesList";
 
-const HomePage = (props) => {
+ProfilePage.propTypes = {};
+
+function ProfilePage(props) {
     const {
         loginWithRedirect,
         user,
@@ -15,12 +18,14 @@ const HomePage = (props) => {
         logout,
     } = useAuth0();
 
-    const tableData = useSelector((state) => state.tableList);
+    const tableData = useSelector((state) => state.waiterServingsList);
 
-    const popupData = useSelector((state) => state.popupData);
+    const popupDataForWaiterServings = useSelector(
+        (state) => state.popupDataForWaiterServings
+    );
 
     return (
-        <HomeTemplate
+        <ProfileTemplate
             navigationBarComponent={
                 <NavigationBar
                     login={loginWithRedirect}
@@ -35,11 +40,14 @@ const HomePage = (props) => {
                 />
             }
             tableListComponent={
-                <TablesList tableData={tableData} popupData={popupData} />
+                <TablesList
+                    tableData={tableData}
+                    popupData={popupDataForWaiterServings}
+                />
             }
-            itemListComponent={<ItemsList />}
+            profileComponent={<Box />}
         />
     );
-};
+}
 
-export default HomePage;
+export default ProfilePage;

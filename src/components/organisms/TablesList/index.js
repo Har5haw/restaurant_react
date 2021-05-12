@@ -2,15 +2,18 @@ import { Box, makeStyles } from "@material-ui/core";
 import React, { useState } from "react";
 import TableComp from "../../molecules/Table";
 import SearchBar from "../../atoms/SeachBar/index";
-import PopUpMolecule from "../../molecules/PopUp";
+import PopUpMolecule from "../PopUp";
 import {
     addItemToTable,
     changeServings,
     deleteItem,
+    editCustomerName,
+    clearTable,
 } from "../../../features/tableList/index";
 import { useDispatch, useSelector } from "react-redux";
 import { changeData, closePopup } from "../../../features/popupData/index";
 import { useAuth0 } from "@auth0/auth0-react";
+import { addServingsToWaiterList } from "../../../features/waiterServingsList";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -39,14 +42,12 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const TablesList = () => {
-    const tableData = useSelector((state) => state.tableList);
-
+const TablesList = (props) => {
     const [searchBarText, setSearchBarText] = useState("");
 
-    const popupData = useSelector((state) => state.popupData);
-
     const itemsData = useSelector((state) => state.itemsList);
+
+    const popupData = useSelector((state) => state.popupData);
 
     const dispatch = useDispatch();
 
@@ -68,7 +69,7 @@ const TablesList = () => {
         setSearchBarText(searchText);
     };
 
-    const click = (index) => {
+    const clickTable = (index) => {
         dispatch(
             changeData({
                 tableIndex: index,
@@ -123,35 +124,61 @@ const TablesList = () => {
                     inputProps={{ "data-testid": "search-tables" }}
                 />
             </Box>
-            <PopUpMolecule
-                popup={{
-                    open: popupData.isOpen,
-                    close: () => {
-                        dispatch(closePopup());
-                    },
-                    tableName: tableData[popupData.tableIndex].tableName,
-                    totalPrice: tableData[popupData.tableIndex].totalPrice,
-                    user: user ? user.name : "Loading...",
-                }}
-                popupData={{
-                    items: tableData[popupData.tableIndex].items,
-                    onServingsChange: onServingsChange,
-                    onDelete: onDelete,
-                }}
-            />
+            {popupData.isOpen ? (
+                <PopUpMolecule
+                    popup={{
+                        open: popupData.isOpen,
+                        close: () => {
+                            dispatch(closePopup());
+                        },
+                        closeServings: () => {
+                            dispatch(
+                                addServingsToWaiterList(
+                                    props.tableData[popupData.tableIndex]
+                                )
+                            );
+                            dispatch(closePopup());
+                            dispatch(clearTable(popupData.tableIndex));
+                        },
+                        tableName: popupData.tableIndex,
+                        totalPrice:
+                            props.tableData[popupData.tableIndex].totalPrice,
+                        user: user ? user.name : "Loading...",
+                    }}
+                    popupData={{
+                        items: props.tableData[popupData.tableIndex].items,
+                        onServingsChange: onServingsChange,
+                        onDelete: onDelete,
+                    }}
+                    customerName={
+                        props.tableData[popupData.tableIndex].tableName
+                    }
+                    onSave={(customerName) => {
+                        dispatch(
+                            editCustomerName({
+                                tableId: popupData.tableIndex,
+                                customerName: customerName,
+                            })
+                        );
+                    }}
+                />
+            ) : (
+                <Box />
+            )}
+
             <Box className={style.list}>
                 {(
-                    tableData.filter((table) =>
+                    props.tableData.filter((table) =>
                         table.tableName
                             .toLowerCase()
                             .includes(searchBarText.toLowerCase())
-                    ) || tableData
+                    ) || props.tableData
                 ).map((element) => (
                     <TableComp
                         key={"table-" + element.id}
                         onDragOver={allowDrop}
                         onDrop={(event) => drop(event, element.id)}
-                        onClick={() => click(element.id)}
+                        onClick={() => clickTable(element.id)}
                         data={element}
                     />
                 ))}

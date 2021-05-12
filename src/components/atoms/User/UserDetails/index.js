@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Box, Button, makeStyles, Typography } from "@material-ui/core";
+import { useHistory } from "react-router-dom";
 
 const useStyle = makeStyles(() => ({
     user: {
@@ -17,6 +18,7 @@ const useStyle = makeStyles(() => ({
         fontSize: "20px",
         fontWeight: "bolder",
         marginRight: "1vw",
+        cursor: "pointer",
     },
     email: {
         fontSize: "15px",
@@ -43,11 +45,17 @@ UserDetails.propTypes = {
 
 function UserDetails(props) {
     const style = useStyle();
+
+    const history = useHistory();
+
     return props.isAuthenticated ? (
         <Box className={style.user}>
             <img className={style.image} src={props.user.picture} />
             <Box>
-                <Typography className={style.username}>
+                <Typography
+                    className={style.username}
+                    onClick={() => history.push("/profile")}
+                >
                     {props.user.name}
                 </Typography>
                 <Typography className={style.email}>
