@@ -44,6 +44,7 @@ function ProfilePage(props) {
                 <TablesList
                     tableData={tableData}
                     popupData={popupDataForWaiterServings}
+                    editablePopup={false}
                 />
             }
             profileComponent={<ProfileComponent />}

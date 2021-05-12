@@ -1,6 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Box } from "@material-ui/core";
 import EditCustomerName from "../../atoms/PopUp/CustomerName/EditCustomerName";
 import SavedCustomerName from "../../atoms/PopUp/CustomerName/SavedCustomerName";
 

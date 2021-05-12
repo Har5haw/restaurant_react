@@ -131,6 +131,10 @@ const TablesList = (props) => {
         );
     };
 
+    const onClosePopUp = () => {
+        dispatch(closePopup());
+    };
+
     return (
         <Box className={style.root}>
             <Box className={style.input}>
@@ -145,22 +149,30 @@ const TablesList = (props) => {
                 <PopUpMolecule
                     popup={{
                         open: popupData.isOpen,
-                        close: () => {
-                            dispatch(closePopup());
-                        },
+
+                        close: onClosePopUp,
+
                         closeServings: closeServings,
+
                         tableName: popupData.tableIndex,
+
                         totalPrice:
                             props.tableData[popupData.tableIndex].totalPrice,
+
                         user: user ? user.name : "Loading...",
+
                         showCloseServings:
-                            props.tableData[popupData.tableIndex].items.length >
-                            0,
+                            props.tableData[popupData.tableIndex].items
+                                .length &&
+                            props.tableData[popupData.tableIndex].tableName,
+
+                        editable: props.editablePopup,
                     }}
                     popupData={{
                         items: props.tableData[popupData.tableIndex].items,
                         onServingsChange: onServingsChange,
                         onDelete: onDelete,
+                        editable: props.editablePopup,
                     }}
                     customerName={
                         props.tableData[popupData.tableIndex].tableName

@@ -43,11 +43,15 @@ const PopupData = (props) => {
                                         <strong>Servings</strong>
                                     </Typography>
                                 </TableCell>
-                                <TableCell>
-                                    <Typography>
-                                        <strong>Delete</strong>
-                                    </Typography>
-                                </TableCell>
+                                {props.editable ? (
+                                    <TableCell>
+                                        <Typography>
+                                            <strong>Delete</strong>
+                                        </Typography>
+                                    </TableCell>
+                                ) : (
+                                    <Box />
+                                )}
                             </TableRow>
                         </TableHead>
                         <TableBody>
@@ -63,32 +67,43 @@ const PopupData = (props) => {
                                         <Typography>{row.itemPrice}</Typography>
                                     </TableCell>
                                     <TableCell>
-                                        <OutlinedInput
-                                            onChange={(event) =>
-                                                props.onServingsChange(
-                                                    event,
-                                                    index
-                                                )
-                                            }
-                                            value={row.servings}
-                                            type="number"
-                                            inputProps={{
-                                                "data-testid":
-                                                    "serving-input-" + index,
-                                            }}
-                                        />
+                                        {props.editable ? (
+                                            <OutlinedInput
+                                                onChange={(event) =>
+                                                    props.onServingsChange(
+                                                        event,
+                                                        index
+                                                    )
+                                                }
+                                                value={row.servings}
+                                                type="number"
+                                                inputProps={{
+                                                    "data-testid":
+                                                        "serving-input-" +
+                                                        index,
+                                                }}
+                                            />
+                                        ) : (
+                                            <Typography>
+                                                {row.servings}
+                                            </Typography>
+                                        )}
                                     </TableCell>
-                                    <TableCell align="left">
-                                        <Delete
-                                            style={{ cursor: "pointer" }}
-                                            onClick={() =>
-                                                props.onDelete(index)
-                                            }
-                                            aria-label={
-                                                "delete-button-" + index
-                                            }
-                                        />
-                                    </TableCell>
+                                    {props.editable ? (
+                                        <TableCell align="left">
+                                            <Delete
+                                                style={{ cursor: "pointer" }}
+                                                onClick={() =>
+                                                    props.onDelete(index)
+                                                }
+                                                aria-label={
+                                                    "delete-button-" + index
+                                                }
+                                            />
+                                        </TableCell>
+                                    ) : (
+                                        <Box />
+                                    )}
                                 </TableRow>
                             ))}
                         </TableBody>

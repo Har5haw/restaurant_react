@@ -7,7 +7,7 @@ export const waiterServingsListSlice = createSlice({
     initialState: initialState,
     reducers: {
         addServingsToWaiterList: (state, action) => {
-            state.push(action.payload);
+            state.unshift(action.payload);
             console.log(action.payload);
         },
     },

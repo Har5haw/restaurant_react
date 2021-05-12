@@ -35,7 +35,11 @@ const HomePage = (props) => {
                 />
             }
             tableListComponent={
-                <TablesList tableData={tableData} popupData={popupData} />
+                <TablesList
+                    tableData={tableData}
+                    popupData={popupData}
+                    editablePopup={true}
+                />
             }
             itemListComponent={<ItemsList />}
         />

@@ -6,6 +6,7 @@ import {
     DialogContent,
     DialogTitle,
     Typography,
+    Box,
 } from "@material-ui/core";
 import PropTypes from "prop-types";
 
@@ -25,13 +26,17 @@ const PopUp = (props) => {
                 </Typography>
             </DialogContent>
             <DialogActions>
-                <Button
-                    onClick={props.closeServings}
-                    color="primary"
-                    disabled={!props.showCloseServings}
-                >
-                    <Typography>Close Servings</Typography>
-                </Button>
+                {props.editable ? (
+                    <Button
+                        onClick={props.closeServings}
+                        color="primary"
+                        disabled={!props.showCloseServings}
+                    >
+                        <Typography>Close Servings</Typography>
+                    </Button>
+                ) : (
+                    <Box />
+                )}
                 <Button onClick={props.close} color="primary">
                     <Typography>Close</Typography>
                 </Button>

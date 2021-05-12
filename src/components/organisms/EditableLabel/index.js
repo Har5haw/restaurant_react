@@ -10,18 +10,24 @@ EditableLabel.propTypes = {
 
 function EditableLabel(props) {
     const [customerName, setCustomerName] = useState(props.labelText);
+
     const [isEdit, setIsEdit] = useState(props.labelText === "" ? true : false);
+
     const onCustomerNameChange = (event) => {
         setCustomerName(event.target.value);
+    };
+
+    const onSave = () => {
+        props.onSave(customerName);
+        if (customerName) {
+            setIsEdit(false);
+        }
     };
     return (
         <CustomerNameMolecule
             onCustomerNameChange={onCustomerNameChange}
             customerName={props.labelText}
-            saveCustomerName={() => {
-                props.onSave(customerName);
-                setIsEdit(false);
-            }}
+            saveCustomerName={onSave}
             editClick={() => setIsEdit(true)}
             edit={isEdit}
             labelHead={props.labelHead}
