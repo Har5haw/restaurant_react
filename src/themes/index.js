@@ -50,6 +50,9 @@ const baseTheme = createMuiTheme({
         h2: {
             fontSize: 22,
         },
+        subtitle1: {
+            fontSize: 25,
+        },
     },
 });
 

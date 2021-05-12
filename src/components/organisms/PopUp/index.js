@@ -1,30 +1,17 @@
-import React, { useState } from "react";
+import React from "react";
 import PopUp from "../../atoms/PopUp/PopUp";
 import PopupData from "../../atoms/PopUp/PopUpData";
 import PropTypes from "prop-types";
-import CustomerNameMolecule from "../../molecules/customerName";
+
+import EditableLabel from "../EditableLabel";
 
 const PopUpMolecule = (props) => {
-    const [customerName, setCustomerName] = useState(props.customerName);
-    const [isEdit, setIsEdit] = useState(
-        props.customerName === "" ? true : false
-    );
-
-    const onCustomerNameChange = (event) => {
-        setCustomerName(event.target.value);
-    };
-
     return (
         <PopUp {...props.popup}>
-            <CustomerNameMolecule
-                onCustomerNameChange={onCustomerNameChange}
-                customerName={props.customerName}
-                saveCustomerName={() => {
-                    props.onSave(customerName);
-                    setIsEdit(false);
-                }}
-                editClick={() => setIsEdit(true)}
-                edit={isEdit}
+            <EditableLabel
+                labelText={props.customerName}
+                onSave={props.onSave}
+                labelHead={"Customer Name"}
             />
             <PopupData {...props.popupData} />
         </PopUp>

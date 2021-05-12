@@ -114,6 +114,23 @@ const TablesList = (props) => {
         );
     };
 
+    const closeServings = () => {
+        dispatch(
+            addServingsToWaiterList(props.tableData[popupData.tableIndex])
+        );
+        dispatch(closePopup());
+        dispatch(clearTable(popupData.tableIndex));
+    };
+
+    const onCustomerNameSave = (customerName) => {
+        dispatch(
+            editCustomerName({
+                tableId: popupData.tableIndex,
+                customerName: customerName,
+            })
+        );
+    };
+
     return (
         <Box className={style.root}>
             <Box className={style.input}>
@@ -131,19 +148,14 @@ const TablesList = (props) => {
                         close: () => {
                             dispatch(closePopup());
                         },
-                        closeServings: () => {
-                            dispatch(
-                                addServingsToWaiterList(
-                                    props.tableData[popupData.tableIndex]
-                                )
-                            );
-                            dispatch(closePopup());
-                            dispatch(clearTable(popupData.tableIndex));
-                        },
+                        closeServings: closeServings,
                         tableName: popupData.tableIndex,
                         totalPrice:
                             props.tableData[popupData.tableIndex].totalPrice,
                         user: user ? user.name : "Loading...",
+                        showCloseServings:
+                            props.tableData[popupData.tableIndex].items.length >
+                            0,
                     }}
                     popupData={{
                         items: props.tableData[popupData.tableIndex].items,
@@ -153,14 +165,7 @@ const TablesList = (props) => {
                     customerName={
                         props.tableData[popupData.tableIndex].tableName
                     }
-                    onSave={(customerName) => {
-                        dispatch(
-                            editCustomerName({
-                                tableId: popupData.tableIndex,
-                                customerName: customerName,
-                            })
-                        );
-                    }}
+                    onSave={onCustomerNameSave}
                 />
             ) : (
                 <Box />

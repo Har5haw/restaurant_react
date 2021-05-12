@@ -26,7 +26,7 @@ const TableName = (props) => {
         <Box className={style.root}>
             <Box className={style.contentContainer}>
                 <Typography style={{ margin: "0 0 0 2.5vw" }}>
-                    <strong> TableNo: </strong>
+                    <strong> Table: </strong>
                 </Typography>
                 <Typography style={{ margin: "0 0 0 2.5vw" }}>
                     <strong> Items: </strong>
@@ -35,7 +35,7 @@ const TableName = (props) => {
                     <strong> Price: </strong>
                 </Typography>
                 <Typography style={{ margin: "0 0 0 2.5vw" }}>
-                    <strong> Reserved: </strong>
+                    <strong> Name: </strong>
                 </Typography>
             </Box>
             <Box className={style.contentContainer}>
@@ -49,7 +49,7 @@ const TableName = (props) => {
                     {props.totalPrice} /-
                 </Typography>
                 <Typography style={{ margin: "0 0 0 1vw" }}>
-                    {props.tableName || "No One"}
+                    {props.tableName || "Not Reserved"}
                 </Typography>
             </Box>
         </Box>

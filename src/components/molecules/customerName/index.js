@@ -10,6 +10,7 @@ CustomerNameMolecule.propTypes = {
     customerName: PropTypes.string.isRequired,
     editClick: PropTypes.func.isRequired,
     edit: PropTypes.bool.isRequired,
+    labelHead: PropTypes.string.isRequired,
 };
 
 function CustomerNameMolecule(props) {
@@ -18,11 +19,13 @@ function CustomerNameMolecule(props) {
             onCustomerNameChange={props.onCustomerNameChange}
             saveCustomerName={props.saveCustomerName}
             customerName={props.customerName}
+            labelHead={props.labelHead}
         />
     ) : (
         <SavedCustomerName
             customerName={props.customerName}
             onEditClick={props.editClick}
+            labelHead={props.labelHead}
         />
     );
 }

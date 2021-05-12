@@ -7,6 +7,7 @@ EditCustomerName.propTypes = {
     onCustomerNameChange: PropTypes.func.isRequired,
     saveCustomerName: PropTypes.func.isRequired,
     customerName: PropTypes.string.isRequired,
+    labelHead: PropTypes.string.isRequired,
 };
 
 const useStyles = makeStyles(() => ({
@@ -28,7 +29,7 @@ function EditCustomerName(props) {
                 fullWidth
                 onChange={props.onCustomerNameChange}
                 defaultValue={props.customerName}
-                placeholder="Customer Name"
+                placeholder={props.labelHead}
             />
             <Button onClick={props.saveCustomerName}>Save</Button>
         </Box>

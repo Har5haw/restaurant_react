@@ -4,7 +4,7 @@ import PopUpMolecule from ".";
 import baseTheme from "../../../themes/index";
 
 export default {
-    title: "Molecules/Popup",
+    title: "Organisms/Popup",
     component: PopUpMolecule,
 };
 

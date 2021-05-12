@@ -25,7 +25,11 @@ const PopUp = (props) => {
                 </Typography>
             </DialogContent>
             <DialogActions>
-                <Button onClick={props.closeServings} color="primary">
+                <Button
+                    onClick={props.closeServings}
+                    color="primary"
+                    disabled={!props.showCloseServings}
+                >
                     <Typography>Close Servings</Typography>
                 </Button>
                 <Button onClick={props.close} color="primary">

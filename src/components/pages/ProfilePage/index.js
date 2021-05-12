@@ -6,6 +6,7 @@ import { Box } from "@material-ui/core";
 import { useAuth0 } from "@auth0/auth0-react";
 import { useSelector } from "react-redux";
 import TablesList from "../../organisms/TablesList";
+import ProfileComponent from "../../organisms/Profile";
 
 ProfilePage.propTypes = {};
 
@@ -45,7 +46,7 @@ function ProfilePage(props) {
                     popupData={popupDataForWaiterServings}
                 />
             }
-            profileComponent={<Box />}
+            profileComponent={<ProfileComponent />}
         />
     );
 }

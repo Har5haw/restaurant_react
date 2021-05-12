@@ -6,6 +6,7 @@ import { Edit } from "@material-ui/icons";
 SavedCustomerName.propTypes = {
     customerName: PropTypes.string.isRequired,
     onEditClick: PropTypes.func.isRequired,
+    labelHead: PropTypes.string.isRequired,
 };
 
 const useStyle = makeStyles(() => ({
@@ -23,7 +24,9 @@ function SavedCustomerName(props) {
 
     return (
         <Box className={style.root}>
-            <Typography>Customer Name: {props.customerName}</Typography>
+            <Typography>
+                {props.labelHead}: {props.customerName}
+            </Typography>
             <Edit style={{ cursor: "pointer" }} onClick={props.onEditClick} />
         </Box>
     );
