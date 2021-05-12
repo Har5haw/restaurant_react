@@ -14,8 +14,8 @@ const Template = (args) => (
     </ThemeProvider>
 );
 
-export const item = Template.bind({});
-item.args = {
+export const itemCard = Template.bind({});
+itemCard.args = {
     data: {
         image:
             "https://www.quickanddirtytips.com/sites/default/files/images/14471/dosa-compressor.jpg",

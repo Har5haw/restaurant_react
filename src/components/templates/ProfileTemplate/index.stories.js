@@ -1,21 +1,21 @@
 import { ThemeProvider } from "@material-ui/styles";
 import React from "react";
-import HomeTemplate from "./index";
+import ProfileTemplate from "./index";
 import baseTheme from "../../../themes/index";
 import { Box } from "@material-ui/core";
 
 export default {
-    title: "Templates/Home Template",
-    component: HomeTemplate,
+    title: "Templates/Profile Template",
+    component: ProfileTemplate,
 };
 
 const Template = (args) => (
     <ThemeProvider theme={baseTheme}>
-        <HomeTemplate {...args} />
+        <ProfileTemplate {...args} />
     </ThemeProvider>
 );
 
-export const homeTemplate = Template.bind({});
+export const profileTemplate = Template.bind({});
 const style = {
     height: "100%",
     width: "100%",
@@ -24,7 +24,7 @@ const style = {
     alignItems: "center",
     color: "white",
 };
-homeTemplate.args = {
+profileTemplate.args = {
     navigationBarComponent: (
         <Box
             style={{
@@ -45,14 +45,14 @@ homeTemplate.args = {
             Table List
         </Box>
     ),
-    itemListComponent: (
+    profileComponent: (
         <Box
             style={{
                 ...style,
                 background: "green",
             }}
         >
-            Item List
+            Profile
         </Box>
     ),
 };

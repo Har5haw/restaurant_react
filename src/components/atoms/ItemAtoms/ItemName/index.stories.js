@@ -4,7 +4,7 @@ import baseTheme from "../../../../themes/index";
 import { ThemeProvider } from "@material-ui/core/styles";
 
 export default {
-    title: "Atoms/Item name",
+    title: "Atoms/Item Name",
     component: ItemName,
 };
 

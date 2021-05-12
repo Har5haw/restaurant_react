@@ -14,8 +14,8 @@ const Template = (args) => (
     </ThemeProvider>
 );
 
-export const popUp = Template.bind({});
-popUp.args = {
+export const popup = Template.bind({});
+popup.args = {
     tableName: "Harsha",
     totalPrice: 20,
     open: true,

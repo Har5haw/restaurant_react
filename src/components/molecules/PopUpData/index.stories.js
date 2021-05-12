@@ -4,7 +4,7 @@ import PopupData from ".";
 import baseTheme from "../../../themes/index";
 
 export default {
-    title: "Molecules/Popup",
+    title: "Molecules/Popup Data",
     component: PopupData,
     argTypes: {
         onServingsChange: { action: "Servings change" },

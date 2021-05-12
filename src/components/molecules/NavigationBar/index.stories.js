@@ -4,7 +4,7 @@ import NavigationBar from "./index";
 import baseTheme from "../../../themes/index";
 
 export default {
-    title: "Molecules/Navigation bar",
+    title: "Molecules/Navigation Bar",
     component: NavigationBar,
     argTypes: {
         login: { action: "Login" },

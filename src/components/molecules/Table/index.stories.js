@@ -14,8 +14,8 @@ const Template = (args) => (
     </ThemeProvider>
 );
 
-export const table = Template.bind({});
-table.args = {
+export const tableCard = Template.bind({});
+tableCard.args = {
     data: {
         id: 0,
         tableName: "Harsha",

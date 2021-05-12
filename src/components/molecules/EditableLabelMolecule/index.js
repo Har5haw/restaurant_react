@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
-import EditLabel from "../../atoms/PopUp/EditableLabelAtoms/EditLabel";
-import SavedLabel from "../../atoms/PopUp/EditableLabelAtoms/SavedLabel";
+import EditLabel from "../../atoms/EditableLabelAtoms/EditLabel";
+import SavedLabel from "../../atoms/EditableLabelAtoms/SavedLabel";
 
 EditableLabelMolecule.propTypes = {
     onLabelChange: PropTypes.func.isRequired,

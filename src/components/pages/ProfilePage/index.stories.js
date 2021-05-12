@@ -1,21 +1,21 @@
 import { ThemeProvider } from "@material-ui/styles";
 import React from "react";
 import { Provider } from "react-redux";
-import HomePage from ".";
+import ProfilePage from ".";
 import baseTheme from "../../../themes/index";
 import { store } from "../../../app/store";
 
 export default {
-    title: "Pages/Home Page",
-    component: HomePage,
+    title: "Pages/Profile Page",
+    component: ProfilePage,
 };
 
 const Template = (args) => (
     <ThemeProvider theme={baseTheme}>
         <Provider store={store}>
-            <HomePage {...args} />
+            <ProfilePage {...args} />
         </Provider>
     </ThemeProvider>
 );
 
-export const homePage = Template.bind({});
+export const profilePage = Template.bind({});
