@@ -4,7 +4,7 @@ import { ThemeProvider } from "@material-ui/core/styles";
 import baseTheme from "../../../themes/index";
 
 export default {
-    title: "Atoms : search bar",
+    title: "Atoms/search bar",
     component: SearchBar,
 };
 

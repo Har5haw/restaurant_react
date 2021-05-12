@@ -4,7 +4,7 @@ import baseTheme from "../../../themes/index";
 import { ThemeProvider } from "@material-ui/core/styles";
 
 export default {
-    title: "Molecules : Table Card",
+    title: "Molecules/Table Card",
     component: Table,
 };
 

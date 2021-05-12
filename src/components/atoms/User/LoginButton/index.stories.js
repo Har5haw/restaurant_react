@@ -3,7 +3,7 @@ import LoginButton from ".";
 import baseTheme from "../../../../themes/index";
 
 export default {
-    title: "Atom: LoginButton",
+    title: "Atoms/LoginButton",
     component: LoginButton,
     argTypes: {
         login: { action: "Login" },
@@ -17,4 +17,3 @@ const Template = (args) => (
 );
 
 export const loginButton = Template.bind({});
-loginButton.args = {};

@@ -4,7 +4,7 @@ import HomePage from ".";
 import baseTheme from "../../../themes/index";
 
 export default {
-    title: "Pages: Home Page",
+    title: "Pages/Home Page",
     component: HomePage,
 };
 

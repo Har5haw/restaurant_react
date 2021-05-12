@@ -4,7 +4,7 @@ import NavigationBar from "./index";
 import baseTheme from "../../../themes/index";
 
 export default {
-    title: "Atoms : Navigation bar",
+    title: "Atoms/Navigation bar",
     component: NavigationBar,
 };
 

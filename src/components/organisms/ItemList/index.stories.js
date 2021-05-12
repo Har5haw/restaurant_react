@@ -4,7 +4,7 @@ import baseTheme from "../../../themes/index";
 import { ThemeProvider } from "@material-ui/core/styles";
 
 export default {
-    title: "Organisms : Item List",
+    title: "Organisms/Item List",
     component: ItemList,
 };
 

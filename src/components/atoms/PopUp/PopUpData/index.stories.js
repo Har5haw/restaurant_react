@@ -4,7 +4,7 @@ import PopupData from ".";
 import baseTheme from "../../../../themes/index";
 
 export default {
-    title: "Atoms : Popup",
+    title: "Atoms/Popup",
     component: PopupData,
 };
 

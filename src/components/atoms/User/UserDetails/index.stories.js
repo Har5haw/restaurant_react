@@ -2,7 +2,7 @@ import { ThemeProvider } from "@material-ui/styles";
 import UserDetails from ".";
 
 export default {
-    title: "Atom: User Deatils",
+    title: "Atoms/User Deatils",
     component: UserDetails,
     argTypes: { logout: { action: "Logout" } },
 };

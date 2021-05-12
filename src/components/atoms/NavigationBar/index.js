@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Button, makeStyles, Typography } from "@material-ui/core";
+import { Box, makeStyles, Typography } from "@material-ui/core";
 import UserDetails from "../User/UserDetails";
 import LoginButton from "../User/LoginButton";
 
@@ -41,7 +41,7 @@ const NavigationBar = (props) => {
             {props.isLoading || props.isAuthenticated ? (
                 <UserDetails
                     isAuthenticated={props.isAuthenticated}
-                    user={props.user}
+                    user={props.user ? props.user : {}}
                     logout={props.logout}
                 />
             ) : (
