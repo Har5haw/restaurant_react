@@ -1,7 +1,7 @@
 import React from "react";
 import { Box, makeStyles, Typography } from "@material-ui/core";
-import UserDetails from "../User/UserDetails";
-import LoginButton from "../User/LoginButton";
+import UserDetails from "../../atoms/User/UserDetails";
+import LoginButton from "../../atoms/User/LoginButton";
 
 const useStyle = makeStyles(() => ({
     nav: {
@@ -41,7 +41,7 @@ const NavigationBar = (props) => {
             {props.isLoading || props.isAuthenticated ? (
                 <UserDetails
                     isAuthenticated={props.isAuthenticated}
-                    user={props.user ? props.user : {}}
+                    user={props.user || {}}
                     logout={props.logout}
                 />
             ) : (

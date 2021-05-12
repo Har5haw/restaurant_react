@@ -1,12 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Box, Button, makeStyles, OutlinedInput } from "@material-ui/core";
-import { Edit } from "@material-ui/icons";
 
-EditCustomerName.propTypes = {
-    onCustomerNameChange: PropTypes.func.isRequired,
-    saveCustomerName: PropTypes.func.isRequired,
-    customerName: PropTypes.string.isRequired,
+EditLabel.propTypes = {
+    onLabelChange: PropTypes.func.isRequired,
+    saveLabel: PropTypes.func.isRequired,
+    label: PropTypes.string.isRequired,
     labelHead: PropTypes.string.isRequired,
 };
 
@@ -20,20 +19,20 @@ const useStyles = makeStyles(() => ({
     },
 }));
 
-function EditCustomerName(props) {
+function EditLabel(props) {
     const style = useStyles();
 
     return (
         <Box className={style.root}>
             <OutlinedInput
                 fullWidth
-                onChange={props.onCustomerNameChange}
-                defaultValue={props.customerName}
+                onChange={props.onLabelChange}
+                defaultValue={props.label}
                 placeholder={props.labelHead}
             />
-            <Button onClick={props.saveCustomerName}>Save</Button>
+            <Button onClick={props.saveLabel}>Save</Button>
         </Box>
     );
 }
 
-export default EditCustomerName;
+export default EditLabel;

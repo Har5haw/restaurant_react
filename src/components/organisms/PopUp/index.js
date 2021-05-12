@@ -1,6 +1,6 @@
 import React from "react";
 import PopUp from "../../atoms/PopUp/PopUp";
-import PopupData from "../../atoms/PopUp/PopUpData";
+import PopupData from "../../molecules/PopUpData";
 import PropTypes from "prop-types";
 
 import EditableLabel from "../EditableLabel";
@@ -13,7 +13,7 @@ const PopUpMolecule = (props) => {
                 <EditableLabel
                     labelText={props.customerName}
                     onSave={props.onSave}
-                    labelHead={"Customer Name"}
+                    labelHead={"Customer Name: "}
                 />
             ) : (
                 <Typography>Customer Name: {props.customerName}</Typography>

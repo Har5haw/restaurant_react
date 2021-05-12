@@ -6,6 +6,11 @@ import baseTheme from "../../../themes/index";
 export default {
     title: "Organisms/Popup",
     component: PopUpMolecule,
+    argTypes: {
+        onServingsChange: { action: "servings change" },
+        onDelete: { action: "Delete item" },
+        onSave: { action: "On customer name save" },
+    },
 };
 
 const Template = (args) => (
@@ -17,6 +22,7 @@ const Template = (args) => (
 export const popup = Template.bind({});
 popup.args = {
     popup: {
+        id: 0,
         tableName: "Harsha",
         totalPrice: 20,
         open: true,
@@ -34,11 +40,7 @@ popup.args = {
                 servings: 1,
             },
         ],
-        onServingsChange: () => {
-            console.log("servings change");
-        },
-        onDelete: () => {
-            console.log("delete");
-        },
+        editable: true,
     },
+    customerName: "Harsha",
 };

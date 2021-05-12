@@ -1,8 +1,6 @@
 import React from "react";
-import PropTypes from "prop-types";
-import { Box, makeStyles, OutlinedInput, Typography } from "@material-ui/core";
+import { Box, makeStyles, Typography } from "@material-ui/core";
 import { useAuth0 } from "@auth0/auth0-react";
-import CustomerNameMolecule from "../../molecules/customerName";
 import EditableLabel from "../EditableLabel";
 
 ProfileComponent.propTypes = {};

@@ -29,27 +29,27 @@ const TableName = (props) => {
                     <strong> Table: </strong>
                 </Typography>
                 <Typography style={{ margin: "0 0 0 2.5vw" }}>
+                    <strong> Name: </strong>
+                </Typography>
+                <Typography style={{ margin: "0 0 0 2.5vw" }}>
                     <strong> Items: </strong>
                 </Typography>
                 <Typography style={{ margin: "0 0 0 2.5vw" }}>
                     <strong> Price: </strong>
                 </Typography>
-                <Typography style={{ margin: "0 0 0 2.5vw" }}>
-                    <strong> Name: </strong>
-                </Typography>
             </Box>
             <Box className={style.contentContainer}>
                 <Typography style={{ margin: "0 0 0 1vw" }}>
-                    {props.id + 1}
+                    Table No - {props.id + 1}
+                </Typography>
+                <Typography style={{ margin: "0 0 0 1vw" }}>
+                    {props.tableName || "Not Reserved"}
                 </Typography>
                 <Typography style={{ margin: "0 0 0 1vw" }}>
                     {props.totalItems}
                 </Typography>
                 <Typography style={{ margin: "0 0 0 1vw" }}>
                     {props.totalPrice} /-
-                </Typography>
-                <Typography style={{ margin: "0 0 0 1vw" }}>
-                    {props.tableName || "Not Reserved"}
                 </Typography>
             </Box>
         </Box>

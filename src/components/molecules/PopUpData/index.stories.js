@@ -1,11 +1,15 @@
 import { ThemeProvider } from "@material-ui/styles";
 import React from "react";
 import PopupData from ".";
-import baseTheme from "../../../../themes/index";
+import baseTheme from "../../../themes/index";
 
 export default {
-    title: "Atoms/Popup",
+    title: "Molecules/Popup",
     component: PopupData,
+    argTypes: {
+        onServingsChange: { action: "Servings change" },
+        onDelete: { action: "Delete" },
+    },
 };
 
 const Template = (args) => (
@@ -28,10 +32,5 @@ popupData.args = {
             servings: 1,
         },
     ],
-    onServingsChange: () => {
-        console.log("servings change");
-    },
-    onDelete: () => {
-        console.log("selete item");
-    },
+    editable: true,
 };

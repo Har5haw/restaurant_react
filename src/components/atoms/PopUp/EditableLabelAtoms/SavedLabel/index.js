@@ -3,8 +3,8 @@ import PropTypes from "prop-types";
 import { Box, makeStyles, Typography } from "@material-ui/core";
 import { Edit } from "@material-ui/icons";
 
-SavedCustomerName.propTypes = {
-    customerName: PropTypes.string.isRequired,
+SavedLabel.propTypes = {
+    label: PropTypes.string.isRequired,
     onEditClick: PropTypes.func.isRequired,
     labelHead: PropTypes.string.isRequired,
 };
@@ -19,17 +19,17 @@ const useStyle = makeStyles(() => ({
     },
 }));
 
-function SavedCustomerName(props) {
+function SavedLabel(props) {
     const style = useStyle();
 
     return (
         <Box className={style.root}>
             <Typography>
-                {props.labelHead}: {props.customerName}
+                {props.labelHead} {props.label}
             </Typography>
             <Edit style={{ cursor: "pointer" }} onClick={props.onEditClick} />
         </Box>
     );
 }
 
-export default SavedCustomerName;
+export default SavedLabel;

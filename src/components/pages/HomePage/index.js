@@ -1,5 +1,5 @@
 import React from "react";
-import NavigationBar from "../../atoms/NavigationBar";
+import NavigationBar from "../../molecules/NavigationBar/index";
 import ItemsList from "../../organisms/ItemList";
 import TablesList from "../../organisms/TablesList";
 import HomeTemplate from "../../templates/HomeTemplate";

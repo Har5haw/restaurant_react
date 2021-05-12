@@ -12,8 +12,6 @@ import {
 } from "@material-ui/core";
 import { Delete } from "@material-ui/icons";
 import PropTypes from "prop-types";
-import { Edit } from "@material-ui/icons";
-import EditCustomerName from "../CustomerName/EditCustomerName";
 
 const PopupData = (props) => {
     return (
@@ -126,6 +124,7 @@ PopupData.propsType = {
     items: PropTypes.array.isRequired,
     onServingsChange: PropTypes.func.isRequired,
     onDelete: PropTypes.func.isRequired,
+    editable: PropTypes.bool.isRequired,
 };
 
 PopupData.defaultProps = {

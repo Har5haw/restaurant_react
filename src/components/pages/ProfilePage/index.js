@@ -1,8 +1,6 @@
 import React from "react";
-import PropTypes from "prop-types";
 import ProfileTemplate from "../../templates/ProfileTemplate";
-import NavigationBar from "../../atoms/NavigationBar";
-import { Box } from "@material-ui/core";
+import NavigationBar from "../../molecules/NavigationBar";
 import { useAuth0 } from "@auth0/auth0-react";
 import { useSelector } from "react-redux";
 import TablesList from "../../organisms/TablesList";

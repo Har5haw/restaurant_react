@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import CustomerNameMolecule from "../../molecules/customerName";
+import EditableLabelMolecule from "../../molecules/EditableLabelMolecule";
 
 EditableLabel.propTypes = {
     labelText: PropTypes.string.isRequired,
@@ -9,25 +9,25 @@ EditableLabel.propTypes = {
 };
 
 function EditableLabel(props) {
-    const [customerName, setCustomerName] = useState(props.labelText);
+    const [label, setLabel] = useState(props.labelText);
 
     const [isEdit, setIsEdit] = useState(props.labelText === "" ? true : false);
 
-    const onCustomerNameChange = (event) => {
-        setCustomerName(event.target.value);
+    const onLabelChange = (event) => {
+        setLabel(event.target.value);
     };
 
     const onSave = () => {
-        props.onSave(customerName);
-        if (customerName) {
+        props.onSave(label);
+        if (label) {
             setIsEdit(false);
         }
     };
     return (
-        <CustomerNameMolecule
-            onCustomerNameChange={onCustomerNameChange}
-            customerName={props.labelText}
-            saveCustomerName={onSave}
+        <EditableLabelMolecule
+            onLabelChange={onLabelChange}
+            label={props.labelText}
+            saveLabel={onSave}
             editClick={() => setIsEdit(true)}
             edit={isEdit}
             labelHead={props.labelHead}

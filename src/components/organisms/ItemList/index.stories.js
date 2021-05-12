@@ -2,6 +2,8 @@ import React from "react";
 import ItemList from "./index";
 import baseTheme from "../../../themes/index";
 import { ThemeProvider } from "@material-ui/core/styles";
+import { Provider } from "react-redux";
+import { store } from "../../../app/store";
 
 export default {
     title: "Organisms/Item List",
@@ -10,7 +12,9 @@ export default {
 
 const Template = (args) => (
     <ThemeProvider theme={baseTheme}>
-        <ItemList {...args} />
+        <Provider store={store}>
+            <ItemList {...args} />
+        </Provider>
     </ThemeProvider>
 );
 

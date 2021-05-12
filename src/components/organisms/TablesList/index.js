@@ -154,7 +154,7 @@ const TablesList = (props) => {
 
                         closeServings: closeServings,
 
-                        tableName: popupData.tableIndex,
+                        id: popupData.tableIndex,
 
                         totalPrice:
                             props.tableData[popupData.tableIndex].totalPrice,

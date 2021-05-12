@@ -13,6 +13,7 @@ describe("Popup Data", () => {
                         servings: 2,
                     },
                 ]}
+                editable={true}
             />
         );
         expect(wrapper).toBeDefined;
@@ -35,6 +36,7 @@ describe("Popup Data", () => {
                     },
                 ]}
                 onServingsChange={mockServingChange}
+                editable={true}
             />
         );
         expect(wrapper).toBeDefined;
@@ -58,6 +60,7 @@ describe("Popup Data", () => {
                     },
                 ]}
                 onDelete={mockOnDelete}
+                editable={true}
             />
         );
         expect(wrapper).toBeDefined;
