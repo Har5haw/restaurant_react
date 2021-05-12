@@ -5,11 +5,9 @@ import baseTheme from "./themes/index";
 
 function App() {
     return (
-        <div className="App">
-            <ThemeProvider theme={baseTheme}>
-                <HomePage />
-            </ThemeProvider>
-        </div>
+        <ThemeProvider theme={baseTheme}>
+            <HomePage />
+        </ThemeProvider>
     );
 }
 

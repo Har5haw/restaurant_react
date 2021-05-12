@@ -13,11 +13,16 @@ const PopUp = (props) => {
     return (
         <Dialog open={props.open} onClose={props.close} maxWidth={"xl"}>
             <DialogTitle>
-                <Typography> Table Name: {props.tableName}</Typography>
+                <Typography variant="h2">
+                    Table Name: {props.tableName}
+                </Typography>
             </DialogTitle>
             <DialogContent dividers>{props.children}</DialogContent>
             <DialogContent>
                 <Typography>Total Amount: {props.totalPrice}</Typography>
+                <Typography variant="subtitle2">
+                    Waiter Name: {props.user}
+                </Typography>
             </DialogContent>
             <DialogActions>
                 <Button onClick={props.close} color="primary">

@@ -10,6 +10,7 @@ import {
 } from "../../../features/tableList/index";
 import { useDispatch, useSelector } from "react-redux";
 import { changeData, closePopup } from "../../../features/popupData/index";
+import { useAuth0 } from "@auth0/auth0-react";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -50,6 +51,8 @@ const TablesList = () => {
     const dispatch = useDispatch();
 
     const style = useStyles();
+
+    const { user } = useAuth0();
 
     let timer;
 
@@ -128,6 +131,7 @@ const TablesList = () => {
                     },
                     tableName: tableData[popupData.tableIndex].tableName,
                     totalPrice: tableData[popupData.tableIndex].totalPrice,
+                    user: user ? user.name : "Loading...",
                 }}
                 popupData={{
                     items: tableData[popupData.tableIndex].items,
