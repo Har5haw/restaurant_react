@@ -1,4 +1,4 @@
-import popupDataSlice, { openPopup, closePopup, changeData } from "./index";
+import popupDataSlice, { openPopup, closePopup, changeData } from ".";
 
 describe("Popup Data Slice", () => {
     it("Initial state", () => {

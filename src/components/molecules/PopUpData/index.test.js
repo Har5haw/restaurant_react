@@ -46,6 +46,30 @@ describe("Popup Data", () => {
         });
         expect(mockServingChange).toBeCalled();
     });
+    it("editable is false", () => {
+        const mockServingChange = jest.fn();
+
+        const wrapper = render(
+            <PopupData
+                items={[
+                    {
+                        id: 0,
+                        itemName: "Dosa",
+                        itemPrice: 20,
+                        servings: 2,
+                    },
+                ]}
+                onServingsChange={mockServingChange}
+                editable={false}
+            />
+        );
+        expect(
+            wrapper.queryByTestId("serving-input-0")
+        ).not.toBeInTheDocument();
+        expect(
+            wrapper.queryByTestId("delete-button-0")
+        ).not.toBeInTheDocument();
+    });
     it("on delete", () => {
         const mockOnDelete = jest.fn();
 

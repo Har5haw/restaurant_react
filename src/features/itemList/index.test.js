@@ -1,4 +1,4 @@
-import itemsListSlice from "./index";
+import itemsListSlice from ".";
 
 describe("Item Slice", () => {
     it("After initialization", () => {

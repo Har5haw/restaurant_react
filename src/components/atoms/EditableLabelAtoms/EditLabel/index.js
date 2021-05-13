@@ -29,6 +29,7 @@ function EditLabel(props) {
                 onChange={props.onLabelChange}
                 defaultValue={props.label}
                 placeholder={props.labelHead}
+                inputProps={{ "data-testid": "Edit Name" }}
             />
             <Button onClick={props.saveLabel}>Save</Button>
         </Box>

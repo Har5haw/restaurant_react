@@ -65,10 +65,10 @@
     "eslint-config-zemoso": "^1.0.3",
     "jest-sonar-reporter": "^2.0.0"
   },
-  "jestSonar": {
-    "sonar56x": true,
-    "reportPath": "testResults",
-    "reportFile": "sonar-report.xml",
-    "indent": 4
+  "jest": {
+    "collectCoverageFrom": [
+      "**/components/**/index.js",
+      "**/features/**/index.js"
+    ]
   }
 }

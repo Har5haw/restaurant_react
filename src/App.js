@@ -1,9 +1,9 @@
 import { ThemeProvider } from "@material-ui/styles";
 import "./App.css";
-import HomePage from "./components/pages/HomePage";
+import HomePage from "./components/pages/HomePage/homePage";
 import baseTheme from "./themes/index";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import ProfilePage from "./components/pages/ProfilePage";
+import ProfilePage from "./components/pages/ProfilePage/profilePage";
 
 function App() {
     return (

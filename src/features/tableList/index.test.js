@@ -2,7 +2,9 @@ import TableListSlice, {
     addItemToTable,
     changeServings,
     deleteItem,
-} from "./index";
+    editCustomerName,
+    clearTable,
+} from ".";
 
 const testData = [
     {
@@ -176,6 +178,41 @@ describe("Table List Slice", () => {
         ).toContainEqual({
             id: 0,
             tableName: "Reyna",
+            totalItems: 0,
+            totalPrice: 0,
+            items: [],
+        });
+    });
+
+    it("edit customer name", () => {
+        expect(
+            TableListSlice(
+                testData,
+                editCustomerName({
+                    tableId: 0,
+                    customerName: "shaw",
+                })
+            )
+        ).toContainEqual({
+            id: 0,
+            tableName: "shaw",
+            totalItems: 1,
+            totalPrice: 20,
+            items: [
+                {
+                    id: 0,
+                    itemName: "Dosa",
+                    itemPrice: 20,
+                    servings: 1,
+                },
+            ],
+        });
+    });
+
+    it("clear table", () => {
+        expect(TableListSlice(testData, clearTable(0))).toContainEqual({
+            id: 0,
+            tableName: "",
             totalItems: 0,
             totalPrice: 0,
             items: [],

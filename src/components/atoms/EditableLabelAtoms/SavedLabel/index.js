@@ -27,7 +27,11 @@ function SavedLabel(props) {
             <Typography>
                 {props.labelHead}: {props.label}
             </Typography>
-            <Edit style={{ cursor: "pointer" }} onClick={props.onEditClick} />
+            <Edit
+                style={{ cursor: "pointer" }}
+                aria-label="EditIcon"
+                onClick={props.onEditClick}
+            />
         </Box>
     );
 }

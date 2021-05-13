@@ -39,6 +39,7 @@ const useStyle = makeStyles(() => ({
 UserDetails.propTypes = {
     user: PropTypes.object.isRequired,
     logout: PropTypes.func.isRequired,
+    profileClick: PropTypes.func.isRequired,
 };
 
 function UserDetails(props) {

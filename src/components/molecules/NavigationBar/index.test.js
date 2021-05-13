@@ -13,4 +13,22 @@ describe("Navigation Bar", () => {
         fireEvent.click(wrapper.queryByText("Login"));
         expect(mockFun).toBeCalled();
     });
+
+    it("render userdetails", () => {
+        const mockFun = jest.fn();
+        const logout = jest.fn();
+        const profileClick = jest.fn();
+        const wrapper = render(
+            <NavigationBar
+                user={{ name: "shaw", email: "shaw@gmail.com" }}
+                login={mockFun}
+                logout={logout}
+                profileClick={profileClick}
+            />
+        );
+        expect(wrapper).toBeDefined;
+        expect(screen.queryByText("ZeMoSo Restaurant")).toBeInTheDocument();
+        expect(screen.queryByText("shaw")).toBeInTheDocument();
+        expect(screen.queryByText("shaw@gmail.com")).toBeInTheDocument();
+    });
 });
