@@ -6,7 +6,6 @@ import HomeTemplate from "../../templates/HomeTemplate";
 import { useAuth0 } from "@auth0/auth0-react";
 import { useSelector, useDispatch } from "react-redux";
 import { saveUser } from "../../../features/waiterServingsList";
-import { Box, CircularProgress } from "@material-ui/core";
 import { useHistory } from "react-router";
 
 const HomePage = (props) => {
@@ -63,6 +62,7 @@ const HomePage = (props) => {
                     tableData={tableData}
                     popupData={popupData}
                     editablePopup={true}
+                    waiterData={waiterData}
                 />
             }
             itemListComponent={<ItemsList />}

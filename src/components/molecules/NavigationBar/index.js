@@ -39,11 +39,7 @@ const NavigationBar = (props) => {
         <Box className={style.nav}>
             <Typography className={style.title}>ZeMoSo Restaurant</Typography>
             {props.user.name ? (
-                <UserDetails
-                    user={props.user}
-                    logout={props.logout}
-                    profileClick={props.profileClick}
-                />
+                <UserDetails {...props} />
             ) : (
                 <LoginButton login={props.login} />
             )}

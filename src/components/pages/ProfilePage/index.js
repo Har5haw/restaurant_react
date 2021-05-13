@@ -42,11 +42,17 @@ function ProfilePage(props) {
                             returnTo: window.location.origin,
                         })
                     }
-                    profileClick={() => {}}
+                    profileClick={() => {
+                        history.push("/");
+                    }}
                 />
             }
             tableListComponent={
-                <TablesList tableData={tableData} editablePopup={false} />
+                <TablesList
+                    tableData={tableData}
+                    editablePopup={false}
+                    waiterData={waiterData}
+                />
             }
             profileComponent={<ProfileComponent waiterData={waiterData} />}
         />

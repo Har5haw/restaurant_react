@@ -11,7 +11,7 @@ const PopUpMolecule = (props) => {
         <PopUp {...props.popup}>
             {props.popupData.editable ? (
                 <EditableLabel
-                    labelText={props.customerName}
+                    label={props.customerName}
                     onSave={props.onSave}
                     labelHead={"Customer Name"}
                 />

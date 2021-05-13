@@ -41,14 +41,13 @@ const PopupData = (props) => {
                                         <strong>Servings</strong>
                                     </Typography>
                                 </TableCell>
-                                {props.editable ? (
+
+                                {props.editable && (
                                     <TableCell>
                                         <Typography>
                                             <strong>Delete</strong>
                                         </Typography>
                                     </TableCell>
-                                ) : (
-                                    <Box />
                                 )}
                             </TableRow>
                         </TableHead>
@@ -87,7 +86,7 @@ const PopupData = (props) => {
                                             </Typography>
                                         )}
                                     </TableCell>
-                                    {props.editable ? (
+                                    {props.editable && (
                                         <TableCell align="left">
                                             <Delete
                                                 style={{ cursor: "pointer" }}
@@ -99,8 +98,6 @@ const PopupData = (props) => {
                                                 }
                                             />
                                         </TableCell>
-                                    ) : (
-                                        <Box />
                                     )}
                                 </TableRow>
                             ))}

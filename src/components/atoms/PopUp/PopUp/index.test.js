@@ -3,9 +3,7 @@ import PopUp from ".";
 
 describe("Popup ", () => {
     it("render popup when open true", () => {
-        const wrapper = render(
-            <PopUp open={true} tableName={0} totalPrice={20} />
-        );
+        const wrapper = render(<PopUp open={true} id={0} totalPrice={20} />);
         expect(wrapper).toBeDefined;
 
         expect(wrapper.queryByText("Table No - 1")).toBeInTheDocument();

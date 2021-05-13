@@ -40,7 +40,8 @@ const TableName = (props) => {
             </Box>
             <Box className={style.contentContainer}>
                 <Typography style={{ margin: "0 0 0 1vw" }}>
-                    Table No - {props.id + 1}
+                    Table No -{" "}
+                    {props.isServings ? props.tableId + 1 : props.id + 1}
                 </Typography>
                 <Typography style={{ margin: "0 0 0 1vw" }}>
                     {props.tableName || "Not Reserved"}

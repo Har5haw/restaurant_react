@@ -6,7 +6,9 @@ import PropTypes from "prop-types";
 
 const styles = makeStyles(() => ({
     reservedRoot: {
+        position: "relative",
         display: "flex",
+        justifyContent: "flex-end",
         flexDirection: "row",
         borderRadius: "20px",
         width: "25vw",
@@ -14,27 +16,36 @@ const styles = makeStyles(() => ({
         margin: "3vw auto",
         cursor: "pointer",
         opacity: "1",
+        "& $iconContainer": {
+            width: "35%",
+        },
     },
     notReservedRoot: {
+        position: "relative",
         display: "flex",
         flexDirection: "row",
+        justifyContent: "flex-end",
         borderRadius: "20px",
         width: "25vw",
         height: "8vw",
         margin: "3vw auto",
         cursor: "pointer",
-        opacity: "0.5",
-        transition: "0.25s",
         "&:hover": {
-            opacity: "1",
+            "& $iconContainer": {
+                width: "35%",
+            },
         },
     },
     iconContainer: {
-        width: "35%",
+        position: "absolute",
+        top: "0px",
+        left: "0px",
+        width: "100%",
         height: "100%",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
+        transition: "0.3s",
     },
     icon: {
         height: "100%",
@@ -44,6 +55,7 @@ const styles = makeStyles(() => ({
     container: {
         width: "65%",
         height: "100%",
+        overflow: "hidden",
     },
 }));
 

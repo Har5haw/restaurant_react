@@ -8,6 +8,7 @@ const initialState = {
     gender: "",
     history: [],
     picture: null,
+    noOfServings: 0,
 };
 
 export const waiterServingsListSlice = createSlice({
@@ -15,7 +16,8 @@ export const waiterServingsListSlice = createSlice({
     initialState: initialState,
     reducers: {
         addServingsToWaiterList: (state, action) => {
-            state.history.unshift(action.payload);
+            state.history.push(action.payload);
+            state.noOfServings += 1;
         },
         saveUser: (state, action) => {
             state.name = action.payload.name;

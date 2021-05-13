@@ -2,7 +2,7 @@ import { ThemeProvider } from "@material-ui/styles";
 import EditLabel from ".";
 
 export default {
-    title: "Atoms/Edit Label",
+    title: "Atoms/Label",
     component: EditLabel,
     argTypes: {
         onLabelChange: { action: "Label change" },

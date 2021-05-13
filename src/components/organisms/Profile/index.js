@@ -62,7 +62,7 @@ function ProfileComponent(props) {
 
                         <Box style={{ width: "20vw" }}>
                             <EditableLabel
-                                labelText={props.waiterData.phoneNo}
+                                label={props.waiterData.phoneNo}
                                 onSave={(changedText) => {
                                     dispatch(savePhoneNo(changedText));
                                 }}
@@ -71,7 +71,7 @@ function ProfileComponent(props) {
                         </Box>
                         <Box style={{ width: "20vw" }}>
                             <EditableLabel
-                                labelText={props.waiterData.age}
+                                label={props.waiterData.age}
                                 onSave={(changedText) => {
                                     dispatch(saveAge(changedText));
                                 }}
@@ -80,7 +80,7 @@ function ProfileComponent(props) {
                         </Box>
                         <Box style={{ width: "20vw" }}>
                             <EditableLabel
-                                labelText={props.waiterData.gender}
+                                label={props.waiterData.gender}
                                 onSave={(changedText) => {
                                     dispatch(saveGender(changedText));
                                 }}

@@ -3,34 +3,33 @@ import PropTypes from "prop-types";
 import EditableLabelMolecule from "../../molecules/EditableLabelMolecule";
 
 EditableLabel.propTypes = {
-    labelText: PropTypes.string.isRequired,
+    label: PropTypes.string.isRequired,
     onSave: PropTypes.func.isRequired,
     labelHead: PropTypes.string.isRequired,
 };
 
 function EditableLabel(props) {
-    const [label, setLabel] = useState(props.labelText);
+    const [label, setLabel] = useState(props.label);
 
-    const [isEdit, setIsEdit] = useState(props.labelText === "" ? true : false);
+    const [isEdit, setIsEdit] = useState(props.label === "" ? true : false);
 
     const onLabelChange = (event) => {
         setLabel(event.target.value);
     };
 
     const onSave = () => {
+        props.onSave(label);
         if (label) {
             setIsEdit(false);
-            props.onSave(label);
         }
     };
     return (
         <EditableLabelMolecule
             onLabelChange={onLabelChange}
-            label={props.labelText}
             saveLabel={onSave}
-            editClick={() => setIsEdit(true)}
+            onEditClick={() => setIsEdit(true)}
             edit={isEdit}
-            labelHead={props.labelHead}
+            {...props}
         />
     );
 }

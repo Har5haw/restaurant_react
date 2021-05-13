@@ -12,7 +12,6 @@ import {
 } from "../../../features/tableList/index";
 import { useDispatch, useSelector } from "react-redux";
 import { changeData, closePopup } from "../../../features/popupData/index";
-import { useAuth0 } from "@auth0/auth0-react";
 import { addServingsToWaiterList } from "../../../features/waiterServingsList";
 
 const useStyles = makeStyles((theme) => ({
@@ -49,11 +48,13 @@ const TablesList = (props) => {
 
     const popupData = useSelector((state) => state.popupData);
 
+    const noOfServings = useSelector(
+        (state) => state.waiterServingsList.noOfServings
+    );
+
     const dispatch = useDispatch();
 
     const style = useStyles();
-
-    const { user } = useAuth0();
 
     let timer;
 
@@ -70,7 +71,7 @@ const TablesList = (props) => {
     };
 
     const clickTable = (index) => {
-        if (!user) {
+        if (!props.waiterData.name) {
             alert("You need to login first");
             return;
         }
@@ -87,7 +88,7 @@ const TablesList = (props) => {
 
     const drop = (event, index) => {
         event.preventDefault();
-        if (!user) {
+        if (!props.waiterData.name) {
             alert("You need to login first");
             return;
         }
@@ -130,10 +131,14 @@ const TablesList = (props) => {
 
     const closeServings = () => {
         dispatch(
-            addServingsToWaiterList(props.tableData[popupData.tableIndex])
+            addServingsToWaiterList({
+                ...props.tableData[popupData.tableIndex],
+                id: noOfServings,
+                tableId: popupData.tableIndex,
+            })
         );
-        dispatch(closePopup());
         dispatch(clearTable(popupData.tableIndex));
+        onClosePopUp();
     };
 
     const onCustomerNameSave = (customerName) => {
@@ -143,6 +148,9 @@ const TablesList = (props) => {
                 customerName: customerName,
             })
         );
+        if (props.tableData[popupData.tableIndex].tableName !== customerName) {
+            onClosePopUp();
+        }
     };
 
     const onClosePopUp = () => {
@@ -168,12 +176,14 @@ const TablesList = (props) => {
 
                         closeServings: closeServings,
 
-                        id: popupData.tableIndex,
+                        id: props.editablePopup
+                            ? props.tableData[popupData.tableIndex].id
+                            : props.tableData[popupData.tableIndex].tableId,
 
                         totalPrice:
                             props.tableData[popupData.tableIndex].totalPrice,
 
-                        user: user ? user.name : "Loading...",
+                        user: props.waiterData.name,
 
                         showCloseServings:
                             props.tableData[popupData.tableIndex].items
@@ -210,7 +220,7 @@ const TablesList = (props) => {
                         onDragOver={allowDrop}
                         onDrop={(event) => drop(event, element.id)}
                         onClick={() => clickTable(element.id)}
-                        data={element}
+                        data={{ ...element, isServings: !props.editablePopup }}
                     />
                 ))}
             </Box>

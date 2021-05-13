@@ -7,7 +7,7 @@ export default {
     argTypes: {
         onLabelChange: { action: "on label change" },
         saveLabel: { action: "saveLabel" },
-        editClick: { actionn: "editClick" },
+        onEditClick: { actionn: "editClick" },
     },
 };
 

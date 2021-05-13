@@ -2,7 +2,7 @@ import SavedLabel from ".";
 import { ThemeProvider } from "@material-ui/styles";
 
 export default {
-    title: "Atoms/Saved Label",
+    title: "Atoms/Label",
     component: SavedLabel,
     argTypes: {
         onEditClick: { action: "edit clicked" },
