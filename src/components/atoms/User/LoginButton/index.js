@@ -15,6 +15,7 @@ const useStyle = makeStyles(() => ({
     },
     login: {
         border: "1px solid white",
+        background: "black",
     },
 }));
 
@@ -27,7 +28,9 @@ function LoginButton(props) {
     return (
         <Box className={style.user}>
             <Button className={style.login} onClick={() => props.login()}>
-                <Typography style={{ color: "white" }}>Login</Typography>
+                <Typography style={{ color: "white" }}>
+                    {props.label}
+                </Typography>
             </Button>
         </Box>
     );

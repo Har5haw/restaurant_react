@@ -1,7 +1,12 @@
 import React from "react";
 import { Box, makeStyles, Typography } from "@material-ui/core";
-import { useAuth0 } from "@auth0/auth0-react";
 import EditableLabel from "../EditableLabel";
+import {
+    saveAge,
+    savePhoneNo,
+    saveGender,
+} from "../../../features/waiterServingsList";
+import { useDispatch } from "react-redux";
 
 ProfileComponent.propTypes = {};
 
@@ -34,45 +39,51 @@ const useStyle = makeStyles({
 function ProfileComponent(props) {
     const style = useStyle();
 
-    const { user } = useAuth0();
+    const dispatch = useDispatch();
 
     return (
         <Box className={style.root}>
             <Box className={style.navBottom} />
 
             <Box className={style.content}>
-                {user ? (
+                {props.waiterData ? (
                     <Box className={style.content}>
                         <img
-                            src={user.picture}
+                            src={props.waiterData.picture}
                             className={style.profilePicture}
                         />
                         <Typography variant="subtitle1">
-                            Hello! {user.name}
+                            Hello! {props.waiterData.name}
                         </Typography>
                         <Typography variant="subtitle2">
-                            {user.email}
+                            {props.waiterData.email}
                         </Typography>
                         <Box style={{ height: "50px" }} />
 
                         <Box style={{ width: "20vw" }}>
                             <EditableLabel
-                                labelText="9090909090"
-                                onSave={() => {}}
+                                labelText={props.waiterData.phoneNo}
+                                onSave={(changedText) => {
+                                    dispatch(savePhoneNo(changedText));
+                                }}
                                 labelHead="Phone No"
                             />
                         </Box>
                         <Box style={{ width: "20vw" }}>
                             <EditableLabel
-                                labelText={21}
-                                onSave={() => {}}
+                                labelText={props.waiterData.age}
+                                onSave={(changedText) => {
+                                    dispatch(saveAge(changedText));
+                                }}
                                 labelHead="Age"
                             />
                         </Box>
                         <Box style={{ width: "20vw" }}>
                             <EditableLabel
-                                labelText="Male"
-                                onSave={() => {}}
+                                labelText={props.waiterData.gender}
+                                onSave={(changedText) => {
+                                    dispatch(saveGender(changedText));
+                                }}
                                 labelHead="Gender"
                             />
                         </Box>

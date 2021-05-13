@@ -63,13 +63,6 @@
         "course": "starter"
     },
     {
-        "id": 7,
-        "image": "http://www.ndtv.com/cooks/images/Zaffrani%20Kaju%20Katli.jpg",
-        "itemName": "Kaju Katli",
-        "itemPrice": 80,
-        "course": "dessert"
-    },
-    {
         "id": 8,
         "image": "https://static.toiimg.com/thumb/53542481.cms?imgsize=532300&width=800&height=800",
         "itemName": "Chicken Curry",
@@ -98,24 +91,10 @@
         "course": "dessert"
     },
     {
-        "id": 15,
-        "image": "https://www.playfulcooking.com/wp-content/uploads/2019/04/kerala-style-fish-curry-03-720x720.jpg",
-        "itemName": "Fish Curry",
-        "itemPrice": 100,
-        "course": "curry"
-    },
-    {
         "id": 16,
         "image": "https://beckykeepshouse.com/wp-content/uploads/Chicken-Pakora_I6A4975FI.jpg",
         "itemName": "Chicken Pakodi",
         "itemPrice": 120,
         "course": "starter"
-    },
-    {
-        "id": 17,
-        "image": "https://akm-img-a-in.tosshub.com/sites/pakwangali/images/stories/122018/rasgulla-pakwangali_520_122618015123.jpg",
-        "itemName": "Rasgulla",
-        "itemPrice": 60,
-        "course": "desserts"
     }
 ]

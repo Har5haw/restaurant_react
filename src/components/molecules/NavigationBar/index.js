@@ -1,6 +1,6 @@
 import React from "react";
 import { Box, makeStyles, Typography } from "@material-ui/core";
-import UserDetails from "../../atoms/User/UserDetails";
+import UserDetails from "../UserDetails";
 import LoginButton from "../../atoms/User/LoginButton";
 
 const useStyle = makeStyles(() => ({
@@ -38,11 +38,11 @@ const NavigationBar = (props) => {
     return (
         <Box className={style.nav}>
             <Typography className={style.title}>ZeMoSo Restaurant</Typography>
-            {props.isLoading || props.isAuthenticated ? (
+            {props.user.name ? (
                 <UserDetails
-                    isAuthenticated={props.isAuthenticated}
-                    user={props.user || {}}
+                    user={props.user}
                     logout={props.logout}
+                    profileClick={props.profileClick}
                 />
             ) : (
                 <LoginButton login={props.login} />

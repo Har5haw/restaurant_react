@@ -18,9 +18,9 @@ function EditableLabel(props) {
     };
 
     const onSave = () => {
-        props.onSave(label);
         if (label) {
             setIsEdit(false);
+            props.onSave(label);
         }
     };
     return (

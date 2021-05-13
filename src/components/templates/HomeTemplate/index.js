@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, makeStyles } from "@material-ui/core";
+import { Box, CircularProgress, makeStyles } from "@material-ui/core";
 import PropTypes from "prop-types";
 
 const styles = makeStyles(() => ({
@@ -8,6 +8,8 @@ const styles = makeStyles(() => ({
         flexDirection: "column",
         height: "100vh",
         overflow: "hidden",
+        justifyContent: "center",
+        alignItems: "center",
     },
     nav: {
         height: "10vh",
@@ -30,7 +32,12 @@ const styles = makeStyles(() => ({
 
 const HomeTemplate = (props) => {
     const style = styles();
-    return (
+
+    return props.isLoading ? (
+        <Box className={style.root}>
+            <CircularProgress style={{ height: "100px", width: "100px" }} />
+        </Box>
+    ) : (
         <Box className={style.root}>
             <Box className={style.nav}>{props.navigationBarComponent}</Box>
             <Box className={style.body}>

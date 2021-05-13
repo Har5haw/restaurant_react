@@ -1,7 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Box, Button, makeStyles, Typography } from "@material-ui/core";
-import { useHistory } from "react-router-dom";
 
 const useStyle = makeStyles(() => ({
     user: {
@@ -38,7 +37,6 @@ const useStyle = makeStyles(() => ({
 }));
 
 UserDetails.propTypes = {
-    isAuthenticated: PropTypes.bool.isRequired,
     user: PropTypes.object.isRequired,
     logout: PropTypes.func.isRequired,
 };
@@ -46,12 +44,10 @@ UserDetails.propTypes = {
 function UserDetails(props) {
     const style = useStyle();
 
-    const history = useHistory();
-
-    return props.isAuthenticated ? (
+    return (
         <Box className={style.user}>
             <Box
-                onClick={() => history.push("/profile")}
+                onClick={props.profileClick}
                 style={{
                     display: "flex",
                     alignItems: "center",
@@ -71,8 +67,6 @@ function UserDetails(props) {
                 <Typography style={{ color: "white" }}>Logout</Typography>
             </Button>
         </Box>
-    ) : (
-        <Typography className={style.user}>Loading...</Typography>
     );
 }
 

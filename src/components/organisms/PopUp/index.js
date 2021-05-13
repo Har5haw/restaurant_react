@@ -13,7 +13,7 @@ const PopUpMolecule = (props) => {
                 <EditableLabel
                     labelText={props.customerName}
                     onSave={props.onSave}
-                    labelHead={"Customer Name: "}
+                    labelHead={"Customer Name"}
                 />
             ) : (
                 <Typography>Customer Name: {props.customerName}</Typography>

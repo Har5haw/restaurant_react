@@ -25,7 +25,7 @@ function SavedLabel(props) {
     return (
         <Box className={style.root}>
             <Typography>
-                {props.labelHead} {props.label}
+                {props.labelHead}: {props.label}
             </Typography>
             <Edit style={{ cursor: "pointer" }} onClick={props.onEditClick} />
         </Box>

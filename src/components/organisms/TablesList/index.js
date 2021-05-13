@@ -70,6 +70,10 @@ const TablesList = (props) => {
     };
 
     const clickTable = (index) => {
+        if (!user) {
+            alert("You need to login first");
+            return;
+        }
         dispatch(
             changeData({
                 tableIndex: index,
@@ -83,6 +87,16 @@ const TablesList = (props) => {
 
     const drop = (event, index) => {
         event.preventDefault();
+        if (!user) {
+            alert("You need to login first");
+            return;
+        }
+        if (!props.tableData[index].tableName) {
+            alert(
+                "Click on table and reserve the table by providing the customer name"
+            );
+            return;
+        }
         dispatch(
             addItemToTable({
                 index: index,
