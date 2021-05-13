@@ -6,10 +6,13 @@ import { useSelector } from "react-redux";
 
 const useStyles = makeStyles((theme) => ({
     root: {
-        height: "93vh",
+        height: "90vh",
         width: "100%",
         overflowY: "hidden",
         backgroundColor: theme.palette.type === "dark" ? "grey" : "pink",
+        [theme.breakpoints.down("sm")]: {
+            height: "calc(100vh - 30vw - 20vh - 60px)",
+        },
     },
     input: {
         width: "100%",
@@ -24,12 +27,19 @@ const useStyles = makeStyles((theme) => ({
         marginTop: "0px",
         height: "40px",
         background: theme.palette.type === "dark" ? "transparent" : "white",
+        [theme.breakpoints.down("sm")]: {
+            marginTop: "20px",
+        },
     },
     grid: {
         display: "grid",
         gridTemplateColumns: "auto auto auto",
         overflowY: "auto",
         height: "calc(90vh - 60px)",
+        [theme.breakpoints.down("sm")]: {
+            height: "calc(100vh - 30vw - 20vh - 60px - 80px)",
+            gridTemplateColumns: "auto auto",
+        },
     },
 }));
 const ItemsList = () => {

@@ -3,7 +3,7 @@ import ItemName from "../../atoms/ItemAtoms/ItemName/index";
 import { makeStyles } from "@material-ui/core/styles";
 import { Box, Card } from "@material-ui/core";
 
-const styles = makeStyles(() => ({
+const styles = makeStyles((theme) => ({
     root: {
         display: "flex",
         flexDirection: "column",
@@ -14,6 +14,10 @@ const styles = makeStyles(() => ({
         marginRight: "auto",
         marginTop: "3vw",
         marginBottom: "0px",
+        [theme.breakpoints.down("sm")]: {
+            width: "45vw",
+            height: "40vw",
+        },
     },
     iconContainer: {
         width: "100%",
@@ -21,15 +25,24 @@ const styles = makeStyles(() => ({
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
+        [theme.breakpoints.down("sm")]: {
+            height: "28vw",
+        },
     },
     icon: {
         height: "calc(14vw + 10px)",
         width: "100%",
         objectFit: "cover",
+        [theme.breakpoints.down("sm")]: {
+            height: "28vw",
+        },
     },
     container: {
         width: "100%",
-        height: "calc(5vw)",
+        height: "5vw",
+        [theme.breakpoints.down("sm")]: {
+            height: "12vw",
+        },
     },
 }));
 import PropTypes from "prop-types";

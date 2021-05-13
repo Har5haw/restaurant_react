@@ -6,7 +6,7 @@ import PropTypes from "prop-types";
 import EditableLabel from "../EditableLabel";
 import { Typography } from "@material-ui/core";
 
-const PopUpMolecule = (props) => {
+const PopUpOrganism = (props) => {
     return (
         <PopUp {...props.popup}>
             {props.popupData.editable ? (
@@ -23,11 +23,11 @@ const PopUpMolecule = (props) => {
     );
 };
 
-PopUpMolecule.propsType = {
+PopUpOrganism.propsType = {
     popup: PropTypes.object.isRequired,
     popupData: PropTypes.object.isRequired,
     customerName: PropTypes.string.isRequired,
     onSave: PropTypes.func.isRequired,
 };
 
-export default PopUpMolecule;
+export default PopUpOrganism;

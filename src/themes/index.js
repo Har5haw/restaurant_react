@@ -15,6 +15,12 @@ const baseTheme = createMuiTheme({
             padding: defaultTheme.spacing(2),
         },
     },
+    overrides: {
+        MuiCard: {
+            borderRadius: 20,
+            background: "red",
+        },
+    },
     palette: {
         type: "light",
         primary: {
@@ -49,9 +55,15 @@ const baseTheme = createMuiTheme({
         },
         h2: {
             fontSize: 22,
+            "@media (max-width:600px)": {
+                fontSize: 10,
+            },
         },
         subtitle1: {
             fontSize: 25,
+            "@media (max-width:600px)": {
+                fontSize: 10,
+            },
         },
     },
 });

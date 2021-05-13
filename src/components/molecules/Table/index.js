@@ -4,7 +4,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import { Box, Card } from "@material-ui/core";
 import PropTypes from "prop-types";
 
-const styles = makeStyles(() => ({
+const styles = makeStyles((theme) => ({
     reservedRoot: {
         position: "relative",
         display: "flex",
@@ -15,9 +15,15 @@ const styles = makeStyles(() => ({
         height: "8vw",
         margin: "3vw auto",
         cursor: "pointer",
-        opacity: "1",
         "& $iconContainer": {
             width: "35%",
+        },
+        [theme.breakpoints.down("sm")]: {
+            transform: "rotate(90deg) translateY(30vw) translateX(20vw)",
+            transformOrigin: "right top",
+            margin: "35vw 2.5vw",
+            width: "50vw",
+            height: "20vw",
         },
     },
     notReservedRoot: {
@@ -35,6 +41,13 @@ const styles = makeStyles(() => ({
                 width: "35%",
             },
         },
+        [theme.breakpoints.down("sm")]: {
+            transform: "rotate(90deg) translateY(25vw) translateX(25vw)",
+            transformOrigin: "right top",
+            margin: "30vw 2.5vw",
+            width: "50vw",
+            height: "25vw",
+        },
     },
     iconContainer: {
         position: "absolute",
@@ -46,6 +59,7 @@ const styles = makeStyles(() => ({
         justifyContent: "center",
         alignItems: "center",
         transition: "0.3s",
+        boxShadow: "10px 0px 10px -1px grey",
     },
     icon: {
         height: "100%",

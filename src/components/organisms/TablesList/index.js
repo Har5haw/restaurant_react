@@ -16,10 +16,13 @@ import { addServingsToWaiterList } from "../../../features/waiterServingsList";
 
 const useStyles = makeStyles((theme) => ({
     root: {
-        height: "93vh",
+        height: "90vh",
         width: "100%",
         overflow: "hidden",
         backgroundColor: theme.palette.type === "dark" ? "grey" : "lightblue",
+        [theme.breakpoints.down("sm")]: {
+            height: "calc(30vw + 60px)",
+        },
     },
     input: {
         width: "100%",
@@ -34,10 +37,20 @@ const useStyles = makeStyles((theme) => ({
         marginTop: "0px",
         height: "40px",
         background: theme.palette.type === "dark" ? "transparent" : "white",
+        [theme.breakpoints.down("sm")]: {
+            width: "90vw",
+        },
     },
     list: {
         height: "calc(90vh - 60px)",
         overflowY: "auto",
+        overflowX: "hidden",
+        [theme.breakpoints.down("sm")]: {
+            transform: "rotate(-90deg) translateY(-30vw)",
+            transformOrigin: "right top",
+            width: "30vw",
+            height: "100vw",
+        },
     },
 }));
 

@@ -2,7 +2,7 @@ import React from "react";
 import { Box, CircularProgress, makeStyles } from "@material-ui/core";
 import PropTypes from "prop-types";
 
-const styles = makeStyles(() => ({
+const styles = makeStyles((theme) => ({
     root: {
         display: "flex",
         flexDirection: "column",
@@ -13,6 +13,9 @@ const styles = makeStyles(() => ({
     },
     nav: {
         height: "10vh",
+        [theme.breakpoints.down("sm")]: {
+            height: "20vh",
+        },
     },
     title: {
         width: "30vw",
@@ -21,12 +24,22 @@ const styles = makeStyles(() => ({
     body: {
         display: "flex",
         height: "90vh",
+        [theme.breakpoints.down("sm")]: {
+            flexDirection: "column",
+            height: "80vh",
+        },
     },
     tableList: {
         width: "30vw",
+        [theme.breakpoints.down("sm")]: {
+            width: "100vw",
+        },
     },
     itemList: {
         width: "70vw",
+        [theme.breakpoints.down("sm")]: {
+            width: "100vw",
+        },
     },
 }));
 
@@ -35,7 +48,7 @@ const HomeTemplate = (props) => {
 
     return props.isLoading ? (
         <Box className={style.root}>
-            <CircularProgress style={{ height: "100px", width: "100px" }} />
+            <CircularProgress style={{ height: "50px", width: "50px" }} />
         </Box>
     ) : (
         <Box className={style.root}>
