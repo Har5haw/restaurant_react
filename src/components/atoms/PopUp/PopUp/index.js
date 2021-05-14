@@ -26,7 +26,7 @@ const PopUp = (props) => {
                 </Typography>
             </DialogContent>
             <DialogActions>
-                {props.editable ? (
+                {props.editable && (
                     <Button
                         onClick={props.closeServings}
                         color="primary"
@@ -34,8 +34,6 @@ const PopUp = (props) => {
                     >
                         <Typography>Done Serving</Typography>
                     </Button>
-                ) : (
-                    <Box />
                 )}
                 <Button onClick={props.close} color="primary">
                     <Typography>Close</Typography>

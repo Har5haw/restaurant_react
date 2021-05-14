@@ -69,7 +69,8 @@
   "jest": {
     "collectCoverageFrom": [
       "**/components/**/index.js",
-      "**/features/**/index.js"
+      "**/features/**/index.js",
+      "**/utils/**/index.js"
     ]
   }
 }

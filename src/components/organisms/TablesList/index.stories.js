@@ -3,7 +3,7 @@ import TableList from "./index";
 import baseTheme from "../../../themes/index";
 import { ThemeProvider } from "@material-ui/core/styles";
 import { Provider } from "react-redux";
-import { store } from "../../../app/store";
+import store from "../../../app/store";
 
 export default {
     title: "Organisms/TableList",

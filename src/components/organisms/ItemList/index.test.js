@@ -1,7 +1,7 @@
 import { fireEvent, render, act, screen } from "@testing-library/react";
 import ItemsList from ".";
 import { Provider } from "react-redux";
-import { store } from "../../../app/store";
+import store from "../../../app/store";
 
 const getWrapper = () => {
     const wrapper = render(
@@ -13,7 +13,7 @@ const getWrapper = () => {
     return wrapper;
 };
 
-const helperForSearchBar = async (item) => {
+export const helperForSearchBar = async (item, name) => {
     const comparingAllTableNames = (ele) => {
         if (ele.itemName === item) {
             expect(screen.queryByText(ele.itemName)).toBeInTheDocument();
@@ -23,7 +23,9 @@ const helperForSearchBar = async (item) => {
     };
 
     const executeAfterTheSearchBarByCourse = () => {
-        require("../../../data/items.json").forEach(comparingAllTableNames);
+        require("../../../data/" + name + ".json").forEach(
+            comparingAllTableNames
+        );
     };
 
     const promiseForSearchBarByCourse = () =>
@@ -55,13 +57,21 @@ describe("Item List", () => {
         const searchBar = wrapper.getByTestId("search-items");
         fireEvent.change(searchBar, { target: { value: "Dosa" } });
 
-        await helperForSearchBar("Dosa");
+        await helperForSearchBar("Dosa", "items");
     });
     it("Search bar testing for Course", async () => {
         const wrapper = getWrapper();
         const searchBar = wrapper.getByTestId("search-items");
         fireEvent.change(searchBar, { target: { value: "bever" } });
 
-        await helperForSearchBar("Masala Chai");
+        await helperForSearchBar("Masala Chai", "items");
+    });
+    it("Search bar empty", async () => {
+        const wrapper = getWrapper();
+        const searchBar = wrapper.getByTestId("search-items");
+        fireEvent.change(searchBar, { target: { value: "" } });
+
+        expect(wrapper.queryByText("Dosa")).toBeInTheDocument();
+        expect(wrapper.queryByText("Biryani")).toBeInTheDocument();
     });
 });

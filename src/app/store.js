@@ -4,7 +4,7 @@ import popupDataSlice from "../features/popupData/index";
 import itemsListData from "../features/itemList/index";
 import waiterServingsData from "../features/waiterServingsList/index";
 
-export const store = configureStore({
+export default configureStore({
     reducer: {
         tableList: tableListSlice,
         popupData: popupDataSlice,

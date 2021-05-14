@@ -1,9 +1,13 @@
 import { act, fireEvent, render, screen } from "@testing-library/react";
-import { Provider } from "react-redux";
-import { store } from "../../../app/store";
+import store from "../../../app/store";
 import TablesList from ".";
+import { Provider } from "react-redux";
+import { saveUser } from "../../../features/waiterServingsList";
+import { editCustomerName } from "../../../features/tableList";
 
 describe("Table", () => {
+    store.dispatch(saveUser({ name: "shaw" }));
+    store.dispatch(editCustomerName({ tableId: 0, customerName: "reyna" }));
     it("Initial render", () => {
         const wrapper = render(
             <Provider store={store}>
@@ -56,51 +60,20 @@ describe("Table", () => {
 
         const mockFun = { getData: jest.fn().mockReturnValue(1) };
 
+        const prevDFaul = jest.fn();
+
         fireEvent.dragOver(wrapper.queryByText("Table No - 1"), {
-            dataTransfer: mockFun,
+            preventDefault: prevDFaul,
         });
+
+        expect(prevDFaul).toBeCalledTimes(0);
 
         fireEvent.drop(wrapper.queryByText("Table No - 1"), {
             dataTransfer: mockFun,
         });
         expect(mockFun.getData).toBeCalledWith("itemId");
     });
-    it("Change servings", () => {
-        const wrapper = render(
-            <Provider store={store}>
-                <TablesList
-                    tableData={[
-                        {
-                            id: 0,
-                            tableName: "Shaw",
-                            totalItems: 1,
-                            totalPrice: 20,
-                            items: [
-                                {
-                                    id: 1,
-                                    itemName: "Dosa",
-                                    itemPrice: 20,
-                                    servings: 1,
-                                },
-                            ],
-                        },
-                    ]}
-                    waiterData={{ name: "shaw" }}
-                    editablePopup={true}
-                />
-            </Provider>
-        );
 
-        expect(wrapper).toBeDefined;
-
-        fireEvent.click(wrapper.queryByText("Table No - 1"));
-
-        fireEvent.change(screen.queryByTestId("serving-input-0"), {
-            target: { value: 2 },
-        });
-        expect(wrapper.queryByText("Dosa")).toBeInTheDocument();
-        expect(wrapper.queryByText("Total Amount: 20")).toBeInTheDocument();
-    });
     it("Search bar testing", async () => {
         const wrapper = render(
             <Provider store={store}>
@@ -131,7 +104,6 @@ describe("Table", () => {
 
         const executeAfterTheSearchBarCoolDown = () => {
             expect(screen.queryByText("Shaw")).toBeInTheDocument();
-
             expect(screen.queryByText("Reyna")).not.toBeInTheDocument();
         };
 

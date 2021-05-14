@@ -3,16 +3,16 @@ import React, { useState } from "react";
 import TableComp from "../../molecules/Table";
 import SearchBar from "../../atoms/SeachBar/index";
 import PopUpMolecule from "../PopUp";
+import { useSelector } from "react-redux";
 import {
-    addItemToTable,
-    changeServings,
-    deleteItem,
-    editCustomerName,
-    clearTable,
-} from "../../../features/tableList/index";
-import { useDispatch, useSelector } from "react-redux";
-import { changeData, closePopup } from "../../../features/popupData/index";
-import { addServingsToWaiterList } from "../../../features/waiterServingsList";
+    onTableClick,
+    onDelete,
+    drop,
+    onServingsChange,
+    onClosePopUp,
+    closeServings,
+    onCustomerNameSave,
+} from "../../../utils/tablesList/index";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -57,15 +57,7 @@ const useStyles = makeStyles((theme) => ({
 const TablesList = (props) => {
     const [searchBarText, setSearchBarText] = useState("");
 
-    const itemsData = useSelector((state) => state.itemsList);
-
     const popupData = useSelector((state) => state.popupData);
-
-    const noOfServings = useSelector(
-        (state) => state.waiterServingsList.noOfServings
-    );
-
-    const dispatch = useDispatch();
 
     const style = useStyles();
 
@@ -83,91 +75,8 @@ const TablesList = (props) => {
         setSearchBarText(searchText);
     };
 
-    const clickTable = (index) => {
-        if (!props.waiterData.name) {
-            alert("You need to login first");
-            return;
-        }
-        dispatch(
-            changeData({
-                tableIndex: index,
-            })
-        );
-    };
-
     const allowDrop = (event) => {
         event.preventDefault();
-    };
-
-    const drop = (event, index) => {
-        event.preventDefault();
-        if (!props.waiterData.name) {
-            alert("You need to login first");
-            return;
-        }
-        if (!props.tableData[index].tableName) {
-            alert(
-                "Click on table and reserve the table by providing the customer name"
-            );
-            return;
-        }
-        dispatch(
-            addItemToTable({
-                index: index,
-                itemData: itemsData.filter(
-                    (ele) =>
-                        ele.id ===
-                        parseInt(event.dataTransfer.getData("itemId"))
-                )[0],
-            })
-        );
-    };
-
-    const onServingsChange = (event, itemIndex) => {
-        dispatch(
-            changeServings({
-                servings: event.target.value,
-                itemIndex: itemIndex,
-                tableIndex: popupData.tableIndex,
-            })
-        );
-    };
-
-    const onDelete = (itemIndex) => {
-        dispatch(
-            deleteItem({
-                itemIndex: itemIndex,
-                tableIndex: popupData.tableIndex,
-            })
-        );
-    };
-
-    const closeServings = () => {
-        dispatch(
-            addServingsToWaiterList({
-                ...props.tableData[popupData.tableIndex],
-                id: noOfServings,
-                tableId: popupData.tableIndex,
-            })
-        );
-        dispatch(clearTable(popupData.tableIndex));
-        onClosePopUp();
-    };
-
-    const onCustomerNameSave = (customerName) => {
-        dispatch(
-            editCustomerName({
-                tableId: popupData.tableIndex,
-                customerName: customerName,
-            })
-        );
-        if (props.tableData[popupData.tableIndex].tableName !== customerName) {
-            onClosePopUp();
-        }
-    };
-
-    const onClosePopUp = () => {
-        dispatch(closePopup());
     };
 
     return (
@@ -180,6 +89,7 @@ const TablesList = (props) => {
                     inputProps={{ "data-testid": "search-tables" }}
                 />
             </Box>
+
             {popupData.isOpen ? (
                 <PopUpMolecule
                     popup={{
@@ -221,21 +131,24 @@ const TablesList = (props) => {
             )}
 
             <Box className={style.list}>
-                {(
-                    props.tableData.filter((table) =>
+                {props.tableData
+                    .filter((table) =>
                         table.tableName
                             .toLowerCase()
                             .includes(searchBarText.toLowerCase())
-                    ) || props.tableData
-                ).map((element) => (
-                    <TableComp
-                        key={"table-" + element.id}
-                        onDragOver={allowDrop}
-                        onDrop={(event) => drop(event, element.id)}
-                        onClick={() => clickTable(element.id)}
-                        data={{ ...element, isServings: !props.editablePopup }}
-                    />
-                ))}
+                    )
+                    .map((element) => (
+                        <TableComp
+                            key={"table-" + element.id}
+                            onDragOver={allowDrop}
+                            onDrop={(event) => drop(event, element.id)}
+                            onClick={() => onTableClick(element.id)}
+                            data={{
+                                ...element,
+                                isServings: !props.editablePopup,
+                            }}
+                        />
+                    ))}
             </Box>
         </Box>
     );

@@ -2,7 +2,7 @@ import { ThemeProvider } from "@material-ui/styles";
 import { Provider } from "react-redux";
 import ProfileComponent from ".";
 import baseTheme from "../../../themes/index";
-import { store } from "../../../app/store";
+import store from "../../../app/store";
 
 export default {
     title: "Organisms/Profile Organism",

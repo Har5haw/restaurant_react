@@ -4,7 +4,7 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { Provider } from "react-redux";
-import { store } from "./app/store";
+import store from "./app/store";
 import { Auth0Provider } from "@auth0/auth0-react";
 
 ReactDOM.render(

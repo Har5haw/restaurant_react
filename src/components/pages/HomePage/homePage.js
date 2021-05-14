@@ -19,8 +19,6 @@ const HomePage = (props) => {
 
     const tableData = useSelector((state) => state.tableList);
 
-    const popupData = useSelector((state) => state.popupData);
-
     const dispatch = useDispatch();
 
     const history = useHistory();
@@ -60,7 +58,6 @@ const HomePage = (props) => {
             tableListComponent={
                 <TablesList
                     tableData={tableData}
-                    popupData={popupData}
                     editablePopup={true}
                     waiterData={waiterData}
                 />

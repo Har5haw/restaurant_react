@@ -75,8 +75,8 @@ const ItemsList = () => {
                 />
             </Box>
             <Box className={style.grid} aria-label="grid">
-                {(
-                    itemsData.filter(
+                {itemsData
+                    .filter(
                         (item) =>
                             item.itemName
                                 .toLowerCase()
@@ -84,15 +84,15 @@ const ItemsList = () => {
                             item.course
                                 .toLowerCase()
                                 .includes(searchBarText.toLowerCase())
-                    ) || itemsData
-                ).map((element) => (
-                    <Item
-                        key={"item-" + element.id}
-                        data={element}
-                        draggable={true}
-                        onDragStart={(event) => drag(event, element)}
-                    ></Item>
-                ))}
+                    )
+                    .map((element) => (
+                        <Item
+                            key={"item-" + element.id}
+                            data={element}
+                            draggable={true}
+                            onDragStart={(event) => drag(event, element)}
+                        ></Item>
+                    ))}
             </Box>
         </Box>
     );
