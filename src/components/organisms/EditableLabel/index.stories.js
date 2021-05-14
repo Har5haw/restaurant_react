@@ -3,7 +3,7 @@ import baseTheme from "../../../themes/index";
 import { ThemeProvider } from "@material-ui/core/styles";
 
 export default {
-    title: "Organisms/Editable Label",
+    title: "Organisms/EditableLabel",
     component: EditableLabel,
     argTypes: {
         onSave: { action: "onSave" },
@@ -18,6 +18,6 @@ const Template = (args) => (
 
 export const editableLabel = Template.bind({});
 editableLabel.args = {
-    labelText: "Harshaw",
-    labelHead: "Customar Name: ",
+    label: "Harshaw",
+    labelHead: "Customar Name ",
 };

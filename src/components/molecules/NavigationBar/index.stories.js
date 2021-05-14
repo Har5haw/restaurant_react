@@ -4,7 +4,7 @@ import NavigationBar from "./index";
 import baseTheme from "../../../themes/index";
 
 export default {
-    title: "Molecules/Navigation Bar",
+    title: "Molecules/NavigationBar",
     component: NavigationBar,
     argTypes: {
         login: { action: "Login" },
@@ -20,10 +20,16 @@ const Temlate = (args) => (
 
 export const navigationBar = Temlate.bind({});
 navigationBar.args = {
-    isLoading: false,
-    isAuthenticated: true,
     user: {
         name: "Harsha",
         email: "harsha@gmail.com",
+    },
+};
+
+export const navigationBarLogin = Temlate.bind({});
+navigationBarLogin.args = {
+    user: {
+        name: null,
+        email: null,
     },
 };

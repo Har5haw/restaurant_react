@@ -43,7 +43,21 @@ const baseTheme = createMuiTheme({
     },
     typography: {
         fontFamily: "Itim",
-        fontSize: 16,
+        body1: {
+            fontSize: 18,
+            "@media(max-width:1460px)": {
+                fontSize: 14,
+            },
+            "@media(max-width:960px)": {
+                fontSize: 14,
+            },
+            "@media(max-width:600px)": {
+                fontSize: 14,
+            },
+            "@media(max-width:430px)": {
+                fontSize: 10,
+            },
+        },
         subtitle2: {
             color: "grey",
             fontSize: 15,

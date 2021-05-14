@@ -6,7 +6,7 @@ import { Provider } from "react-redux";
 import { store } from "../../../app/store";
 
 export default {
-    title: "Organisms/Item List",
+    title: "Organisms/ItemList",
     component: ItemList,
 };
 

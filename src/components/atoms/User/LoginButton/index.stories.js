@@ -1,9 +1,10 @@
+import { Box } from "@material-ui/core";
 import { ThemeProvider } from "@material-ui/styles";
 import LoginButton from ".";
 import baseTheme from "../../../../themes/index";
 
 export default {
-    title: "Atoms/Login Button",
+    title: "Atoms/LoginButton",
     component: LoginButton,
     argTypes: {
         login: { action: "Login" },
@@ -12,7 +13,9 @@ export default {
 
 const Template = (args) => (
     <ThemeProvider theme={baseTheme}>
-        <LoginButton {...args} />
+        <Box style={{ padding: "10px", background: "black" }}>
+            <LoginButton {...args} />
+        </Box>
     </ThemeProvider>
 );
 

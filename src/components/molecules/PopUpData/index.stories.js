@@ -4,7 +4,7 @@ import PopupData from ".";
 import baseTheme from "../../../themes/index";
 
 export default {
-    title: "Molecules/Popup Data",
+    title: "Molecules/PopupData",
     component: PopupData,
     argTypes: {
         onServingsChange: { action: "Servings change" },
@@ -33,4 +33,26 @@ popupData.args = {
         },
     ],
     editable: true,
+};
+
+export const popupNoItems = Template.bind({});
+popupNoItems.args = {
+    items: [],
+};
+
+export const popupNoEditData = Template.bind({});
+popupNoEditData.args = {
+    items: [
+        {
+            itemName: "Item1",
+            itemPrice: 20,
+            servings: 1,
+        },
+        {
+            itemName: "Item2",
+            itemPrice: 30,
+            servings: 1,
+        },
+    ],
+    editable: false,
 };

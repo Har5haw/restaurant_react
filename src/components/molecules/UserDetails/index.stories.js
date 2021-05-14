@@ -1,15 +1,18 @@
+import { Box } from "@material-ui/core";
 import { ThemeProvider } from "@material-ui/styles";
 import UserDetails from ".";
 
 export default {
-    title: "Atoms/User Details",
+    title: "Molecules/UserDetails",
     component: UserDetails,
     argTypes: { logout: { action: "Logout" } },
 };
 
 const Template = (args) => (
     <ThemeProvider>
-        <UserDetails {...args} />
+        <Box style={{ padding: "10px", background: "black" }}>
+            <UserDetails {...args} />
+        </Box>
     </ThemeProvider>
 );
 

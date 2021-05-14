@@ -2,7 +2,7 @@ import EditableLabelMolecule from ".";
 import { ThemeProvider } from "@material-ui/styles";
 
 export default {
-    title: "Molecules/Editable Label Molecule",
+    title: "Molecules/EditableLabel",
     component: EditableLabelMolecule,
     argTypes: {
         onLabelChange: { action: "on label change" },
@@ -21,5 +21,5 @@ export const editableLabelMolecule = Template.bind({});
 editableLabelMolecule.args = {
     label: "Harsha",
     edit: true,
-    labelHead: "Customer Name: ",
+    labelHead: "Customer Name",
 };

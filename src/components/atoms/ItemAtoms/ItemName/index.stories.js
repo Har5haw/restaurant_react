@@ -2,15 +2,20 @@ import React from "react";
 import ItemName from "./index";
 import baseTheme from "../../../../themes/index";
 import { ThemeProvider } from "@material-ui/core/styles";
+import { withKnobs, text } from "@storybook/addon-knobs";
 
 export default {
-    title: "Atoms/Item Name",
-    component: ItemName,
+    title: "Atoms/DisplayData",
+    //component: ItemName,
+    decorators: [withKnobs],
 };
 
-const Template = (args) => (
+const Template = () => (
     <ThemeProvider theme={baseTheme}>
-        <ItemName {...args} />
+        <ItemName
+            itemName={text("Name", "Biryani")}
+            itemPrice={text("Price", "300")}
+        />
     </ThemeProvider>
 );
 

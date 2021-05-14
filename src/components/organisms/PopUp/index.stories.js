@@ -4,7 +4,7 @@ import PopUpMolecule from ".";
 import baseTheme from "../../../themes/index";
 
 export default {
-    title: "Organisms/Popup",
+    title: "Organisms/Popup with Data",
     component: PopUpMolecule,
     argTypes: {
         onServingsChange: { action: "servings change" },
@@ -43,4 +43,59 @@ popup.args = {
         editable: true,
     },
     customerName: "Harsha",
+};
+
+export const popupNoEdit = Template.bind({});
+popupNoEdit.args = {
+    popup: {
+        id: 0,
+        tableName: "Harsha",
+        totalPrice: 20,
+        open: true,
+    },
+    popupData: {
+        items: [
+            {
+                itemName: "Item1",
+                itemPrice: 20,
+                servings: 1,
+            },
+            {
+                itemName: "Item2",
+                itemPrice: 30,
+                servings: 1,
+            },
+        ],
+        editable: false,
+    },
+    customerName: "Harsha",
+};
+
+export const popupNoData = Template.bind({});
+popupNoData.args = {
+    popup: {
+        id: 0,
+        tableName: "Harsha",
+        totalPrice: 20,
+        open: true,
+    },
+    popupData: {
+        items: [],
+        editable: true,
+    },
+    customerName: "Harsha",
+};
+
+export const popupNoCustomerName = Template.bind({});
+popupNoCustomerName.args = {
+    popup: {
+        id: 0,
+        totalPrice: 20,
+        open: true,
+    },
+    popupData: {
+        items: [],
+        editable: true,
+    },
+    customerName: "",
 };

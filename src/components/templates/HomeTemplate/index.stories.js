@@ -5,7 +5,7 @@ import baseTheme from "../../../themes/index";
 import { Box } from "@material-ui/core";
 
 export default {
-    title: "Templates/Home Template",
+    title: "Templates/HomeTemplate",
     component: HomeTemplate,
 };
 
@@ -30,6 +30,7 @@ homeTemplate.args = {
             style={{
                 ...style,
                 background: "black",
+                width: "100vw",
             }}
         >
             Navigation bar

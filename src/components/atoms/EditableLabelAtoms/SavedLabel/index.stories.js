@@ -1,5 +1,6 @@
 import SavedLabel from ".";
 import { ThemeProvider } from "@material-ui/styles";
+import baseTheme from "../../../../themes/index";
 
 export default {
     title: "Atoms/Label",
@@ -10,7 +11,7 @@ export default {
 };
 
 const Template = (args) => (
-    <ThemeProvider>
+    <ThemeProvider theme={baseTheme}>
         <SavedLabel {...args} />
     </ThemeProvider>
 );
@@ -18,5 +19,5 @@ const Template = (args) => (
 export const savedLabel = Template.bind({});
 savedLabel.args = {
     label: "Shaw",
-    labelHead: "Customer Name:  ",
+    labelHead: "Customer Name",
 };

@@ -1,5 +1,6 @@
 import { ThemeProvider } from "@material-ui/styles";
 import EditLabel from ".";
+import baseTheme from "../../../../themes/index";
 
 export default {
     title: "Atoms/Label",
@@ -11,7 +12,7 @@ export default {
 };
 
 const Template = (args) => (
-    <ThemeProvider>
+    <ThemeProvider theme={baseTheme}>
         <EditLabel {...args} />
     </ThemeProvider>
 );

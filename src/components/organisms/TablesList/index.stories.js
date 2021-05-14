@@ -6,7 +6,7 @@ import { Provider } from "react-redux";
 import { store } from "../../../app/store";
 
 export default {
-    title: "Organisms/Table List",
+    title: "Organisms/TableList",
     component: TableList,
 };
 
@@ -23,4 +23,7 @@ export const tableList = Template.bind({});
 tableList.args = {
     tableData: require("../../../data/tables.json"),
     editablePopup: true,
+    waiterData: {
+        name: "shaw",
+    },
 };

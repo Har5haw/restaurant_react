@@ -4,7 +4,7 @@ import baseTheme from "../../../themes/index";
 import { ThemeProvider } from "@material-ui/core/styles";
 
 export default {
-    title: "Molecules/Table Card",
+    title: "Molecules/TableCard",
     component: Table,
 };
 
@@ -14,12 +14,22 @@ const Template = (args) => (
     </ThemeProvider>
 );
 
-export const tableCard = Template.bind({});
-tableCard.args = {
+export const tableCardReserved = Template.bind({});
+tableCardReserved.args = {
     data: {
         id: 0,
         tableName: "Harsha",
-        totalItems: 20,
+        totalItems: 1,
         totalPrice: 30,
+    },
+};
+
+export const tableCardNotReserved = Template.bind({});
+tableCardNotReserved.args = {
+    data: {
+        id: 0,
+        tableName: "",
+        totalItems: 0,
+        totalPrice: 0,
     },
 };

@@ -5,7 +5,7 @@ import baseTheme from "../../../themes/index";
 import { Box } from "@material-ui/core";
 
 export default {
-    title: "Templates/Profile Template",
+    title: "Templates/ProfileTemplate",
     component: ProfileTemplate,
 };
 

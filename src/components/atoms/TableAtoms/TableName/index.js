@@ -25,31 +25,31 @@ const TableName = (props) => {
     return (
         <Box className={style.root}>
             <Box className={style.contentContainer}>
-                <Typography style={{ margin: "0 0 0 2.5vw" }}>
+                <Typography variant="body1" style={{ margin: "0 0 0 2.5vw" }}>
                     <strong> Table: </strong>
                 </Typography>
-                <Typography style={{ margin: "0 0 0 2.5vw" }}>
+                <Typography variant="body1" style={{ margin: "0 0 0 2.5vw" }}>
                     <strong> Name: </strong>
                 </Typography>
-                <Typography style={{ margin: "0 0 0 2.5vw" }}>
+                <Typography variant="body1" style={{ margin: "0 0 0 2.5vw" }}>
                     <strong> Items: </strong>
                 </Typography>
-                <Typography style={{ margin: "0 0 0 2.5vw" }}>
+                <Typography variant="body1" style={{ margin: "0 0 0 2.5vw" }}>
                     <strong> Price: </strong>
                 </Typography>
             </Box>
             <Box className={style.contentContainer}>
-                <Typography style={{ margin: "0 0 0 1vw" }}>
+                <Typography variant="body1" style={{ margin: "0 0 0 1vw" }}>
                     Table No -{" "}
                     {props.isServings ? props.tableId + 1 : props.id + 1}
                 </Typography>
-                <Typography style={{ margin: "0 0 0 1vw" }}>
+                <Typography variant="body1" style={{ margin: "0 0 0 1vw" }}>
                     {props.tableName || "Not Reserved"}
                 </Typography>
-                <Typography style={{ margin: "0 0 0 1vw" }}>
+                <Typography variant="body1" style={{ margin: "0 0 0 1vw" }}>
                     {props.totalItems}
                 </Typography>
-                <Typography style={{ margin: "0 0 0 1vw" }}>
+                <Typography variant="body1" style={{ margin: "0 0 0 1vw" }}>
                     {props.totalPrice} /-
                 </Typography>
             </Box>

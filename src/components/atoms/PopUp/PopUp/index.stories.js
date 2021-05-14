@@ -4,7 +4,7 @@ import PopUp from ".";
 import baseTheme from "../../../../themes/index";
 
 export default {
-    title: "Atoms/Popup",
+    title: "Atoms/Popup atom",
     component: PopUp,
 };
 
@@ -16,6 +16,7 @@ const Template = (args) => (
 
 export const popup = Template.bind({});
 popup.args = {
+    id: 1,
     tableName: "Harsha",
     totalPrice: 20,
     open: true,
