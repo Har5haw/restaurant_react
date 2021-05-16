@@ -25,17 +25,17 @@ const TableName = (props) => {
     return (
         <Box className={style.root}>
             <Box className={style.contentContainer}>
-                <Typography variant="body1" style={{ margin: "0 0 0 2.5vw" }}>
-                    <strong> Table: </strong>
+                <Typography variant="body2" style={{ margin: "0 0 0 2.5vw" }}>
+                    Table:
                 </Typography>
-                <Typography variant="body1" style={{ margin: "0 0 0 2.5vw" }}>
-                    <strong> Name: </strong>
+                <Typography variant="body2" style={{ margin: "0 0 0 2.5vw" }}>
+                    Name:
                 </Typography>
-                <Typography variant="body1" style={{ margin: "0 0 0 2.5vw" }}>
-                    <strong> Items: </strong>
+                <Typography variant="body2" style={{ margin: "0 0 0 2.5vw" }}>
+                    Items:
                 </Typography>
-                <Typography variant="body1" style={{ margin: "0 0 0 2.5vw" }}>
-                    <strong> Price: </strong>
+                <Typography variant="body2" style={{ margin: "0 0 0 2.5vw" }}>
+                    Price:
                 </Typography>
             </Box>
             <Box className={style.contentContainer}>

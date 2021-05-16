@@ -1,8 +1,8 @@
 import { fireEvent, render } from "@testing-library/react";
 import SearchBar from ".";
 
-describe("Navigation Bar", () => {
-    it("render navigation bar", () => {
+describe("Search bar Bar", () => {
+    it("render search bar", () => {
         const mockFun = jest.fn();
 
         const wrapper = render(
@@ -11,7 +11,7 @@ describe("Navigation Bar", () => {
         expect(wrapper).toBeDefined;
 
         fireEvent.change(wrapper.getByPlaceholderText("searchbar"), {
-            target: { value: "2" },
+            target: { value: "some value" },
         });
         expect(mockFun).toBeCalled();
     });

@@ -98,7 +98,7 @@ describe("Popup Data", () => {
 
         expect(
             screen.queryByText(
-                "Drag a item from item list and drop on the table inorder to add items to that table"
+                "Drag a item from item list and drop on the table in-order to add items to that table"
             )
         ).toBeInTheDocument();
     });

@@ -1,6 +1,13 @@
 import React from "react";
-import { Box, CircularProgress, makeStyles } from "@material-ui/core";
+import {
+    Box,
+    CircularProgress,
+    Dialog,
+    DialogContent,
+    makeStyles,
+} from "@material-ui/core";
 import PropTypes from "prop-types";
+import AlertComponent from "../../organisms/AlertPopup";
 
 const styles = makeStyles((theme) => ({
     root: {
@@ -41,17 +48,31 @@ const styles = makeStyles((theme) => ({
             width: "100vw",
         },
     },
+    loading: {
+        display: "flex",
+        justifyContent: "space-evenly",
+        alignItems: "center",
+        height: "100px",
+        width: "250px",
+    },
 }));
 
 const HomeTemplate = (props) => {
     const style = styles();
 
-    return props.isLoading ? (
+    return (
         <Box className={style.root}>
-            <CircularProgress style={{ height: "50px", width: "50px" }} />
-        </Box>
-    ) : (
-        <Box className={style.root}>
+            {props.isLoading && (
+                <Dialog open={true}>
+                    <Box className={style.loading}>
+                        Please Wait
+                        <CircularProgress
+                            style={{ height: "50px", width: "50px" }}
+                        />
+                    </Box>
+                </Dialog>
+            )}
+            <AlertComponent />
             <Box className={style.nav}>{props.navigationBarComponent}</Box>
             <Box className={style.body}>
                 <Box className={style.tableList}>

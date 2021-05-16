@@ -25,11 +25,11 @@ const ItemName = (props) => {
     return (
         <Box className={style.root}>
             <Box className={style.contentContainer}>
-                <Typography variant="body1" style={{ marginLeft: "30px" }}>
-                    <strong> Name: </strong>
+                <Typography variant="body2" style={{ marginLeft: "30px" }}>
+                    Name:
                 </Typography>
-                <Typography variant="body1" style={{ marginLeft: "30px" }}>
-                    <strong> Price: </strong>
+                <Typography variant="body2" style={{ marginLeft: "30px" }}>
+                    Price:
                 </Typography>
             </Box>
             <Box className={style.contentContainer}>

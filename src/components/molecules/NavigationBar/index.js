@@ -37,7 +37,9 @@ const NavigationBar = (props) => {
     const style = useStyle();
     return (
         <Box className={style.nav}>
-            <Typography className={style.title}>ZeMoSo Restaurant</Typography>
+            <Typography variant="h1" className={style.title}>
+                ZeMoSo Restaurant
+            </Typography>
             {props.user.name ? (
                 <UserDetails {...props} />
             ) : (

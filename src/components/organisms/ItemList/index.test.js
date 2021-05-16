@@ -62,7 +62,7 @@ describe("Item List", () => {
     it("Search bar testing for Course", async () => {
         const wrapper = getWrapper();
         const searchBar = wrapper.getByTestId("search-items");
-        fireEvent.change(searchBar, { target: { value: "bever" } });
+        fireEvent.change(searchBar, { target: { value: "beverages" } });
 
         await helperForSearchBar("Masala Chai", "items");
     });

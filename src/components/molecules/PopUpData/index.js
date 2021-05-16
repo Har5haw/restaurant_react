@@ -22,30 +22,30 @@ const PopupData = (props) => {
                         <TableHead>
                             <TableRow>
                                 <TableCell>
-                                    <Typography>
-                                        <strong>S.No</strong>
+                                    <Typography variant="body2">
+                                        S.No
                                     </Typography>
                                 </TableCell>
                                 <TableCell>
-                                    <Typography>
-                                        <strong>Name</strong>
+                                    <Typography variant="body2">
+                                        Name
                                     </Typography>
                                 </TableCell>
                                 <TableCell>
-                                    <Typography>
-                                        <strong>Price</strong>
+                                    <Typography variant="body2">
+                                        Price
                                     </Typography>
                                 </TableCell>
                                 <TableCell>
-                                    <Typography>
-                                        <strong>Servings</strong>
+                                    <Typography variant="body2">
+                                        Servings
                                     </Typography>
                                 </TableCell>
 
                                 {props.editable && (
                                     <TableCell>
-                                        <Typography>
-                                            <strong>Delete</strong>
+                                        <Typography variant="body2">
+                                            Delete
                                         </Typography>
                                     </TableCell>
                                 )}
@@ -108,8 +108,8 @@ const PopupData = (props) => {
                 <Box>
                     <Typography>No Items added to this table</Typography>
                     <Typography variant="caption">
-                        Drag a item from item list and drop on the table inorder
-                        to add items to that table
+                        Drag a item from item list and drop on the table
+                        in-order to add items to that table
                     </Typography>
                 </Box>
             )}

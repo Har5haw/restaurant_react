@@ -1,11 +1,11 @@
 import { ThemeProvider } from "@material-ui/styles";
 import React from "react";
-import PopUpMolecule from ".";
+import PopupOrganism from ".";
 import baseTheme from "../../../themes/index";
 
 export default {
     title: "Organisms/Popup with Data",
-    component: PopUpMolecule,
+    component: PopupOrganism,
     argTypes: {
         onServingsChange: { action: "servings change" },
         onDelete: { action: "Delete item" },
@@ -15,7 +15,7 @@ export default {
 
 const Template = (args) => (
     <ThemeProvider theme={baseTheme}>
-        <PopUpMolecule {...args} />
+        <PopupOrganism {...args} />
     </ThemeProvider>
 );
 

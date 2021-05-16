@@ -27,7 +27,7 @@ describe("Table", () => {
         fireEvent.click(wrapper.queryByText("Table No - 1"));
         expect(
             wrapper.queryByText(
-                "Drag a item from item list and drop on the table inorder to add items to that table"
+                "Drag a item from item list and drop on the table in-order to add items to that table"
             )
         ).toBeInTheDocument();
         expect(wrapper.queryByText("Total Amount: 0")).toBeInTheDocument();
@@ -60,18 +60,21 @@ describe("Table", () => {
 
         const mockFun = { getData: jest.fn().mockReturnValue(1) };
 
-        const prevDFaul = jest.fn();
+        const prevDFault = jest.fn();
 
         fireEvent.dragOver(wrapper.queryByText("Table No - 1"), {
-            preventDefault: prevDFaul,
+            preventDefault: prevDFault,
         });
 
-        expect(prevDFaul).toBeCalledTimes(0);
+        expect(prevDFault).toBeCalledTimes(0);
 
         fireEvent.drop(wrapper.queryByText("Table No - 1"), {
             dataTransfer: mockFun,
         });
         expect(mockFun.getData).toBeCalledWith("itemId");
+
+        fireEvent.click(wrapper.queryByText("Table No - 1"));
+        expect(wrapper.queryByText("Dosa"));
     });
 
     it("Search bar testing", async () => {

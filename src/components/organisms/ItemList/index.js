@@ -1,7 +1,7 @@
 import { Box, makeStyles } from "@material-ui/core";
 import React, { useState } from "react";
 import Item from "../../molecules/Items/index";
-import SearchBar from "../../atoms/SeachBar/index";
+import SearchBar from "../../atoms/SearchBar/index";
 import { useSelector } from "react-redux";
 
 const useStyles = makeStyles((theme) => ({
@@ -65,7 +65,7 @@ const ItemsList = () => {
     };
 
     return (
-        <Box className={style.root}>
+        <Box className={style.root} variant="containerPrimary">
             <Box className={style.input}>
                 <SearchBar
                     placeholder="Search by Item Name, by Course"
@@ -91,7 +91,7 @@ const ItemsList = () => {
                             data={element}
                             draggable={true}
                             onDragStart={(event) => drag(event, element)}
-                        ></Item>
+                        />
                     ))}
             </Box>
         </Box>

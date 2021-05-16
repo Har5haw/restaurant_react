@@ -20,11 +20,10 @@ import {
     editCustomerName,
     clearTable,
 } from "../../features/tableList/index";
+import { openAlert } from "../../features/AlertPopup";
 
 describe("util tests", () => {
     const useDispatchSpy = jest.spyOn(store, "dispatch");
-
-    const useWindowSpy = jest.spyOn(window, "alert");
 
     store.dispatch(saveUser({ name: "shaw" }));
 
@@ -70,8 +69,12 @@ describe("util tests", () => {
 
         drop(event, 1);
         expect(preventDefMock).toBeCalledTimes(1);
-        expect(useWindowSpy).toBeCalledTimes(1);
-        expect(useDispatchSpy).toBeCalledTimes(0);
+
+        expect(useDispatchSpy).toBeCalledWith(
+            openAlert(
+                "Click on the table, reserve the table by saving Customer's name"
+            )
+        );
     });
 
     store.dispatch(
@@ -91,7 +94,6 @@ describe("util tests", () => {
         mockFn.mockReturnValue(1);
         drop(event, 0);
         expect(preventDefMock).toBeCalledTimes(1);
-        expect(useWindowSpy).toBeCalledTimes(0);
         const itemsData = () => store.getState().itemsList;
         expect(useDispatchSpy).toBeCalledWith(
             addItemToTable({
@@ -149,8 +151,9 @@ describe("util tests", () => {
 
         drop(event, 0);
 
-        expect(useDispatchSpy).toBeCalledTimes(0);
-        expect(useWindowSpy).toBeCalledTimes(1);
+        expect(useDispatchSpy).toBeCalledWith(
+            openAlert("You need to login first")
+        );
     });
 
     it("table click no user", () => {
@@ -163,7 +166,8 @@ describe("util tests", () => {
 
         onTableClick(0);
 
-        expect(useDispatchSpy).toBeCalledTimes(0);
-        expect(useWindowSpy).toBeCalledTimes(1);
+        expect(useDispatchSpy).toBeCalledWith(
+            openAlert("You need to login first")
+        );
     });
 });

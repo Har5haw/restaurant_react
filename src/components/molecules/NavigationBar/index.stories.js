@@ -12,13 +12,13 @@ export default {
     },
 };
 
-const Temlate = (args) => (
+const Template = (args) => (
     <ThemeProvider theme={baseTheme}>
         <NavigationBar {...args} />
     </ThemeProvider>
 );
 
-export const navigationBar = Temlate.bind({});
+export const navigationBar = Template.bind({});
 navigationBar.args = {
     user: {
         name: "Harsha",
@@ -26,7 +26,7 @@ navigationBar.args = {
     },
 };
 
-export const navigationBarLogin = Temlate.bind({});
+export const navigationBarLogin = Template.bind({});
 navigationBarLogin.args = {
     user: {
         name: null,

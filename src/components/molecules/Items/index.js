@@ -14,6 +14,14 @@ const styles = makeStyles((theme) => ({
         marginRight: "auto",
         marginTop: "3vw",
         marginBottom: "0px",
+        transition: "0.3s",
+        cursor: "pointer",
+        "&:hover": {
+            transform: "scale(1.05)",
+        },
+        "&:active": {
+            transform: "scale(1)",
+        },
         [theme.breakpoints.down("sm")]: {
             width: "45vw",
             height: "40vw",

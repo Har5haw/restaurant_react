@@ -1,15 +1,19 @@
 import { Box } from "@material-ui/core";
 import { render } from "@testing-library/react";
+import { Provider } from "react-redux";
 import HomeTemplate from ".";
+import store from "../../../app/store";
 
 describe("Home template test", () => {
     it("render", () => {
         const wrapper = render(
-            <HomeTemplate
-                navigationBarComponent={<Box>Navigation bar</Box>}
-                tableListComponent={<Box>Table List</Box>}
-                itemListComponent={<Box>Item List</Box>}
-            />
+            <Provider store={store}>
+                <HomeTemplate
+                    navigationBarComponent={<Box>Navigation bar</Box>}
+                    tableListComponent={<Box>Table List</Box>}
+                    itemListComponent={<Box>Item List</Box>}
+                />
+            </Provider>
         );
 
         expect(wrapper).toBeDefined();

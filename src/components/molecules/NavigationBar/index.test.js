@@ -14,7 +14,7 @@ describe("Navigation Bar", () => {
         expect(mockFun).toBeCalled();
     });
 
-    it("render userdetails", () => {
+    it("render user details", () => {
         const mockFun = jest.fn();
         const logout = jest.fn();
         const profileClick = jest.fn();

@@ -1,7 +1,7 @@
 import { Box, makeStyles } from "@material-ui/core";
 import React, { useState } from "react";
 import TableComp from "../../molecules/Table";
-import SearchBar from "../../atoms/SeachBar/index";
+import SearchBar from "../../atoms/SearchBar/index";
 import PopUpMolecule from "../PopUp";
 import { useSelector } from "react-redux";
 import {
@@ -90,7 +90,7 @@ const TablesList = (props) => {
                 />
             </Box>
 
-            {popupData.isOpen ? (
+            {popupData.isOpen && (
                 <PopUpMolecule
                     popup={{
                         open: popupData.isOpen,
@@ -126,8 +126,6 @@ const TablesList = (props) => {
                     }
                     onSave={onCustomerNameSave}
                 />
-            ) : (
-                <Box />
             )}
 
             <Box className={style.list}>

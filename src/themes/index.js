@@ -15,12 +15,6 @@ const baseTheme = createMuiTheme({
             padding: defaultTheme.spacing(2),
         },
     },
-    overrides: {
-        MuiCard: {
-            borderRadius: 20,
-            background: "red",
-        },
-    },
     palette: {
         type: "light",
         primary: {
@@ -43,8 +37,11 @@ const baseTheme = createMuiTheme({
     },
     typography: {
         fontFamily: "Itim",
+
+        //For item and table sub headings
         body1: {
             fontSize: 18,
+
             "@media(max-width:1460px)": {
                 fontSize: 14,
             },
@@ -58,21 +55,55 @@ const baseTheme = createMuiTheme({
                 fontSize: 10,
             },
         },
+
+        //For item and table content
+        body2: {
+            fontSize: 18,
+            fontWeight: "bold",
+            color: orange[700],
+            lineHeight: 1.5,
+            "@media(max-width:1460px)": {
+                fontSize: 14,
+            },
+            "@media(max-width:960px)": {
+                fontSize: 14,
+            },
+            "@media(max-width:600px)": {
+                fontSize: 14,
+            },
+            "@media(max-width:430px)": {
+                fontSize: 10,
+            },
+        },
+
+        //For navigation title
+        h1: {
+            textAlign: "center",
+            fontSize: "46px",
+            fontWeight: "bolder",
+        },
+
+        h2: {
+            fontSize: "20px",
+            fontWeight: "bolder",
+            "@media (max-width:600px)": {
+                fontSize: 10,
+            },
+        },
+
+        //For email under username
         subtitle2: {
             color: "grey",
             fontSize: 15,
             fontWeight: "lighter",
         },
+
         caption: {
             color: "grey",
-            fontSize: 15,
+            fontSize: "20px",
         },
-        h2: {
-            fontSize: 22,
-            "@media (max-width:600px)": {
-                fontSize: 10,
-            },
-        },
+
+        //For username in profile page
         subtitle1: {
             fontSize: 25,
             "@media (max-width:600px)": {

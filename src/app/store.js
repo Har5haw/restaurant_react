@@ -3,6 +3,7 @@ import tableListSlice from "../features/tableList/index";
 import popupDataSlice from "../features/popupData/index";
 import itemsListData from "../features/itemList/index";
 import waiterServingsData from "../features/waiterServingsList/index";
+import alertDialogData from "../features/AlertPopup/index";
 
 export default configureStore({
     reducer: {
@@ -10,5 +11,6 @@ export default configureStore({
         popupData: popupDataSlice,
         itemsList: itemsListData,
         waiterServingsList: waiterServingsData,
+        alertData: alertDialogData,
     },
 });

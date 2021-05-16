@@ -9,6 +9,7 @@ import {
     editCustomerName,
     clearTable,
 } from "../../features/tableList/index";
+import { openAlert } from "../../features/AlertPopup";
 
 const popupData = () => store.getState().popupData;
 
@@ -22,7 +23,7 @@ const noOfServings = () => store.getState().waiterServingsList.noOfServings;
 
 export const onTableClick = (index) => {
     if (!waiterData().name) {
-        alert("You need to login first");
+        store.dispatch(openAlert("You need to login first"));
         return;
     }
     store.dispatch(
@@ -54,12 +55,14 @@ export const onServingsChange = (event, itemIndex) => {
 export const drop = (event, index) => {
     event.preventDefault();
     if (!waiterData().name) {
-        alert("You need to login first");
+        store.dispatch(openAlert("You need to login first"));
         return;
     }
     if (!tableData()[index].tableName) {
-        alert(
-            "Click on table and reserve the table by providing the customer name"
+        store.dispatch(
+            openAlert(
+                "Click on the table, reserve the table by saving Customer's name"
+            )
         );
         return;
     }
@@ -97,4 +100,7 @@ export const onCustomerNameSave = (customerName) => {
             customerName: customerName,
         })
     );
+    if (!tableData()[popupData().tableIndex].items.length) {
+        onClosePopUp();
+    }
 };

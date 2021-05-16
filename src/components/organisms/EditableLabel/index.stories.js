@@ -19,5 +19,5 @@ const Template = (args) => (
 export const editableLabel = Template.bind({});
 editableLabel.args = {
     label: "Harshaw",
-    labelHead: "Customar Name ",
+    labelHead: "Customer Name ",
 };

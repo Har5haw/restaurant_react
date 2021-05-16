@@ -15,8 +15,6 @@ const useStyle = makeStyles(() => ({
         cursor: "pointer",
     },
     username: {
-        fontSize: "20px",
-        fontWeight: "bolder",
         marginRight: "1vw",
     },
     email: {
@@ -56,7 +54,7 @@ function UserDetails(props) {
             >
                 <img className={style.image} src={props.user.picture} />
                 <Box>
-                    <Typography className={style.username}>
+                    <Typography variant="h2" className={style.username}>
                         {props.user.name}
                     </Typography>
                     <Typography className={style.email}>

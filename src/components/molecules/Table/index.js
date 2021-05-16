@@ -15,15 +15,16 @@ const styles = makeStyles((theme) => ({
         height: "8vw",
         margin: "3vw auto",
         cursor: "pointer",
+        transition: "0.2s",
         "& $iconContainer": {
             width: "35%",
         },
         [theme.breakpoints.down("sm")]: {
-            transform: "rotate(90deg) translateY(30vw) translateX(20vw)",
+            transform: "rotate(90deg) translateY(25vw) translateX(25vw)",
             transformOrigin: "right top",
-            margin: "35vw 2.5vw",
+            margin: "30vw 2.5vw",
             width: "50vw",
-            height: "20vw",
+            height: "25vw",
         },
     },
     notReservedRoot: {
