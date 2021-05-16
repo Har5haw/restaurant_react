@@ -27,7 +27,7 @@ describe("Table", () => {
         fireEvent.click(wrapper.queryByText("Table No - 1"));
         expect(
             wrapper.queryByText(
-                "Drag a item from item list and drop on the table in-order to add items to that table"
+                "Drag and drop an item on a table to add that item to the table"
             )
         ).toBeInTheDocument();
         expect(wrapper.queryByText("Total Amount: 0")).toBeInTheDocument();

@@ -53,6 +53,7 @@ const HomePage = (props) => {
                         })
                     }
                     profileClick={() => history.push("/profile")}
+                    logoClick={() => history.replace("/")}
                 />
             }
             tableListComponent={

@@ -5,6 +5,7 @@ import {
     Dialog,
     DialogContent,
     makeStyles,
+    Typography,
 } from "@material-ui/core";
 import PropTypes from "prop-types";
 import AlertComponent from "../../organisms/AlertPopup";
@@ -52,8 +53,8 @@ const styles = makeStyles((theme) => ({
         display: "flex",
         justifyContent: "space-evenly",
         alignItems: "center",
-        height: "100px",
-        width: "250px",
+        height: "120px",
+        width: "300px",
     },
 }));
 
@@ -65,7 +66,7 @@ const HomeTemplate = (props) => {
             {props.isLoading && (
                 <Dialog open={true}>
                     <Box className={style.loading}>
-                        Please Wait
+                        <Typography variant="caption"> Please Wait</Typography>
                         <CircularProgress
                             style={{ height: "50px", width: "50px" }}
                         />

@@ -17,6 +17,7 @@ const useStyle = makeStyles(() => ({
         textAlign: "center",
         fontSize: "46px",
         fontWeight: "bolder",
+        cursor: "pointer",
     },
     user: {
         width: "65vw",
@@ -37,7 +38,11 @@ const NavigationBar = (props) => {
     const style = useStyle();
     return (
         <Box className={style.nav}>
-            <Typography variant="h1" className={style.title}>
+            <Typography
+                variant="h1"
+                className={style.title}
+                onClick={props.logoClick}
+            >
                 ZeMoSo Restaurant
             </Typography>
             {props.user.name ? (

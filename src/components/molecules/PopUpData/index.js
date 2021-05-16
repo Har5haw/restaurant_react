@@ -108,8 +108,8 @@ const PopupData = (props) => {
                 <Box>
                     <Typography>No Items added to this table</Typography>
                     <Typography variant="caption">
-                        Drag a item from item list and drop on the table
-                        in-order to add items to that table
+                        Drag and drop an item on a table to add that item to the
+                        table
                     </Typography>
                 </Box>
             )}

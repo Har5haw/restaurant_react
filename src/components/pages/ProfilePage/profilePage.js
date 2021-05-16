@@ -43,8 +43,9 @@ function ProfilePage(props) {
                         })
                     }
                     profileClick={() => {
-                        history.push("/");
+                        history.replace("/profile");
                     }}
+                    logoClick={() => history.push("/")}
                 />
             }
             tableListComponent={
