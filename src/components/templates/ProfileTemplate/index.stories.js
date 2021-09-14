@@ -3,6 +3,8 @@ import React from "react";
 import ProfileTemplate from "./index";
 import baseTheme from "../../../themes/index";
 import { Box } from "@material-ui/core";
+import store from "../../../app/store";
+import { Provider } from "react-redux";
 
 export default {
     title: "Templates/ProfileTemplate",
@@ -11,7 +13,9 @@ export default {
 
 const Template = (args) => (
     <ThemeProvider theme={baseTheme}>
-        <ProfileTemplate {...args} />
+        <Provider store={store}>
+            <ProfileTemplate {...args} />
+        </Provider>
     </ThemeProvider>
 );
 

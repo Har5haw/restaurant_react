@@ -3,6 +3,8 @@ import React from "react";
 import HomeTemplate from "./index";
 import baseTheme from "../../../themes/index";
 import { Box } from "@material-ui/core";
+import store from "../../../app/store";
+import { Provider } from "react-redux";
 
 export default {
     title: "Templates/HomeTemplate",
@@ -11,7 +13,9 @@ export default {
 
 const Template = (args) => (
     <ThemeProvider theme={baseTheme}>
-        <HomeTemplate {...args} />
+        <Provider store={store}>
+            <HomeTemplate {...args} />
+        </Provider>
     </ThemeProvider>
 );
 
